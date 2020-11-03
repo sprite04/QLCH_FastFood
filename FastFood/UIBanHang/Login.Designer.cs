@@ -96,6 +96,8 @@
             this.txtMatKhau.Size = new System.Drawing.Size(360, 25);
             this.txtMatKhau.TabIndex = 28;
             this.txtMatKhau.Text = "Password";
+            this.txtMatKhau.Click += new System.EventHandler(this.txtMatKhau_Click);
+            this.txtMatKhau.Leave += new System.EventHandler(this.txtMatKhau_Leave);
             // 
             // panel9
             // 
@@ -116,6 +118,8 @@
             this.txtMaNV.Size = new System.Drawing.Size(360, 25);
             this.txtMaNV.TabIndex = 27;
             this.txtMaNV.Text = "Username";
+            this.txtMaNV.Click += new System.EventHandler(this.txtMaNV_Click);
+            this.txtMaNV.Leave += new System.EventHandler(this.txtMaNV_Leave);
             // 
             // panel10
             // 
@@ -138,6 +142,7 @@
             this.btnLogin.TabIndex = 26;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // label1
             // 
@@ -196,6 +201,7 @@
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "Login";
             this.Size = new System.Drawing.Size(1533, 825);
+            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -205,7 +211,6 @@
             this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion

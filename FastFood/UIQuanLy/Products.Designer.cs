@@ -94,6 +94,7 @@
             this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSanPham.Size = new System.Drawing.Size(990, 483);
             this.dgvSanPham.TabIndex = 0;
+            this.dgvSanPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSanPham_CellClick);
             // 
             // MaSP
             // 
@@ -140,6 +141,7 @@
             this.txtFind.Name = "txtFind";
             this.txtFind.Size = new System.Drawing.Size(512, 26);
             this.txtFind.TabIndex = 1;
+            this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             // 
             // panel1
             // 
@@ -187,6 +189,7 @@
             this.btnDelete.Text = "   Delete";
             this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -203,6 +206,7 @@
             this.btnAdd.Text = "   Add";
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
@@ -219,6 +223,7 @@
             this.btnEdit.Text = "   Edit";
             this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // Products
             // 
@@ -232,6 +237,7 @@
             this.Controls.Add(this.dgvSanPham);
             this.Name = "Products";
             this.Size = new System.Drawing.Size(1533, 794);
+            this.Load += new System.EventHandler(this.Products_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSanPham)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

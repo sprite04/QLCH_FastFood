@@ -83,6 +83,7 @@
             this.pnTieuDe.Name = "pnTieuDe";
             this.pnTieuDe.Size = new System.Drawing.Size(893, 45);
             this.pnTieuDe.TabIndex = 1;
+            this.pnTieuDe.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnTieuDe_MouseDown);
             // 
             // btnClose
             // 
@@ -95,6 +96,7 @@
             this.btnClose.Size = new System.Drawing.Size(30, 30);
             this.btnClose.TabIndex = 2;
             this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnMinimize
             // 
@@ -107,6 +109,7 @@
             this.btnMinimize.Size = new System.Drawing.Size(30, 30);
             this.btnMinimize.TabIndex = 5;
             this.btnMinimize.TabStop = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // lblName
             // 
@@ -190,6 +193,7 @@
             this.cbKind.Name = "cbKind";
             this.cbKind.Size = new System.Drawing.Size(358, 31);
             this.cbKind.TabIndex = 16;
+            this.cbKind.SelectedIndexChanged += new System.EventHandler(this.cbKind_SelectedIndexChanged);
             // 
             // pnPass
             // 
@@ -241,6 +245,7 @@
             this.cbGT.TabIndex = 17;
             this.cbGT.Text = "Sex";
             this.cbGT.UseVisualStyleBackColor = true;
+            this.cbGT.CheckedChanged += new System.EventHandler(this.cbGT_CheckedChanged);
             // 
             // btnSave
             // 
@@ -257,6 +262,7 @@
             this.btnSave.Text = "    Save";
             this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // picNV
             // 
@@ -374,6 +380,7 @@
             this.Name = "DetailEmployee";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DetailEmployee";
+            this.Load += new System.EventHandler(this.DetailEmployee_Load);
             this.pnTieuDe.ResumeLayout(false);
             this.pnTieuDe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
