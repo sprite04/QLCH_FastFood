@@ -20,6 +20,14 @@ namespace FastFood
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
+
+        SANPHAM sp = new SANPHAM();
+        bool Them = false;
+        BLSanPham blSP;
+        BLNguyenLieu blNL;
+        List<SANPHAM> dsSP;
+        List<NGUYENLIEU> dsNL;
+
         public DetailProduct()
         {
             InitializeComponent();
@@ -35,10 +43,6 @@ namespace FastFood
             sp = s;
         }
 
-        SANPHAM sp = new SANPHAM();
-        bool Them = false;
-        List<SANPHAM> dsSP = new List<SANPHAM>();
-
         public Image ConvertImage(byte[] b)
         {
             MemoryStream ms = new MemoryStream(b, 0, b.Length);
@@ -53,18 +57,24 @@ namespace FastFood
         }
         private void DetailProduct_Load(object sender, EventArgs e)
         {
-            BLSanPham blSP = new BLSanPham();
+            blSP = new BLSanPham();
+            blNL = new BLNguyenLieu();
+            dsNL = blNL.dsNguyenLieu();
             dsSP = blSP.dsSanPham();
+            cbNguyenLieu.BeginUpdate();
+            dsNL.ForEach(x => cbNguyenLieu.Items.Add(x.TenNL));
+            cbNguyenLieu.EndUpdate();
             if (Them == true)
                 lblName.Text = "ADD";
             else
             {
+                v_SanPham vsp = blSP.dsVSanPham().Find(x => x.MaSP == sp.MaSP);
                 lblName.Text = "EDIT";
                 txtTenSP.Text = sp.TenSP;
-                //txtGiaBan.Text = sp.GiaBan.ToString();
-                //txtGiaSP.Text = sp.GiaSP.ToString();
-                //picSP.BackgroundImage = ConvertImage((byte[])sp.HinhSP.ToArray());
-                //pnKind.Visible = false;
+                txtGiaBan.Text = vsp.GiaBan.ToString();
+                txtGiaGoc.Text = vsp.GiaGoc.ToString();
+                picSP.BackgroundImage = ConvertImage((byte[])sp.HinhSP.ToArray());
+                pnKind.Visible = false;
             }
         }
         private void btnClose_Click(object sender, EventArgs e)
@@ -173,9 +183,9 @@ namespace FastFood
                     };
 
                     string message;
-                    //bool result = blSP.Insert(SP, out message);
-                    //if (result == false)
-                    //    MessageBox.Show(message);
+                    bool result = blSP.Insert(SP, out message);
+                    if (result == false)
+                        MessageBox.Show(message);
                     this.Close();
                 }
             }
@@ -187,16 +197,50 @@ namespace FastFood
                     HinhSP = new System.Data.Linq.Binary(ImageByte(picSP.BackgroundImage)),
                     TenSP = txtTenSP.Text,
                     TT_Ban = true,
-                    //GiaSP = int.Parse(txtGiaSP.Text),
-                    //GiaBan = int.Parse(txtGiaBan.Text)
+                    TT_Con = true,
+                    LoiNhuan = float.Parse(txtLoiNhuan.Text),
+                    GiamGia = float.Parse(txtGiamGia.Text)
                 };
                 string message;
-                //bool result = blSP.Update(SP, out message);
-                //if (result == false)
-                //    MessageBox.Show(message);
-
+                bool result = blSP.Update(SP, out message);
+                if (result == false)
+                    MessageBox.Show(message);
                 this.Close();
             }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if(cbNguyenLieu.SelectedIndex>=0 && numNguyenLieu.Value>0)
+            {
+                string TenNL = cbNguyenLieu.SelectedItem.ToString();
+                if(dgvNguyenLieu.Rows.Count<=1)
+                {
+                    for (int j = 0; j < dsNL.Count; j++)
+                    {
+                        if (dsNL[j].TenNL == TenNL)
+                        {
+                            dgvNguyenLieu.Rows.Add(dsNL[j].MaNL.ToString(), TenNL, dsNL[j].GiaNL.ToString(), numNguyenLieu.Value.ToString());
+                        }
+                    }
+                }    
+                for (int i=0; i< dgvNguyenLieu.Rows.Count-1; i++)
+                {
+                    if (dgvNguyenLieu.Rows[i].Cells[1].Value.ToString() == TenNL)
+                        dgvNguyenLieu.Rows[i].Cells[3].Value = numNguyenLieu.Value;
+                    else
+                    {
+                        for(int j=0; j<dsNL.Count; j++)
+                        {
+                            if (dsNL[j].TenNL == TenNL)
+                            {
+                                dgvNguyenLieu.Rows.Add(dsNL[j].MaNL.ToString(), TenNL,dsNL[j].GiaNL.ToString(), numNguyenLieu.Value.ToString());
+                            }
+                        }
+                        
+                    }    
+                }    
+            }    
         }
     }
 }

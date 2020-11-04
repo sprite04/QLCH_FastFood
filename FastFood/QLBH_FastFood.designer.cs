@@ -209,6 +209,20 @@ namespace FastFood
 		{
 			return ((System.Nullable<int>)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maSP).ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThemSanPham")]
+		public int sp_ThemSanPham([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaSP", DbType="Int")] System.Nullable<int> maSP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HinhSP", DbType="Image")] System.Data.Linq.Binary hinhSP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenSP", DbType="NVarChar(30)")] string tenSP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Ban", DbType="Bit")] System.Nullable<bool> tT_Ban, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Con", DbType="Bit")] System.Nullable<bool> tT_Con, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoiNhuan", DbType="Float")] System.Nullable<double> loiNhuan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GiamGia", DbType="Float")] System.Nullable<double> giamGia)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maSP, hinhSP, tenSP, tT_Ban, tT_Con, loiNhuan, giamGia);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_SuaSanPham")]
+		public int sp_SuaSanPham([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaSP", DbType="Int")] System.Nullable<int> maSP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HinhSP", DbType="Image")] System.Data.Linq.Binary hinhSP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenSP", DbType="NVarChar(30)")] string tenSP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Ban", DbType="Bit")] System.Nullable<bool> tT_Ban, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Con", DbType="Bit")] System.Nullable<bool> tT_Con, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoiNhuan", DbType="Float")] System.Nullable<double> loiNhuan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GiamGia", DbType="Float")] System.Nullable<double> giamGia)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maSP, hinhSP, tenSP, tT_Ban, tT_Con, loiNhuan, giamGia);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CA")]

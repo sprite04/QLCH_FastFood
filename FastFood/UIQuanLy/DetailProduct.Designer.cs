@@ -29,12 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnTieuDe = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.lblName = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.listView2 = new System.Windows.Forms.ListView();
             this.pnKind = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.cbKind = new System.Windows.Forms.ComboBox();
@@ -55,7 +57,7 @@
             this.panel14 = new System.Windows.Forms.Panel();
             this.txtGiaBan = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtGiaSP = new System.Windows.Forms.TextBox();
+            this.txtGiaGoc = new System.Windows.Forms.TextBox();
             this.pnGiamGia = new System.Windows.Forms.Panel();
             this.txtGiamGia = new System.Windows.Forms.TextBox();
             this.pnLoiNhuan = new System.Windows.Forms.Panel();
@@ -67,6 +69,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dgvNguyenLieu = new System.Windows.Forms.DataGridView();
+            this.MaNL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaNL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnTieuDe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -84,6 +91,7 @@
             this.pnGiamGia.SuspendLayout();
             this.pnLoiNhuan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNguyenLieu)).BeginInit();
             this.SuspendLayout();
             // 
             // pnTieuDe
@@ -140,7 +148,7 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.listView2);
+            this.panel2.Controls.Add(this.dgvNguyenLieu);
             this.panel2.Controls.Add(this.pnKind);
             this.panel2.Controls.Add(this.panel11);
             this.panel2.Controls.Add(this.btnDelete);
@@ -163,15 +171,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(899, 720);
             this.panel2.TabIndex = 1;
-            // 
-            // listView2
-            // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(38, 312);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(679, 297);
-            this.listView2.TabIndex = 17;
-            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // pnKind
             // 
@@ -249,6 +248,11 @@
             this.numNguyenLieu.Name = "numNguyenLieu";
             this.numNguyenLieu.Size = new System.Drawing.Size(89, 28);
             this.numNguyenLieu.TabIndex = 6;
+            this.numNguyenLieu.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // panel12
             // 
@@ -263,17 +267,8 @@
             // cbNguyenLieu
             // 
             this.cbNguyenLieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbNguyenLieu.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNguyenLieu.Font = new System.Drawing.Font("Arial", 10F);
             this.cbNguyenLieu.FormattingEnabled = true;
-            this.cbNguyenLieu.Items.AddRange(new object[] {
-            "Burger",
-            "Chicken",
-            "Chicken Set",
-            "Combo",
-            "Value",
-            "Set",
-            "Dessert",
-            "Drink"});
             this.cbNguyenLieu.Location = new System.Drawing.Point(6, 1);
             this.cbNguyenLieu.Name = "cbNguyenLieu";
             this.cbNguyenLieu.Size = new System.Drawing.Size(371, 31);
@@ -333,6 +328,7 @@
             this.btnEdit.Text = "Edit";
             this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnSave
             // 
@@ -410,24 +406,24 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.txtGiaSP);
+            this.panel3.Controls.Add(this.txtGiaGoc);
             this.panel3.Location = new System.Drawing.Point(206, 195);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(216, 35);
             this.panel3.TabIndex = 11;
             // 
-            // txtGiaSP
+            // txtGiaGoc
             // 
-            this.txtGiaSP.BackColor = System.Drawing.Color.White;
-            this.txtGiaSP.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGiaSP.Enabled = false;
-            this.txtGiaSP.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaSP.Location = new System.Drawing.Point(6, 5);
-            this.txtGiaSP.Name = "txtGiaSP";
-            this.txtGiaSP.ReadOnly = true;
-            this.txtGiaSP.Size = new System.Drawing.Size(201, 23);
-            this.txtGiaSP.TabIndex = 3;
-            this.txtGiaSP.TabStop = false;
+            this.txtGiaGoc.BackColor = System.Drawing.Color.White;
+            this.txtGiaGoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGiaGoc.Enabled = false;
+            this.txtGiaGoc.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiaGoc.Location = new System.Drawing.Point(6, 5);
+            this.txtGiaGoc.Name = "txtGiaGoc";
+            this.txtGiaGoc.ReadOnly = true;
+            this.txtGiaGoc.Size = new System.Drawing.Size(201, 23);
+            this.txtGiaGoc.TabIndex = 3;
+            this.txtGiaGoc.TabStop = false;
             // 
             // pnGiamGia
             // 
@@ -527,6 +523,88 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // dgvNguyenLieu
+            // 
+            this.dgvNguyenLieu.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.dgvNguyenLieu.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvNguyenLieu.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(2)))), ((int)(((byte)(36)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNguyenLieu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvNguyenLieu.ColumnHeadersHeight = 35;
+            this.dgvNguyenLieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvNguyenLieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaNL,
+            this.TenNL,
+            this.GiaNL,
+            this.SoLuong});
+            this.dgvNguyenLieu.EnableHeadersVisualStyles = false;
+            this.dgvNguyenLieu.GridColor = System.Drawing.Color.DimGray;
+            this.dgvNguyenLieu.Location = new System.Drawing.Point(38, 312);
+            this.dgvNguyenLieu.Name = "dgvNguyenLieu";
+            this.dgvNguyenLieu.ReadOnly = true;
+            this.dgvNguyenLieu.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNguyenLieu.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvNguyenLieu.RowHeadersWidth = 50;
+            this.dgvNguyenLieu.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvNguyenLieu.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvNguyenLieu.RowTemplate.Height = 28;
+            this.dgvNguyenLieu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvNguyenLieu.Size = new System.Drawing.Size(679, 291);
+            this.dgvNguyenLieu.TabIndex = 14;
+            // 
+            // MaNL
+            // 
+            this.MaNL.Frozen = true;
+            this.MaNL.HeaderText = "ID";
+            this.MaNL.MinimumWidth = 8;
+            this.MaNL.Name = "MaNL";
+            this.MaNL.ReadOnly = true;
+            this.MaNL.Width = 64;
+            // 
+            // TenNL
+            // 
+            this.TenNL.Frozen = true;
+            this.TenNL.HeaderText = "Material\'s Name";
+            this.TenNL.MinimumWidth = 8;
+            this.TenNL.Name = "TenNL";
+            this.TenNL.ReadOnly = true;
+            this.TenNL.Width = 170;
+            // 
+            // GiaNL
+            // 
+            this.GiaNL.Frozen = true;
+            this.GiaNL.HeaderText = "Price";
+            this.GiaNL.MinimumWidth = 8;
+            this.GiaNL.Name = "GiaNL";
+            this.GiaNL.ReadOnly = true;
+            this.GiaNL.Width = 80;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.HeaderText = "Amount";
+            this.SoLuong.MinimumWidth = 8;
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
+            this.SoLuong.Width = 70;
+            // 
             // DetailProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -566,6 +644,7 @@
             this.pnLoiNhuan.ResumeLayout(false);
             this.pnLoiNhuan.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNguyenLieu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -579,7 +658,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtTenSP;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txtGiaSP;
+        private System.Windows.Forms.TextBox txtGiaGoc;
         private System.Windows.Forms.Panel pnLoiNhuan;
         private System.Windows.Forms.TextBox txtLoiNhuan;
         private System.Windows.Forms.Label label3;
@@ -603,12 +682,16 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox cbKind;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnLayDL;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.TextBox txtGiaBan;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridView dgvNguyenLieu;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaNL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenNL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaNL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
     }
 }

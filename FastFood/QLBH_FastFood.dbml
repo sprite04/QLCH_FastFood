@@ -138,4 +138,24 @@
     <Parameter Name="MaSP" Parameter="maSP" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.sp_ThemSanPham" Method="sp_ThemSanPham">
+    <Parameter Name="MaSP" Parameter="maSP" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HinhSP" Parameter="hinhSP" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="TenSP" Parameter="tenSP" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="TT_Ban" Parameter="tT_Ban" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="TT_Con" Parameter="tT_Con" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="LoiNhuan" Parameter="loiNhuan" Type="System.Double" DbType="Float" />
+    <Parameter Name="GiamGia" Parameter="giamGia" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_SuaSanPham" Method="sp_SuaSanPham">
+    <Parameter Name="MaSP" Parameter="maSP" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HinhSP" Parameter="hinhSP" Type="System.Data.Linq.Binary" DbType="Image" />
+    <Parameter Name="TenSP" Parameter="tenSP" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="TT_Ban" Parameter="tT_Ban" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="TT_Con" Parameter="tT_Con" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="LoiNhuan" Parameter="loiNhuan" Type="System.Double" DbType="Float" />
+    <Parameter Name="GiamGia" Parameter="giamGia" Type="System.Double" DbType="Float" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>
