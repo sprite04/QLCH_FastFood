@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\BLSanPham.cs" />
     <Compile Include="QLBH_FastFood.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

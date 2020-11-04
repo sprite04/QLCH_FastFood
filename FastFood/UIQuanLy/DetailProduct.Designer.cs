@@ -41,32 +41,32 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numNguyenLieu = new System.Windows.Forms.NumericUpDown();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbNguyenLieu = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnLayDL = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.picSP = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtTenSP = new System.Windows.Forms.TextBox();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.txtGiaBan = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtGiaSP = new System.Windows.Forms.TextBox();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.txtGiaBan = new System.Windows.Forms.TextBox();
+            this.pnGiamGia = new System.Windows.Forms.Panel();
+            this.txtGiamGia = new System.Windows.Forms.TextBox();
+            this.pnLoiNhuan = new System.Windows.Forms.Panel();
+            this.txtLoiNhuan = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label9 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.pnTieuDe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
@@ -75,15 +75,15 @@
             this.panel6.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numNguyenLieu)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSP)).BeginInit();
             this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.panel14.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.pnGiamGia.SuspendLayout();
+            this.pnLoiNhuan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnTieuDe
@@ -143,16 +143,16 @@
             this.panel2.Controls.Add(this.listView2);
             this.panel2.Controls.Add(this.pnKind);
             this.panel2.Controls.Add(this.panel11);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.btnDelete);
+            this.panel2.Controls.Add(this.btnLayDL);
+            this.panel2.Controls.Add(this.btnEdit);
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.picSP);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel14);
             this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.panel10);
-            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Controls.Add(this.pnGiamGia);
+            this.panel2.Controls.Add(this.pnLoiNhuan);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label9);
@@ -235,37 +235,37 @@
             // 
             this.panel13.BackColor = System.Drawing.Color.White;
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel13.Controls.Add(this.numericUpDown2);
+            this.panel13.Controls.Add(this.numNguyenLieu);
             this.panel13.Location = new System.Drawing.Point(592, 3);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(99, 42);
             this.panel13.TabIndex = 15;
             // 
-            // numericUpDown2
+            // numNguyenLieu
             // 
-            this.numericUpDown2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numericUpDown2.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.numericUpDown2.Location = new System.Drawing.Point(5, 4);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(89, 28);
-            this.numericUpDown2.TabIndex = 6;
+            this.numNguyenLieu.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numNguyenLieu.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.numNguyenLieu.Location = new System.Drawing.Point(5, 4);
+            this.numNguyenLieu.Name = "numNguyenLieu";
+            this.numNguyenLieu.Size = new System.Drawing.Size(89, 28);
+            this.numNguyenLieu.TabIndex = 6;
             // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.White;
             this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel12.Controls.Add(this.comboBox2);
+            this.panel12.Controls.Add(this.cbNguyenLieu);
             this.panel12.Location = new System.Drawing.Point(180, 3);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(386, 42);
             this.panel12.TabIndex = 14;
             // 
-            // comboBox2
+            // cbNguyenLieu
             // 
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbNguyenLieu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbNguyenLieu.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNguyenLieu.FormattingEnabled = true;
+            this.cbNguyenLieu.Items.AddRange(new object[] {
             "Burger",
             "Chicken",
             "Chicken Set",
@@ -274,10 +274,10 @@
             "Set",
             "Dessert",
             "Drink"});
-            this.comboBox2.Location = new System.Drawing.Point(6, 1);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(371, 31);
-            this.comboBox2.TabIndex = 5;
+            this.cbNguyenLieu.Location = new System.Drawing.Point(6, 1);
+            this.cbNguyenLieu.Name = "cbNguyenLieu";
+            this.cbNguyenLieu.Size = new System.Drawing.Size(371, 31);
+            this.cbNguyenLieu.TabIndex = 5;
             // 
             // label8
             // 
@@ -289,53 +289,50 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "Material";
             // 
-            // button5
+            // btnDelete
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(738, 365);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(121, 42);
-            this.button5.TabIndex = 9;
-            this.button5.Text = " Delete";
-            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(738, 365);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(121, 42);
+            this.btnDelete.TabIndex = 9;
+            this.btnDelete.Text = " Delete";
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btnLayDL
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(738, 312);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(121, 42);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Select";
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnLayDL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
+            this.btnLayDL.FlatAppearance.BorderSize = 0;
+            this.btnLayDL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLayDL.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLayDL.ForeColor = System.Drawing.Color.White;
+            this.btnLayDL.Location = new System.Drawing.Point(738, 312);
+            this.btnLayDL.Name = "btnLayDL";
+            this.btnLayDL.Size = new System.Drawing.Size(121, 42);
+            this.btnLayDL.TabIndex = 8;
+            this.btnLayDL.Text = "Take Data";
+            this.btnLayDL.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLayDL.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnEdit
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(738, 252);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(121, 42);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Edit";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.Location = new System.Drawing.Point(738, 252);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(121, 42);
+            this.btnEdit.TabIndex = 7;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEdit.UseVisualStyleBackColor = false;
             // 
             // btnSave
             // 
@@ -386,6 +383,29 @@
             this.txtTenSP.Size = new System.Drawing.Size(358, 23);
             this.txtTenSP.TabIndex = 3;
             // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.White;
+            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel14.Controls.Add(this.txtGiaBan);
+            this.panel14.Location = new System.Drawing.Point(626, 195);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(233, 35);
+            this.panel14.TabIndex = 11;
+            // 
+            // txtGiaBan
+            // 
+            this.txtGiaBan.BackColor = System.Drawing.Color.White;
+            this.txtGiaBan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGiaBan.Enabled = false;
+            this.txtGiaBan.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiaBan.Location = new System.Drawing.Point(6, 5);
+            this.txtGiaBan.Name = "txtGiaBan";
+            this.txtGiaBan.ReadOnly = true;
+            this.txtGiaBan.Size = new System.Drawing.Size(218, 23);
+            this.txtGiaBan.TabIndex = 4;
+            this.txtGiaBan.TabStop = false;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
@@ -409,45 +429,45 @@
             this.txtGiaSP.TabIndex = 3;
             this.txtGiaSP.TabStop = false;
             // 
-            // panel10
+            // pnGiamGia
             // 
-            this.panel10.BackColor = System.Drawing.Color.White;
-            this.panel10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel10.Controls.Add(this.textBox2);
-            this.panel10.Location = new System.Drawing.Point(708, 139);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(151, 35);
-            this.panel10.TabIndex = 12;
+            this.pnGiamGia.BackColor = System.Drawing.Color.White;
+            this.pnGiamGia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnGiamGia.Controls.Add(this.txtGiamGia);
+            this.pnGiamGia.Location = new System.Drawing.Point(708, 139);
+            this.pnGiamGia.Name = "pnGiamGia";
+            this.pnGiamGia.Size = new System.Drawing.Size(151, 35);
+            this.pnGiamGia.TabIndex = 12;
             // 
-            // textBox2
+            // txtGiamGia
             // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(6, 5);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(136, 23);
-            this.textBox2.TabIndex = 4;
+            this.txtGiamGia.BackColor = System.Drawing.Color.White;
+            this.txtGiamGia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtGiamGia.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiamGia.Location = new System.Drawing.Point(6, 5);
+            this.txtGiamGia.Name = "txtGiamGia";
+            this.txtGiamGia.Size = new System.Drawing.Size(136, 23);
+            this.txtGiamGia.TabIndex = 4;
             // 
-            // panel5
+            // pnLoiNhuan
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.txtGiaBan);
-            this.panel5.Location = new System.Drawing.Point(395, 139);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(133, 35);
-            this.panel5.TabIndex = 12;
+            this.pnLoiNhuan.BackColor = System.Drawing.Color.White;
+            this.pnLoiNhuan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnLoiNhuan.Controls.Add(this.txtLoiNhuan);
+            this.pnLoiNhuan.Location = new System.Drawing.Point(395, 139);
+            this.pnLoiNhuan.Name = "pnLoiNhuan";
+            this.pnLoiNhuan.Size = new System.Drawing.Size(133, 35);
+            this.pnLoiNhuan.TabIndex = 12;
             // 
-            // txtGiaBan
+            // txtLoiNhuan
             // 
-            this.txtGiaBan.BackColor = System.Drawing.Color.White;
-            this.txtGiaBan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGiaBan.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiaBan.Location = new System.Drawing.Point(6, 5);
-            this.txtGiaBan.Name = "txtGiaBan";
-            this.txtGiaBan.Size = new System.Drawing.Size(118, 23);
-            this.txtGiaBan.TabIndex = 3;
+            this.txtLoiNhuan.BackColor = System.Drawing.Color.White;
+            this.txtLoiNhuan.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLoiNhuan.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLoiNhuan.Location = new System.Drawing.Point(6, 5);
+            this.txtLoiNhuan.Name = "txtLoiNhuan";
+            this.txtLoiNhuan.Size = new System.Drawing.Size(118, 23);
+            this.txtLoiNhuan.TabIndex = 3;
             // 
             // label7
             // 
@@ -468,6 +488,16 @@
             this.label3.Size = new System.Drawing.Size(57, 23);
             this.label3.TabIndex = 7;
             this.label3.Text = "Profit";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(474, 201);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(105, 23);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Sale Price";
             // 
             // label2
             // 
@@ -497,39 +527,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(474, 201);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 23);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Sale Price";
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.White;
-            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel14.Controls.Add(this.textBox3);
-            this.panel14.Location = new System.Drawing.Point(626, 195);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(233, 35);
-            this.panel14.TabIndex = 11;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.White;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(6, 5);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(218, 23);
-            this.textBox3.TabIndex = 4;
-            this.textBox3.TabStop = false;
-            // 
             // DetailProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -555,20 +552,20 @@
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numNguyenLieu)).EndInit();
             this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picSP)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.pnGiamGia.ResumeLayout(false);
+            this.pnGiamGia.PerformLayout();
+            this.pnLoiNhuan.ResumeLayout(false);
+            this.pnLoiNhuan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -583,8 +580,8 @@
         private System.Windows.Forms.TextBox txtTenSP;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtGiaSP;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtGiaBan;
+        private System.Windows.Forms.Panel pnLoiNhuan;
+        private System.Windows.Forms.TextBox txtLoiNhuan;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -593,37 +590,25 @@
         private System.Windows.Forms.PictureBox btnMinimize;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numNguyenLieu;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbNguyenLieu;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Panel pnGiamGia;
+        private System.Windows.Forms.TextBox txtGiamGia;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel pnKind;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox cbKind;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button btnLayDL;
+        private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtGiaBan;
         private System.Windows.Forms.Label label9;
     }
 }

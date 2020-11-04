@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastFood.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,7 +53,8 @@ namespace FastFood
         }
         private void DetailProduct_Load(object sender, EventArgs e)
         {
-            //dsSP = blSP.dsSanPham();
+            BLSanPham blSP = new BLSanPham();
+            dsSP = blSP.dsSanPham();
             if (Them == true)
                 lblName.Text = "ADD";
             else
@@ -93,17 +95,17 @@ namespace FastFood
         private void btnSave_Click(object sender, EventArgs e)
         {
             errorProvider1.Clear();
-            int Num;
-            bool k = int.TryParse(txtGiaBan.Text, out Num);
+            float Num;
+            bool k = float.TryParse(txtLoiNhuan.Text, out Num);
             if (k == false)
             {
-                errorProvider1.SetError(txtGiaBan, "Giá Bán không hợp lệ");
+                errorProvider1.SetError(pnLoiNhuan, "Lợi nhuận không hợp lệ");
                 return;
             }
-            k = int.TryParse(txtGiaSP.Text, out Num);
+            k = float.TryParse(txtGiamGia.Text, out Num);
             if (k == false)
             {
-                errorProvider1.SetError(txtGiaSP, "Giá SP không hợp lệ");
+                errorProvider1.SetError(pnGiamGia, "Giảm giá không hợp lệ");
                 return;
             }
             if (Them == true)
@@ -165,8 +167,9 @@ namespace FastFood
                         HinhSP = new System.Data.Linq.Binary(ImageByte(picSP.BackgroundImage)),
                         TenSP = txtTenSP.Text,
                         TT_Ban = true,
-                        //GiaSP = int.Parse(txtGiaSP.Text),
-                        //GiaBan = int.Parse(txtGiaBan.Text)
+                        TT_Con=true,
+                        LoiNhuan=float.Parse(txtLoiNhuan.Text),
+                        GiamGia=float.Parse(txtGiamGia.Text)
                     };
 
                     string message;
