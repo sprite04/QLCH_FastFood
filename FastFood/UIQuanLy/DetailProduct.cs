@@ -1,4 +1,5 @@
 ﻿using FastFood.BLL;
+using FastFood.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,7 +28,7 @@ namespace FastFood
         BLNguyenLieu blNL;
         List<SANPHAM> dsSP;
         List<NGUYENLIEU> dsNL;
-
+        
         public DetailProduct()
         {
             InitializeComponent();
@@ -209,38 +210,111 @@ namespace FastFood
             }
         }
 
+        List<NguyenLieuDGV> dsDGV = new List<NguyenLieuDGV>();
+        private void LoadData()
+        {
+            int GiaGoc = 0;
+            dgvNguyenLieu.Rows.Clear();
+            if(dsDGV.Count>0)
+            {
+                for (int i = 0; i < dsDGV.Count; i++)
+                {
+                    dgvNguyenLieu.Rows.Add(dsDGV[i].MaNL, dsDGV[i].TenNL, dsDGV[i].GiaNL, dsDGV[i].SL);
+                    GiaGoc += dsDGV[i].SL * dsDGV[i].GiaNL;
+                }
+                txtGiaGoc.Text = GiaGoc.ToString();
+                errorProvider1.Clear();
+                float Num;
+                bool k = float.TryParse(txtLoiNhuan.Text, out Num);
+                if (k == false)
+                {
+                    errorProvider1.SetError(pnLoiNhuan, "Lợi nhuận không hợp lệ");
+                    return;
+                }
+                k = float.TryParse(txtGiamGia.Text, out Num);
+                if (k == false)
+                {
+                    errorProvider1.SetError(pnGiamGia, "Giảm giá không hợp lệ");
+                    return;
+                }
+                txtGiaBan.Text = (GiaGoc * (float.Parse(txtLoiNhuan.Text) - float.Parse(txtGiamGia.Text))).ToString();
+            }
+        }
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if(cbNguyenLieu.SelectedIndex>=0 && numNguyenLieu.Value>0)
             {
                 string TenNL = cbNguyenLieu.SelectedItem.ToString();
-                if(dgvNguyenLieu.Rows.Count<=1)
+                if(dsDGV.Count==0)
                 {
                     for (int j = 0; j < dsNL.Count; j++)
                     {
                         if (dsNL[j].TenNL == TenNL)
                         {
-                            dgvNguyenLieu.Rows.Add(dsNL[j].MaNL.ToString(), TenNL, dsNL[j].GiaNL.ToString(), numNguyenLieu.Value.ToString());
+                            dsDGV.Add(new NguyenLieuDGV()
+                            {
+                                MaNL = dsNL[j].MaNL,
+                                TenNL = dsNL[j].TenNL,
+                                GiaNL = int.Parse(dsNL[j].GiaNL.ToString()),
+                                SL = int.Parse(numNguyenLieu.Value.ToString())
+                            });
+                            LoadData();
                         }
                     }
-                }    
-                for (int i=0; i< dgvNguyenLieu.Rows.Count-1; i++)
+                }
+                else
                 {
-                    if (dgvNguyenLieu.Rows[i].Cells[1].Value.ToString() == TenNL)
-                        dgvNguyenLieu.Rows[i].Cells[3].Value = numNguyenLieu.Value;
-                    else
+                    for (int i = 0; i < dsDGV.Count; i++)
                     {
-                        for(int j=0; j<dsNL.Count; j++)
+                        if (dsDGV[i].TenNL == TenNL)
                         {
-                            if (dsNL[j].TenNL == TenNL)
-                            {
-                                dgvNguyenLieu.Rows.Add(dsNL[j].MaNL.ToString(), TenNL,dsNL[j].GiaNL.ToString(), numNguyenLieu.Value.ToString());
-                            }
+                            dsDGV[i].SL = int.Parse(numNguyenLieu.Value.ToString());
+                            LoadData();
+                            return;
                         }
-                        
-                    }    
-                }    
+                    }
+                    for (int j = 0; j < dsNL.Count; j++)
+                    {
+                        if (dsNL[j].TenNL == TenNL)
+                        {
+                            dsDGV.Add(new NguyenLieuDGV()
+                            {
+                                MaNL = dsNL[j].MaNL,
+                                TenNL = dsNL[j].TenNL,
+                                GiaNL = int.Parse(dsNL[j].GiaNL.ToString()),
+                                SL = int.Parse(numNguyenLieu.Value.ToString())
+                            });
+                            LoadData();
+                        }
+                    }
+                }       
             }    
+        }
+
+        int rowselect = -1;
+        private void dgvNguyenLieu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            rowselect = e.RowIndex;
+            if (rowselect >= 0 && rowselect < dsDGV.Count)
+            {
+                for (int i = 0; i < cbNguyenLieu.Items.Count; i++)
+                    if (cbNguyenLieu.Items[i].ToString() == dgvNguyenLieu.Rows[rowselect].Cells[1].Value.ToString())
+                    {
+                        cbNguyenLieu.SelectedIndex = i;
+                        numNguyenLieu.Value = int.Parse(dgvNguyenLieu.Rows[rowselect].Cells[3].Value.ToString());
+                    }
+            }
+        }
+
+
+        private void txtLoiNhuan_TextChanged(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void txtGiamGia_TextChanged(object sender, EventArgs e)
+        {
+            LoadData();
         }
     }
 }
