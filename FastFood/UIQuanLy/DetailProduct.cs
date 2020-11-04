@@ -22,10 +22,11 @@ namespace FastFood
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
 
-        SANPHAM sp = new SANPHAM();
+        SANPHAM sp;
         bool Them = false;
         BLSanPham blSP;
         BLNguyenLieu blNL;
+        BLCheBien blCB;
         List<SANPHAM> dsSP;
         List<NGUYENLIEU> dsNL;
         
@@ -38,10 +39,14 @@ namespace FastFood
             InitializeComponent();
             Them = them;
         }
-        public DetailProduct(SANPHAM s)
+        public DetailProduct(int Ma)
         {
             InitializeComponent();
-            sp = s;
+            blSP = new BLSanPham();
+            dsSP = blSP.dsSanPham();
+            for (int i = 0; i < dsSP.Count; i++)
+                if (dsSP[i].MaSP == Ma)
+                    sp = dsSP[i];
         }
 
         public Image ConvertImage(byte[] b)
@@ -74,8 +79,13 @@ namespace FastFood
                 txtTenSP.Text = sp.TenSP;
                 txtGiaBan.Text = vsp.GiaBan.ToString();
                 txtGiaGoc.Text = vsp.GiaGoc.ToString();
+                txtLoiNhuan.Text = sp.LoiNhuan.ToString();
+                txtGiamGia.Text = sp.GiamGia.ToString();
                 picSP.BackgroundImage = ConvertImage((byte[])sp.HinhSP.ToArray());
                 pnKind.Visible = false;
+                pnPhanTram.Location=new Point(pnKind.Location.X, pnKind.Location.Y + 10);
+                dsDGV= blNL.dsNguyenLieuDGV(sp);
+                LoadData();
             }
         }
         private void btnClose_Click(object sender, EventArgs e)
@@ -126,51 +136,83 @@ namespace FastFood
                     int value = 0;
                     if (cbKind.SelectedItem.ToString() == "Burger")
                     {
-                        value = (from sp in dsSP
-                                 where sp.MaSP >= 100 && sp.MaSP < 200
-                                 select sp.MaSP).ToList().Max();
+                        var dsLoai = (from sp in dsSP
+                                                where sp.MaSP >= 100 && sp.MaSP < 200
+                                                select sp.MaSP).ToList();
+                        if (dsLoai.Count>0)
+                            value = dsLoai.Max();
+                        else
+                            value = 100;
                     }
                     else if (cbKind.SelectedItem.ToString() == "Chicken")
                     {
-                        value = (from sp in dsSP
+                        var dsLoai = (from sp in dsSP
                                  where sp.MaSP >= 200 && sp.MaSP < 300
-                                 select sp.MaSP).ToList().Max();
+                                 select sp.MaSP).ToList();
+                        if (dsLoai.Count > 0)
+                            value = dsLoai.Max();
+                        else
+                            value = 200;
                     }
                     else if (cbKind.SelectedItem.ToString() == "Chicken Set")
                     {
-                        value = (from sp in dsSP
+                        var dsLoai = (from sp in dsSP
                                  where sp.MaSP >= 300 && sp.MaSP < 400
-                                 select sp.MaSP).ToList().Max();
+                                 select sp.MaSP).ToList();
+                        if (dsLoai.Count > 0)
+                            value = dsLoai.Max();
+                        else
+                            value = 300;
                     }
                     else if (cbKind.SelectedItem.ToString() == "Combo")
                     {
-                        value = (from sp in dsSP
+                        var dsLoai = (from sp in dsSP
                                  where sp.MaSP >= 400 && sp.MaSP < 500
-                                 select sp.MaSP).ToList().Max();
+                                 select sp.MaSP).ToList();
+                        if (dsLoai.Count > 0)
+                            value = dsLoai.Max();
+                        else
+                            value = 400;
                     }
                     else if (cbKind.SelectedItem.ToString() == "Value")
                     {
-                        value = (from sp in dsSP
+                        var dsLoai = (from sp in dsSP
                                  where sp.MaSP >= 500 && sp.MaSP < 600
-                                 select sp.MaSP).ToList().Max();
+                                 select sp.MaSP).ToList();
+                        if (dsLoai.Count > 0)
+                            value = dsLoai.Max();
+                        else
+                            value = 500;
                     }
                     else if (cbKind.SelectedItem.ToString() == "Set")
                     {
-                        value = (from sp in dsSP
+                        var dsLoai = (from sp in dsSP
                                  where sp.MaSP >= 600 && sp.MaSP < 700
-                                 select sp.MaSP).ToList().Max();
+                                 select sp.MaSP).ToList();
+                        if (dsLoai.Count > 0)
+                            value = dsLoai.Max();
+                        else
+                            value = 600;
                     }
                     else if (cbKind.SelectedItem.ToString() == "Dessert")
                     {
-                        value = (from sp in dsSP
+                        var dsLoai = (from sp in dsSP
                                  where sp.MaSP >= 700 && sp.MaSP < 800
-                                 select sp.MaSP).ToList().Max();
+                                 select sp.MaSP).ToList();
+                        if (dsLoai.Count > 0)
+                            value = dsLoai.Max();
+                        else
+                            value = 700;
                     }
                     else
                     {
-                        value = (from sp in dsSP
+                        var dsLoai = (from sp in dsSP
                                  where sp.MaSP >= 800
-                                 select sp.MaSP).ToList().Max();
+                                 select sp.MaSP).ToList();
+                        if (dsLoai.Count > 0)
+                            value = dsLoai.Max();
+                        else
+                            value = 800;
                     }
                     SANPHAM SP = new SANPHAM()
                     {
@@ -186,7 +228,20 @@ namespace FastFood
                     string message;
                     bool result = blSP.Insert(SP, out message);
                     if (result == false)
+                    {
                         MessageBox.Show(message);
+                        return;
+                    }
+                    blCB = new BLCheBien();
+                    for(int i=0; i<dsDGV.Count; i++)
+                    {
+                        result = blCB.Insert(dsDGV[i], SP, out message);
+                        if (result == false)
+                        {
+                            MessageBox.Show(message);
+                            return;
+                        }
+                    }
                     this.Close();
                 }
             }
@@ -205,7 +260,26 @@ namespace FastFood
                 string message;
                 bool result = blSP.Update(SP, out message);
                 if (result == false)
+                {
                     MessageBox.Show(message);
+                    return;
+                }
+                blCB = new BLCheBien();
+                result = blCB.Delete(SP, out message);
+                if (result == false)
+                {
+                    MessageBox.Show(message);
+                    return;
+                }
+                for (int i = 0; i < dsDGV.Count; i++)
+                {
+                    result = blCB.Insert(dsDGV[i], SP, out message);
+                    if (result == false)
+                    {
+                        MessageBox.Show(message);
+                        return;
+                    }
+                }
                 this.Close();
             }
         }
@@ -237,7 +311,13 @@ namespace FastFood
                     errorProvider1.SetError(pnGiamGia, "Giảm giá không hợp lệ");
                     return;
                 }
-                txtGiaBan.Text = (GiaGoc * (float.Parse(txtLoiNhuan.Text) - float.Parse(txtGiamGia.Text))).ToString();
+                txtGiaBan.Text = ((int)(GiaGoc * (float.Parse(txtLoiNhuan.Text) - float.Parse(txtGiamGia.Text)))).ToString();
+            }
+            else
+            {
+                errorProvider1.Clear();
+                txtGiaBan.Text = "";
+                txtGiaGoc.Text = "";
             }
         }
         private void btnEdit_Click(object sender, EventArgs e)
@@ -315,6 +395,19 @@ namespace FastFood
         private void txtGiamGia_TextChanged(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (rowselect >= 0 && rowselect < dsDGV.Count)
+            {
+                for(int i=0; i<dsDGV.Count; i++)
+                {
+                    if (dsDGV[i].MaNL.ToString() == dgvNguyenLieu.Rows[rowselect].Cells[0].Value.ToString())
+                        dsDGV.RemoveAt(i);
+                    LoadData();
+                }
+            }
         }
     }
 }

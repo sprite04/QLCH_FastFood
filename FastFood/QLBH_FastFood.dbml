@@ -158,4 +158,23 @@
     <Parameter Name="GiamGia" Parameter="giamGia" Type="System.Double" DbType="Float" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.sp_ThemCheBien" Method="sp_ThemCheBien">
+    <Parameter Name="MaSP" Parameter="maSP" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaNL" Parameter="maNL" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SL" Parameter="sL" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_XoaCheBien" Method="sp_XoaCheBien">
+    <Parameter Name="MaSP" Parameter="maSP" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_NguyenLieuDGV" Method="sp_NguyenLieuDGV">
+    <Parameter Name="MaSP" Parameter="maSP" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_NguyenLieuDGVResult">
+      <Column Name="MaNL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenNL" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="GiaNL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>

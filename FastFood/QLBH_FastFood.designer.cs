@@ -223,6 +223,27 @@ namespace FastFood
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maSP, hinhSP, tenSP, tT_Ban, tT_Con, loiNhuan, giamGia);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThemCheBien")]
+		public int sp_ThemCheBien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaSP", DbType="Int")] System.Nullable<int> maSP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNL", DbType="Int")] System.Nullable<int> maNL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SL", DbType="Int")] System.Nullable<int> sL)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maSP, maNL, sL);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_XoaCheBien")]
+		public int sp_XoaCheBien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaSP", DbType="Int")] System.Nullable<int> maSP)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maSP);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NguyenLieuDGV")]
+		public ISingleResult<sp_NguyenLieuDGVResult> sp_NguyenLieuDGV([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaSP", DbType="Int")] System.Nullable<int> maSP)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maSP);
+			return ((ISingleResult<sp_NguyenLieuDGVResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CA")]
@@ -2572,6 +2593,86 @@ namespace FastFood
 				if ((this._MaCV != value))
 				{
 					this._MaCV = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_NguyenLieuDGVResult
+	{
+		
+		private int _MaNL;
+		
+		private string _TenNL;
+		
+		private int _GiaNL;
+		
+		private int _SL;
+		
+		public sp_NguyenLieuDGVResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNL", DbType="Int NOT NULL")]
+		public int MaNL
+		{
+			get
+			{
+				return this._MaNL;
+			}
+			set
+			{
+				if ((this._MaNL != value))
+				{
+					this._MaNL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNL", DbType="NVarChar(30)")]
+		public string TenNL
+		{
+			get
+			{
+				return this._TenNL;
+			}
+			set
+			{
+				if ((this._TenNL != value))
+				{
+					this._TenNL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaNL", DbType="Int NOT NULL")]
+		public int GiaNL
+		{
+			get
+			{
+				return this._GiaNL;
+			}
+			set
+			{
+				if ((this._GiaNL != value))
+				{
+					this._GiaNL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SL", DbType="Int NOT NULL")]
+		public int SL
+		{
+			get
+			{
+				return this._SL;
+			}
+			set
+			{
+				if ((this._SL != value))
+				{
+					this._SL = value;
 				}
 			}
 		}

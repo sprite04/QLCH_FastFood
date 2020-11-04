@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FastFood.BLL;
 
 namespace FastFood
 {
@@ -17,7 +18,9 @@ namespace FastFood
             InitializeComponent();
         }
 
-        public List<v_SanPham> dsSP;
+        BLSanPham blSP;
+        public List<v_SanPham> dsVSP;
+        public List<SANPHAM> dsSP;
         private void Products_Load(object sender, EventArgs e)
         {
             LoadData();
@@ -25,11 +28,12 @@ namespace FastFood
 
         private void LoadData()
         {
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            dsSP = context.v_SanPhams.ToList();
-            for (int i = 0; i < dsSP.Count; i++)
+            blSP = new BLSanPham();
+            dsVSP = blSP.dsVSanPham();
+            dgvSanPham.Rows.Clear();
+            for (int i = 0; i < dsVSP.Count; i++)
             {
-                dgvSanPham.Rows.Add(dsSP[i].MaSP, dsSP[i].TenSP, dsSP[i].GiaGoc, dsSP[i].GiaBan);
+                dgvSanPham.Rows.Add(dsVSP[i].MaSP, dsVSP[i].TenSP, dsVSP[i].GiaGoc, dsVSP[i].GiaBan);
             }
         }
 
@@ -40,10 +44,10 @@ namespace FastFood
             else
             {
                 dgvSanPham.Rows.Clear();
-                for (int i = 0; i < dsSP.Count; i++)
+                for (int i = 0; i < dsVSP.Count; i++)
                 {
-                    if (dsSP[i].TenSP.ToLower().Contains(txtFind.Text.ToLower()) )
-                        dgvSanPham.Rows.Add(dsSP[i].MaSP, dsSP[i].TenSP, dsSP[i].GiaGoc, dsSP[i].GiaBan);
+                    if (dsVSP[i].TenSP.ToLower().Contains(txtFind.Text.ToLower()) )
+                        dgvSanPham.Rows.Add(dsVSP[i].MaSP, dsVSP[i].TenSP, dsVSP[i].GiaGoc, dsVSP[i].GiaBan);
                 }
             }
         }
@@ -59,12 +63,12 @@ namespace FastFood
         {
             if (dgvSanPham.SelectedRows.Count > 0)
             {
-                if (rowselect == -1 || rowselect >= dsSP.Count)
+                if (rowselect == -1 || rowselect >= dsVSP.Count)
                     return;
                 int vt = 0;
-                for (int i = 0; i < dsSP.Count; i++)
+                for (int i = 0; i < dsVSP.Count; i++)
                 {
-                    if (dsSP[i].MaSP == (int)(dgvSanPham.Rows[rowselect].Cells[0].Value))
+                    if (dsVSP[i].MaSP == (int)(dgvSanPham.Rows[rowselect].Cells[0].Value))
                     {
                         vt = i;
                         break;
@@ -72,8 +76,8 @@ namespace FastFood
                 }
                 DataGridViewRow row = dgvSanPham.Rows[vt];
                 int Ma = int.Parse(row.Cells[0].Value.ToString());
-                //DetailProduct detail = new DetailProduct(Ma);
-                //var result = detail.ShowDialog();
+                DetailProduct detail = new DetailProduct(Ma);
+                var result = detail.ShowDialog();
                 LoadData();
             }
         }
@@ -89,12 +93,12 @@ namespace FastFood
         {
             if (dgvSanPham.SelectedRows.Count > 0)
             {
-                if (rowselect == -1 || rowselect >= dsSP.Count)
+                if (rowselect == -1 || rowselect >= dsVSP.Count)
                     return;
                 int vt = 0;
-                for (int i = 0; i < dsSP.Count; i++)
+                for (int i = 0; i < dsVSP.Count; i++)
                 {
-                    if (dsSP[i].MaSP == (int)(dgvSanPham.Rows[rowselect].Cells[0].Value))
+                    if (dsVSP[i].MaSP == (int)(dgvSanPham.Rows[rowselect].Cells[0].Value))
                     {
                         vt = i;
                         break;
@@ -103,11 +107,19 @@ namespace FastFood
                 DialogResult dialog = MessageBox.Show("Bạn có muốn xoá không?", "Xoá", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialog == DialogResult.Yes)
                 {
+                    dsSP = blSP.dsSanPham();
                     string message;
-                    //dsSP[vt].TT_Ban = false;
-                    //bool result = blSP.Delete(dsSP[vt], out message);
-                    //if (result == false)
-                    //    MessageBox.Show(message);
+                    for(int i=0; i<dsSP.Count; i++)
+                        if(dsSP[i].MaSP==dsVSP[vt].MaSP)
+                        {
+                            dsSP[i].TT_Ban = false;
+                            bool result = blSP.Update(dsSP[i], out message);
+                            if (result == false)
+                            {
+                                MessageBox.Show(message);
+                                return;
+                            }
+                        }
                     LoadData();
                 }
             }
