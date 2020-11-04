@@ -18,3 +18,23 @@ D:\2021 HK1\Hệ quản trị CSDL\FastFood\FastFood\bin\Debug\FastFood.exe
 D:\2021 HK1\Hệ quản trị CSDL\FastFood\FastFood\bin\Debug\FastFood.pdb
 D:\2021 HK1\Hệ quản trị CSDL\FastFood\FastFood\obj\Debug\FastFood.exe
 D:\2021 HK1\Hệ quản trị CSDL\FastFood\FastFood\obj\Debug\FastFood.pdb
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\bin\Debug\FastFood.exe.config
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\bin\Debug\FastFood.exe
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\bin\Debug\FastFood.pdb
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.csprojAssemblyReference.cache
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.DetailEmployee.resources
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.DetailProduct.resources
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.Products.resources
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.Employee.resources
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.Form1.resources
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.Manager.resources
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.Home.resources
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.Item.resources
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.Login.resources
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.Menu.resources
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.PicItem.resources
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.Properties.Resources.resources
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.csproj.GenerateResource.cache
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.csproj.CoreCompileInputs.cache
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.exe
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.pdb
