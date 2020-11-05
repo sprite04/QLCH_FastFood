@@ -127,6 +127,17 @@
       <Column Name="TT_Ban" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.v_NhanVien" Member="v_NhanViens">
+    <Type Name="v_NhanVien">
+      <Column Name="MaNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="GT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CMND" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="TenCV" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="MaCV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Function Name="dbo.sp_Login" Method="sp_Login">
     <Parameter Name="MaNV" Parameter="maNV" Type="System.Int32" DbType="Int" />
     <ElementType Name="sp_LoginResult">
@@ -204,6 +215,30 @@
     <Parameter Name="DonVi" Parameter="donVi" Type="System.String" DbType="NVarChar(15)" />
     <Parameter Name="SL" Parameter="sL" Type="System.Int32" DbType="Int" />
     <Parameter Name="TT_Ban" Parameter="tT_Ban" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ThemNhanVien" Method="sp_ThemNhanVien">
+    <Parameter Name="MaNV" Parameter="maNV" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HoTen" Parameter="hoTen" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="GT" Parameter="gT" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CMND" Parameter="cMND" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="SDT" Parameter="sDT" Type="System.String" DbType="VarChar(12)" />
+    <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="TT_Lam" Parameter="tT_Lam" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="MatKhau" Parameter="matKhau" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MaCV" Parameter="maCV" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_SuaNhanVien" Method="sp_SuaNhanVien">
+    <Parameter Name="MaNV" Parameter="maNV" Type="System.Int32" DbType="Int" />
+    <Parameter Name="HoTen" Parameter="hoTen" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="GT" Parameter="gT" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CMND" Parameter="cMND" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="SDT" Parameter="sDT" Type="System.String" DbType="VarChar(12)" />
+    <Parameter Name="DiaChi" Parameter="diaChi" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="TT_Lam" Parameter="tT_Lam" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="MatKhau" Parameter="matKhau" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="MaCV" Parameter="maCV" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

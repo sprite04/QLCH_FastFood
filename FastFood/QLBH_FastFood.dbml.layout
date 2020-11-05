@@ -64,14 +64,14 @@
         <elementListCompartment Id="4b90e0dd-55b3-4993-acfe-607c6b9cd315" absoluteBounds="3.8899999999999997, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.875 : 1.09699625651042); (7 : 1.09699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.875 : 1.09699625651042); (7 : 1.09699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/QLBH_FastFoodDataContext/NHANVIEN/NHANVIEN_DIEMDANH" />
       <nodes>
         <classShapeMoniker Id="188bc1d0-2b35-4914-86dd-1db2151d4b3c" />
         <classShapeMoniker Id="39a6a418-61cc-4e6e-8ab6-6b4f406784f8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7 : 2.45755126953125); (5.875 : 2.45755126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(7 : 2.45755126953125); (5.875 : 2.45755126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/QLBH_FastFoodDataContext/CHUCVU/CHUCVU_NHANVIEN" />
       <nodes>
         <classShapeMoniker Id="57ed5f7e-7723-42a8-8243-dfa1e5c7c72e" />
@@ -127,6 +127,12 @@
       <DataClassMoniker Name="/QLBH_FastFoodDataContext/v_NguyenLieu" />
       <nestedChildShapes>
         <elementListCompartment Id="8d20fbe0-e5bc-4769-8017-9755fb74033f" absoluteBounds="1.0150000000000001, 5.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="73010525-c7dd-4bc0-ae55-e6be78bc85a6" absoluteBounds="1, 0.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/QLBH_FastFoodDataContext/v_NhanVien" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1a09ecb7-aef1-4640-aae7-f91d7b153912" absoluteBounds="1.0150000000000001, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

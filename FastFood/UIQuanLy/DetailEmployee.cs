@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastFood.BLL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,24 +22,28 @@ namespace FastFood
         {
             InitializeComponent();
         }
-        public DetailEmployee(bool mk, bool kind, NHANVIEN n)
+        public DetailEmployee(bool pass,bool kind, NHANVIEN n)
         {
             InitializeComponent();
             nv = n;
-            MatKhau = mk;
             Kind = kind;
-            //dsNV = blNV.dsNhanVien();
+            Pass = pass;
+            blNV = new BLNhanVien();
+            dsNV = blNV.dsNhanVien();
         }
         public DetailEmployee(bool them)
         {
             InitializeComponent();
             Them = them;
-            //dsNV = blNV.dsNhanVien();
+            blNV = new BLNhanVien();
+            dsNV = blNV.dsNhanVien();
         }
 
         bool Them = false;
-        bool MatKhau = false;
+        bool Pass = false;
         bool Kind = false;
+
+        BLNhanVien blNV;
         NHANVIEN nv = new NHANVIEN();
         List<NHANVIEN> dsNV = new List<NHANVIEN>();
         private void btnClose_Click(object sender, EventArgs e)
@@ -66,34 +71,22 @@ namespace FastFood
             else
             {
                 lblName.Text = "EDIT";
-                //pnPass.Visible = MatKhau;
-                //pnKind.Visible = Kind;
-                //txtHoTen.Text = nv.HoTen;
-                //txtCMND.Text = nv.CMND.ToString();
-                //txtMK.Text = nv.MatKhau.ToString();
-                //txtSDT.Text = "0" + nv.SDT.ToString();
-                //cbGT.Checked = (Boolean)nv.GT;
-                //if ((Boolean)nv.GT)
-                //    picNV.BackgroundImage = Properties.Resources.nu;
-                //else
+                pnPass.Visible = Pass;
+                pnKind.Visible = Kind;
+                txtHoTen.Text = nv.HoTen;
+                txtCMND.Text = nv.CMND.ToString();
+                txtMK.Text = nv.MatKhau;
+                txtSDT.Text = nv.SDT.ToString();
+                cbGT.Checked = (Boolean)nv.GT;
+                if ((Boolean)nv.GT)
+                    picNV.BackgroundImage = Properties.Resources.nu;
+                else
                     picNV.BackgroundImage = Properties.Resources.nam;
-                //if (nv.QuanLi == 1)
-                //    cbKind.SelectedIndex = 1;
-                //else if (nv.QuanLi == 2)
-                //    cbKind.SelectedIndex = 2;
-                //else
-                //    cbKind.SelectedIndex = 0;
-
+                cbKind.SelectedIndex = (int.Parse(nv.MaCV.ToString()) - 1);
             }
-    }
+        
+        }
 
-        //private int MaxNV()
-        //{
-        //    dsNV = blNV.dsNhanVien();
-        //    int max = (from nv in dsNV
-        //               select nv.MaNV).ToList().Max();
-        //    return max;
-        //}
         private void btnSave_Click(object sender, EventArgs e)
         {
             errorProvider1.Clear();
@@ -101,52 +94,57 @@ namespace FastFood
             bool k = int.TryParse(txtCMND.Text, out Num);
             if (k == false)
             {
-                errorProvider1.SetError(txtCMND, "Giá trị CMND không hợp lệ");
+                errorProvider1.SetError(pnCMND, "Giá trị CMND không hợp lệ");
                 return;
             }
             k = int.TryParse(txtSDT.Text, out Num);
             if (k == false)
             {
-                errorProvider1.SetError(txtSDT, "Giá trị SDT không hợp lệ");
+                errorProvider1.SetError(pnSDT, "Giá trị SDT không hợp lệ");
                 return;
             }
             if (Them)
             {
-                //string message;
-                //NHANVIEN NV = new NHANVIEN()
-                //{
-                //    MaNV = MaxNV() + 1,
-                //    HoTen = txtHoTen.Text,
-                //    GT = cbGT.Checked,
-                //    CMND = int.Parse(txtCMND.Text.Trim()),
-                //    SDT = int.Parse(txtSDT.Text.Trim()),
-                //    TT_LamViec = true,
-                //    MatKhau = txtMK.Text,
-                //    QuanLi = cbKind.SelectedIndex
-                //};
+                string message;
+                int value = 0;
+                var ds = (from nv in dsNV
+                          select nv.MaNV).ToList();
+                if (ds.Count > 0)
+                    value = ds.Max();
+                NHANVIEN NV = new NHANVIEN()
+                {
+                    MaNV = value + 1,
+                    HoTen = txtHoTen.Text,
+                    GT = cbGT.Checked,
+                    CMND = txtCMND.Text,
+                    SDT = txtSDT.Text,
+                    TT_Lam = true,
+                    MatKhau = txtMK.Text,
+                    MaCV = cbKind.SelectedIndex+1
+                };
 
-                //bool result = blNV.Insert(NV, out message);
-                //if (result == false)
-                //    MessageBox.Show(message);
+                bool result = blNV.Insert(NV, out message);
+                if (result == false)
+                    MessageBox.Show(message);
                 this.Close();
             }
             else
             {
-                //NHANVIEN NV = new NHANVIEN()
-                //{
-                //    MaNV = nv.MaNV,
-                //    HoTen = txtHoTen.Text,
-                //    GT = cbGT.Checked,
-                //    CMND = int.Parse(txtCMND.Text.Trim()),
-                //    SDT = int.Parse(txtSDT.Text.Trim()),
-                //    TT_LamViec = nv.TT_LamViec,
-                //    MatKhau = txtMK.Text,
-                //    QuanLi = cbKind.SelectedIndex
-                //};
-                //string message;
-                //bool result = blNV.Update(NV, out message);
-                //if (result == false)
-                //    MessageBox.Show(message);
+                NHANVIEN NV = new NHANVIEN()
+                {
+                    MaNV = nv.MaNV,
+                    HoTen = txtHoTen.Text,
+                    GT = cbGT.Checked,
+                    CMND = txtCMND.Text,
+                    SDT = txtSDT.Text,
+                    TT_Lam = nv.TT_Lam,
+                    MatKhau = txtMK.Text,
+                    MaCV = cbKind.SelectedIndex + 1
+                };
+                string message;
+                bool result = blNV.Update(NV, out message);
+                if (result == false)
+                    MessageBox.Show(message);
                 this.Close();
             }
         }
@@ -161,10 +159,13 @@ namespace FastFood
 
         private void cbKind_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbKind.SelectedIndex == 0)
-                pnPass.Visible = false;
-            else
-                pnPass.Visible = true;
+            if(Kind==true)
+            {
+                if (cbKind.SelectedIndex == 0)
+                    pnPass.Visible = false;
+                else
+                    pnPass.Visible = true;
+            }    
         }
     }
 }

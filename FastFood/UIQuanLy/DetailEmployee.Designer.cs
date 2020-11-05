@@ -48,9 +48,9 @@
             this.picNV = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtHoTen = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnCMND = new System.Windows.Forms.Panel();
             this.txtCMND = new System.Windows.Forms.TextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.pnSDT = new System.Windows.Forms.Panel();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -67,8 +67,8 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picNV)).BeginInit();
             this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
+            this.pnCMND.SuspendLayout();
+            this.pnSDT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,8 +130,8 @@
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.picNV);
             this.panel2.Controls.Add(this.panel4);
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Controls.Add(this.pnCMND);
+            this.panel2.Controls.Add(this.pnSDT);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
@@ -187,8 +187,9 @@
             this.cbKind.FormattingEnabled = true;
             this.cbKind.Items.AddRange(new object[] {
             "Nhân Viên",
-            "Quản Lý cấp 1",
-            "Quản Lý cấp 2"});
+            "Trưởng Kho",
+            "Quản Lý",
+            "Admin"});
             this.cbKind.Location = new System.Drawing.Point(6, 1);
             this.cbKind.Name = "cbKind";
             this.cbKind.Size = new System.Drawing.Size(358, 31);
@@ -295,15 +296,15 @@
             this.txtHoTen.Size = new System.Drawing.Size(358, 23);
             this.txtHoTen.TabIndex = 3;
             // 
-            // panel3
+            // pnCMND
             // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.txtCMND);
-            this.panel3.Location = new System.Drawing.Point(244, 88);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(273, 35);
-            this.panel3.TabIndex = 11;
+            this.pnCMND.BackColor = System.Drawing.Color.White;
+            this.pnCMND.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnCMND.Controls.Add(this.txtCMND);
+            this.pnCMND.Location = new System.Drawing.Point(244, 88);
+            this.pnCMND.Name = "pnCMND";
+            this.pnCMND.Size = new System.Drawing.Size(273, 35);
+            this.pnCMND.TabIndex = 11;
             // 
             // txtCMND
             // 
@@ -315,15 +316,15 @@
             this.txtCMND.Size = new System.Drawing.Size(259, 23);
             this.txtCMND.TabIndex = 2;
             // 
-            // panel5
+            // pnSDT
             // 
-            this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.txtSDT);
-            this.panel5.Location = new System.Drawing.Point(244, 143);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(373, 35);
-            this.panel5.TabIndex = 12;
+            this.pnSDT.BackColor = System.Drawing.Color.White;
+            this.pnSDT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnSDT.Controls.Add(this.txtSDT);
+            this.pnSDT.Location = new System.Drawing.Point(244, 143);
+            this.pnSDT.Name = "pnSDT";
+            this.pnSDT.Size = new System.Drawing.Size(373, 35);
+            this.pnSDT.TabIndex = 12;
             // 
             // txtSDT
             // 
@@ -398,12 +399,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.picNV)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
+            this.pnCMND.ResumeLayout(false);
+            this.pnCMND.PerformLayout();
+            this.pnSDT.ResumeLayout(false);
+            this.pnSDT.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -424,9 +426,9 @@
         private System.Windows.Forms.PictureBox picNV;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtHoTen;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnCMND;
         private System.Windows.Forms.TextBox txtCMND;
-        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel pnSDT;
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

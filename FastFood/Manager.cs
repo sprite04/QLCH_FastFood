@@ -46,7 +46,6 @@ namespace FastFood
                 pnList.Width = 80;
             else
                 pnList.Width = 258;
-
         }
 
 
@@ -120,7 +119,13 @@ namespace FastFood
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-           
+            this.WindowState = FormWindowState.Maximized;
+            btnMaximize.Visible = false;
+            btnRestore.Visible = true;
+            pnShow.Controls.Clear();
+            Employee employee = new Employee(login);
+            employee.Dock = DockStyle.Fill;
+            pnShow.Controls.Add(employee);
         }
 
         private void btnBill_Click(object sender, EventArgs e)

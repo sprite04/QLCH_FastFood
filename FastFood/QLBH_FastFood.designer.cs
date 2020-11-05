@@ -199,6 +199,14 @@ namespace FastFood
 			}
 		}
 		
+		public System.Data.Linq.Table<v_NhanVien> v_NhanViens
+		{
+			get
+			{
+				return this.GetTable<v_NhanVien>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Login")]
 		public ISingleResult<sp_LoginResult> sp_Login([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNV", DbType="Int")] System.Nullable<int> maNV)
 		{
@@ -264,6 +272,20 @@ namespace FastFood
 		public int sp_SuaNguyenLieu([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNL", DbType="Int")] System.Nullable<int> maNL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenNL", DbType="NVarChar(30)")] string tenNL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GiaNL", DbType="Int")] System.Nullable<int> giaNL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DonVi", DbType="NVarChar(15)")] string donVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SL", DbType="Int")] System.Nullable<int> sL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Ban", DbType="Bit")] System.Nullable<bool> tT_Ban)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNL, tenNL, giaNL, donVi, sL, tT_Ban);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThemNhanVien")]
+		public int sp_ThemNhanVien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNV", DbType="Int")] System.Nullable<int> maNV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoTen", DbType="NVarChar(30)")] string hoTen, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GT", DbType="Bit")] System.Nullable<bool> gT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CMND", DbType="VarChar(15)")] string cMND, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SDT", DbType="VarChar(12)")] string sDT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiaChi", DbType="NVarChar(50)")] string diaChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Lam", DbType="Bit")] System.Nullable<bool> tT_Lam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MatKhau", DbType="VarChar(50)")] string matKhau, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCV", DbType="Int")] System.Nullable<int> maCV)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNV, hoTen, gT, cMND, sDT, diaChi, tT_Lam, matKhau, maCV);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_SuaNhanVien")]
+		public int sp_SuaNhanVien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNV", DbType="Int")] System.Nullable<int> maNV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoTen", DbType="NVarChar(30)")] string hoTen, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GT", DbType="Bit")] System.Nullable<bool> gT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CMND", DbType="VarChar(15)")] string cMND, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SDT", DbType="VarChar(12)")] string sDT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiaChi", DbType="NVarChar(50)")] string diaChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Lam", DbType="Bit")] System.Nullable<bool> tT_Lam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MatKhau", DbType="VarChar(50)")] string matKhau, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCV", DbType="Int")] System.Nullable<int> maCV)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNV, hoTen, gT, cMND, sDT, diaChi, tT_Lam, matKhau, maCV);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -2586,6 +2608,141 @@ namespace FastFood
 				if ((this._TT_Ban != value))
 				{
 					this._TT_Ban = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.v_NhanVien")]
+	public partial class v_NhanVien
+	{
+		
+		private int _MaNV;
+		
+		private string _HoTen;
+		
+		private System.Nullable<bool> _GT;
+		
+		private string _CMND;
+		
+		private string _SDT;
+		
+		private string _TenCV;
+		
+		private int _MaCV;
+		
+		public v_NhanVien()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNV", DbType="Int NOT NULL")]
+		public int MaNV
+		{
+			get
+			{
+				return this._MaNV;
+			}
+			set
+			{
+				if ((this._MaNV != value))
+				{
+					this._MaNV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoTen", DbType="NVarChar(30)")]
+		public string HoTen
+		{
+			get
+			{
+				return this._HoTen;
+			}
+			set
+			{
+				if ((this._HoTen != value))
+				{
+					this._HoTen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GT", DbType="Bit")]
+		public System.Nullable<bool> GT
+		{
+			get
+			{
+				return this._GT;
+			}
+			set
+			{
+				if ((this._GT != value))
+				{
+					this._GT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMND", DbType="VarChar(15)")]
+		public string CMND
+		{
+			get
+			{
+				return this._CMND;
+			}
+			set
+			{
+				if ((this._CMND != value))
+				{
+					this._CMND = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="VarChar(12)")]
+		public string SDT
+		{
+			get
+			{
+				return this._SDT;
+			}
+			set
+			{
+				if ((this._SDT != value))
+				{
+					this._SDT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenCV", DbType="NVarChar(20)")]
+		public string TenCV
+		{
+			get
+			{
+				return this._TenCV;
+			}
+			set
+			{
+				if ((this._TenCV != value))
+				{
+					this._TenCV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaCV", DbType="Int NOT NULL")]
+		public int MaCV
+		{
+			get
+			{
+				return this._MaCV;
+			}
+			set
+			{
+				if ((this._MaCV != value))
+				{
+					this._MaCV = value;
 				}
 			}
 		}

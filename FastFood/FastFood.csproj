@@ -48,7 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\BLCheBien.cs" />
+    <Compile Include="BLL\BLChucVu.cs" />
     <Compile Include="BLL\BLNguyenLieu.cs" />
+    <Compile Include="BLL\BLNhanVien.cs" />
     <Compile Include="BLL\BLSanPham.cs" />
     <Compile Include="DTO\NguyenLieuDGV.cs" />
     <Compile Include="QLBH_FastFood.designer.cs">

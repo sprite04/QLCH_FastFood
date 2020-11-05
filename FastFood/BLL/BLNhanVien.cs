@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 
 namespace FastFood.BLL
 {
-    public class BLSanPham
+    public class BLNhanVien
     {
-        public List<SANPHAM> dsSanPham()
+        public List<NHANVIEN> dsNhanVien()
         {
             QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<SANPHAM> dsSP = context.SANPHAMs.ToList();
-            return dsSP;
+            List<NHANVIEN> dsNV = context.NHANVIENs.ToList();
+            return dsNV;
         }
 
-        public List<v_SanPham> dsVSanPham()
+        public List<v_NhanVien> dsVNhanVien()
         {
             QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<v_SanPham> dsVSP = context.v_SanPhams.ToList();
-            return dsVSP;
+            List<v_NhanVien> dsVNV = context.v_NhanViens.ToList();
+            return dsVNV;
         }
 
-        public bool Insert(SANPHAM sp,out string message)
+        public bool Insert(NHANVIEN nv, out string message)
         {
             message = "";
             try
             {
                 QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-                context.sp_ThemSanPham(sp.MaSP, sp.HinhSP, sp.TenSP, sp.TT_Ban, sp.TT_Con, sp.LoiNhuan, sp.GiamGia);
+                context.sp_ThemNhanVien(nv.MaNV, nv.HoTen, nv.GT, nv.CMND, nv.SDT, nv.DiaChi, nv.TT_Lam, nv.MatKhau, nv.MaCV);
                 return true;
             }
             catch (Exception e)
@@ -38,13 +38,13 @@ namespace FastFood.BLL
             return false;
         }
 
-        public bool Update(SANPHAM sp, out string message)
+        public bool Update(NHANVIEN nv, out string message)
         {
             message = "";
             try
             {
                 QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-                context.sp_SuaSanPham(sp.MaSP, sp.HinhSP, sp.TenSP, sp.TT_Ban, sp.TT_Con, sp.LoiNhuan, sp.GiamGia);
+                context.sp_SuaNhanVien(nv.MaNV, nv.HoTen, nv.GT, nv.CMND, nv.SDT, nv.DiaChi, nv.TT_Lam, nv.MatKhau, nv.MaCV);
                 return true;
             }
             catch (Exception e)
