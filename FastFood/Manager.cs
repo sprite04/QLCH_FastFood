@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastFood.UIQuanLy;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -145,6 +146,14 @@ namespace FastFood
         private void button1_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void btnMaterial_Click(object sender, EventArgs e)
+        {
+            pnShow.Controls.Clear();
+            Material materials = new Material();
+            materials.Dock = DockStyle.Fill;
+            pnShow.Controls.Add(materials);
         }
     }
 }

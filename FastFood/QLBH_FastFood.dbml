@@ -12,8 +12,8 @@
       <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="MaNL" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="SoLuong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="NGUYENLIEU_CHEBIEN" Member="NGUYENLIEU" ThisKey="MaNL" OtherKey="MaNL" Type="NGUYENLIEU" IsForeignKey="true" />
       <Association Name="SANPHAM_CHEBIEN" Member="SANPHAM" ThisKey="MaSP" OtherKey="MaSP" Type="SANPHAM" IsForeignKey="true" />
+      <Association Name="NGUYENLIEU_CHEBIEN" Member="NGUYENLIEU" ThisKey="MaNL" OtherKey="MaNL" Type="NGUYENLIEU" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.CHITIET_HD" Member="CHITIET_HDs">
@@ -61,16 +61,6 @@
       <Column Name="LuongTong" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.NGUYENLIEU" Member="NGUYENLIEUs">
-    <Type Name="NGUYENLIEU">
-      <Column Name="MaNL" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenNL" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="GiaNL" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DonVi" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Column Name="SLTonKho" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="NGUYENLIEU_CHEBIEN" Member="CHEBIENs" ThisKey="MaNL" OtherKey="MaNL" Type="CHEBIEN" />
-    </Type>
-  </Table>
   <Table Name="dbo.NHANVIEN" Member="NHANVIENs">
     <Type Name="NHANVIEN">
       <Column Name="MaNV" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -114,6 +104,27 @@
       <Column Name="TenSP" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="GiaGoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="GiaBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NGUYENLIEU" Member="NGUYENLIEUs">
+    <Type Name="NGUYENLIEU">
+      <Column Name="MaNL" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenNL" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="GiaNL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DonVi" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="SLTonKho" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TT_Ban" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="NGUYENLIEU_CHEBIEN" Member="CHEBIENs" ThisKey="MaNL" OtherKey="MaNL" Type="CHEBIEN" />
+    </Type>
+  </Table>
+  <Table Name="dbo.v_NguyenLieu" Member="v_NguyenLieus">
+    <Type Name="v_NguyenLieu">
+      <Column Name="MaNL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenNL" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="GiaNL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DonVi" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="SLTonKho" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TT_Ban" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_Login" Method="sp_Login">
@@ -168,6 +179,15 @@
     <Parameter Name="MaSP" Parameter="maSP" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.sp_ThemNguyenLieu" Method="sp_ThemNguyenLieu">
+    <Parameter Name="MaNL" Parameter="maNL" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TenNL" Parameter="tenNL" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="GiaNL" Parameter="giaNL" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DonVi" Parameter="donVi" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="SL" Parameter="sL" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TT_Ban" Parameter="tT_Ban" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.sp_NguyenLieuDGV" Method="sp_NguyenLieuDGV">
     <Parameter Name="MaSP" Parameter="maSP" Type="System.Int32" DbType="Int" />
     <ElementType Name="sp_NguyenLieuDGVResult">
@@ -176,5 +196,14 @@
       <Column Name="GiaNL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="SL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.sp_SuaNguyenLieu" Method="sp_SuaNguyenLieu">
+    <Parameter Name="MaNL" Parameter="maNL" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TenNL" Parameter="tenNL" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="GiaNL" Parameter="giaNL" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DonVi" Parameter="donVi" Type="System.String" DbType="NVarChar(15)" />
+    <Parameter Name="SL" Parameter="sL" Type="System.Int32" DbType="Int" />
+    <Parameter Name="TT_Ban" Parameter="tT_Ban" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

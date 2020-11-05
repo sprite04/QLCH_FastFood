@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pnList = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_editDash = new System.Windows.Forms.Button();
             this.picDashboard = new System.Windows.Forms.PictureBox();
             this.picRevenue = new System.Windows.Forms.PictureBox();
             this.picSalary = new System.Windows.Forms.PictureBox();
@@ -51,9 +53,10 @@
             this.btnZoom = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnShow = new System.Windows.Forms.Panel();
-            this.btn_editDash = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnMaterial = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDashboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRevenue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSalary)).BeginInit();
@@ -68,7 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnZoom)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnList
@@ -81,7 +84,9 @@
             this.pnList.Controls.Add(this.picSalary);
             this.pnList.Controls.Add(this.picEmployee);
             this.pnList.Controls.Add(this.picBill);
+            this.pnList.Controls.Add(this.pictureBox2);
             this.pnList.Controls.Add(this.picItem);
+            this.pnList.Controls.Add(this.btnMaterial);
             this.pnList.Controls.Add(this.btnItem);
             this.pnList.Controls.Add(this.btnBill);
             this.pnList.Controls.Add(this.btnDashboard);
@@ -95,11 +100,39 @@
             this.pnList.Size = new System.Drawing.Size(387, 875);
             this.pnList.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::FastFood.Properties.Resources.icons8_calendar_48px_1;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(39, 819);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_editDash
+            // 
+            this.btn_editDash.FlatAppearance.BorderSize = 0;
+            this.btn_editDash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_editDash.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_editDash.ForeColor = System.Drawing.Color.White;
+            this.btn_editDash.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_editDash.Location = new System.Drawing.Point(0, 801);
+            this.btn_editDash.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_editDash.Name = "btn_editDash";
+            this.btn_editDash.Size = new System.Drawing.Size(387, 71);
+            this.btn_editDash.TabIndex = 11;
+            this.btn_editDash.Text = "                    Shift";
+            this.btn_editDash.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_editDash.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_editDash.UseVisualStyleBackColor = true;
+            this.btn_editDash.Click += new System.EventHandler(this.button1_Click);
+            // 
             // picDashboard
             // 
             this.picDashboard.BackgroundImage = global::FastFood.Properties.Resources.icons8_calendar_48px_1;
             this.picDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picDashboard.Location = new System.Drawing.Point(39, 677);
+            this.picDashboard.Location = new System.Drawing.Point(39, 717);
             this.picDashboard.Name = "picDashboard";
             this.picDashboard.Size = new System.Drawing.Size(35, 35);
             this.picDashboard.TabIndex = 10;
@@ -110,7 +143,7 @@
             // 
             this.picRevenue.BackgroundImage = global::FastFood.Properties.Resources.icons8_combo_chart_48px;
             this.picRevenue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picRevenue.Location = new System.Drawing.Point(39, 584);
+            this.picRevenue.Location = new System.Drawing.Point(39, 624);
             this.picRevenue.Name = "picRevenue";
             this.picRevenue.Size = new System.Drawing.Size(35, 35);
             this.picRevenue.TabIndex = 10;
@@ -121,7 +154,7 @@
             // 
             this.picSalary.BackgroundImage = global::FastFood.Properties.Resources.icons8_stack_of_money_60px_1;
             this.picSalary.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picSalary.Location = new System.Drawing.Point(39, 491);
+            this.picSalary.Location = new System.Drawing.Point(39, 530);
             this.picSalary.Name = "picSalary";
             this.picSalary.Size = new System.Drawing.Size(35, 35);
             this.picSalary.TabIndex = 10;
@@ -132,7 +165,7 @@
             // 
             this.picEmployee.BackgroundImage = global::FastFood.Properties.Resources.icons8_people_48px_1;
             this.picEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEmployee.Location = new System.Drawing.Point(39, 398);
+            this.picEmployee.Location = new System.Drawing.Point(39, 440);
             this.picEmployee.Name = "picEmployee";
             this.picEmployee.Size = new System.Drawing.Size(35, 35);
             this.picEmployee.TabIndex = 10;
@@ -143,7 +176,7 @@
             // 
             this.picBill.BackgroundImage = global::FastFood.Properties.Resources.icons8_receipt_48px;
             this.picBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBill.Location = new System.Drawing.Point(39, 305);
+            this.picBill.Location = new System.Drawing.Point(39, 348);
             this.picBill.Name = "picBill";
             this.picBill.Size = new System.Drawing.Size(35, 35);
             this.picBill.TabIndex = 10;
@@ -154,7 +187,7 @@
             // 
             this.picItem.BackgroundImage = global::FastFood.Properties.Resources.icons8_ingredients_48px;
             this.picItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picItem.Location = new System.Drawing.Point(39, 212);
+            this.picItem.Location = new System.Drawing.Point(39, 174);
             this.picItem.Name = "picItem";
             this.picItem.Size = new System.Drawing.Size(35, 35);
             this.picItem.TabIndex = 10;
@@ -168,12 +201,12 @@
             this.btnItem.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnItem.ForeColor = System.Drawing.Color.White;
             this.btnItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnItem.Location = new System.Drawing.Point(0, 187);
+            this.btnItem.Location = new System.Drawing.Point(0, 156);
             this.btnItem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnItem.Name = "btnItem";
-            this.btnItem.Size = new System.Drawing.Size(387, 83);
+            this.btnItem.Size = new System.Drawing.Size(387, 71);
             this.btnItem.TabIndex = 8;
-            this.btnItem.Text = "                    Item";
+            this.btnItem.Text = "                    Product";
             this.btnItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnItem.UseVisualStyleBackColor = true;
             this.btnItem.Click += new System.EventHandler(this.btnItem_Click);
@@ -185,10 +218,10 @@
             this.btnBill.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBill.ForeColor = System.Drawing.Color.White;
             this.btnBill.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBill.Location = new System.Drawing.Point(0, 280);
+            this.btnBill.Location = new System.Drawing.Point(0, 330);
             this.btnBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnBill.Name = "btnBill";
-            this.btnBill.Size = new System.Drawing.Size(387, 83);
+            this.btnBill.Size = new System.Drawing.Size(387, 71);
             this.btnBill.TabIndex = 9;
             this.btnBill.Text = "                    Bill";
             this.btnBill.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -203,10 +236,10 @@
             this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.Color.White;
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 652);
+            this.btnDashboard.Location = new System.Drawing.Point(0, 699);
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(387, 83);
+            this.btnDashboard.Size = new System.Drawing.Size(387, 71);
             this.btnDashboard.TabIndex = 6;
             this.btnDashboard.Text = "                    Dashboard";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -221,10 +254,10 @@
             this.btnRevene.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRevene.ForeColor = System.Drawing.Color.White;
             this.btnRevene.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRevene.Location = new System.Drawing.Point(0, 559);
+            this.btnRevene.Location = new System.Drawing.Point(0, 606);
             this.btnRevene.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRevene.Name = "btnRevene";
-            this.btnRevene.Size = new System.Drawing.Size(387, 83);
+            this.btnRevene.Size = new System.Drawing.Size(387, 71);
             this.btnRevene.TabIndex = 6;
             this.btnRevene.Text = "                    Revenue";
             this.btnRevene.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -239,10 +272,10 @@
             this.btnSalary.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalary.ForeColor = System.Drawing.Color.White;
             this.btnSalary.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalary.Location = new System.Drawing.Point(0, 466);
+            this.btnSalary.Location = new System.Drawing.Point(0, 512);
             this.btnSalary.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSalary.Name = "btnSalary";
-            this.btnSalary.Size = new System.Drawing.Size(387, 83);
+            this.btnSalary.Size = new System.Drawing.Size(387, 71);
             this.btnSalary.TabIndex = 6;
             this.btnSalary.Text = "                    Salary";
             this.btnSalary.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -257,10 +290,10 @@
             this.btnEmployee.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmployee.ForeColor = System.Drawing.Color.White;
             this.btnEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmployee.Location = new System.Drawing.Point(0, 373);
+            this.btnEmployee.Location = new System.Drawing.Point(0, 422);
             this.btnEmployee.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Size = new System.Drawing.Size(387, 83);
+            this.btnEmployee.Size = new System.Drawing.Size(387, 71);
             this.btnEmployee.TabIndex = 7;
             this.btnEmployee.Text = "                    Employee";
             this.btnEmployee.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -388,33 +421,33 @@
             this.pnShow.Size = new System.Drawing.Size(1531, 792);
             this.pnShow.TabIndex = 4;
             // 
-            // btn_editDash
+            // btnMaterial
             // 
-            this.btn_editDash.FlatAppearance.BorderSize = 0;
-            this.btn_editDash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_editDash.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_editDash.ForeColor = System.Drawing.Color.White;
-            this.btn_editDash.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_editDash.Location = new System.Drawing.Point(0, 755);
-            this.btn_editDash.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_editDash.Name = "btn_editDash";
-            this.btn_editDash.Size = new System.Drawing.Size(387, 83);
-            this.btn_editDash.TabIndex = 11;
-            this.btn_editDash.Text = "                    Shift";
-            this.btn_editDash.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_editDash.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_editDash.UseVisualStyleBackColor = true;
-            this.btn_editDash.Click += new System.EventHandler(this.button1_Click);
+            this.btnMaterial.FlatAppearance.BorderSize = 0;
+            this.btnMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMaterial.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMaterial.ForeColor = System.Drawing.Color.White;
+            this.btnMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMaterial.Location = new System.Drawing.Point(0, 248);
+            this.btnMaterial.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnMaterial.Name = "btnMaterial";
+            this.btnMaterial.Size = new System.Drawing.Size(387, 71);
+            this.btnMaterial.TabIndex = 8;
+            this.btnMaterial.Text = "                    Material";
+            this.btnMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMaterial.UseVisualStyleBackColor = true;
+            this.btnMaterial.Click += new System.EventHandler(this.btnMaterial_Click);
             // 
-            // pictureBox1
+            // pictureBox2
             // 
-            this.pictureBox1.BackgroundImage = global::FastFood.Properties.Resources.icons8_calendar_48px_1;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(39, 775);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.pictureBox2.BackgroundImage = global::FastFood.Properties.Resources.icons8_ingredients_48px;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(39, 266);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.picItem_Click);
             // 
             // Manager
             // 
@@ -432,6 +465,7 @@
             this.Text = "Manager";
             this.Load += new System.EventHandler(this.Manager_Load);
             this.pnList.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDashboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRevenue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSalary)).EndInit();
@@ -446,8 +480,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnZoom)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -477,5 +512,7 @@
         private System.Windows.Forms.Button btnEmployee;
         private System.Windows.Forms.Panel pnList;
         private System.Windows.Forms.PictureBox btnC;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnMaterial;
     }
 }

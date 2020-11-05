@@ -62,11 +62,23 @@
     <Compile Include="UIQuanLy\DetailEmployee.Designer.cs">
       <DependentUpon>DetailEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIQuanLy\DetailMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIQuanLy\DetailMaterial.Designer.cs">
+      <DependentUpon>DetailMaterial.cs</DependentUpon>
+    </Compile>
     <Compile Include="UIQuanLy\DetailProduct.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UIQuanLy\DetailProduct.Designer.cs">
       <DependentUpon>DetailProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIQuanLy\Material.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UIQuanLy\Material.Designer.cs">
+      <DependentUpon>Material.cs</DependentUpon>
     </Compile>
     <Compile Include="UIQuanLy\Products.cs">
       <SubType>UserControl</SubType>
@@ -127,8 +139,14 @@
     <EmbeddedResource Include="UIQuanLy\DetailEmployee.resx">
       <DependentUpon>DetailEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UIQuanLy\DetailMaterial.resx">
+      <DependentUpon>DetailMaterial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UIQuanLy\DetailProduct.resx">
       <DependentUpon>DetailProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIQuanLy\Material.resx">
+      <DependentUpon>Material.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UIQuanLy\Products.resx">
       <DependentUpon>Products.cs</DependentUpon>

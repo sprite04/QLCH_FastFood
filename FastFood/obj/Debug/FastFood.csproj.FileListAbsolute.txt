@@ -38,3 +38,5 @@ D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFoo
 D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.csproj.CoreCompileInputs.cache
 D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.exe
 D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.pdb
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.UIQuanLy.DetailMaterial.resources
+D:\2021 HK1\Hệ quản trị CSDL\Đồ án\FastFood\FastFood\obj\Debug\FastFood.UIQuanLy.Material.resources

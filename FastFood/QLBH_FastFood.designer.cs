@@ -51,9 +51,6 @@ namespace FastFood
     partial void InsertLUONG(LUONG instance);
     partial void UpdateLUONG(LUONG instance);
     partial void DeleteLUONG(LUONG instance);
-    partial void InsertNGUYENLIEU(NGUYENLIEU instance);
-    partial void UpdateNGUYENLIEU(NGUYENLIEU instance);
-    partial void DeleteNGUYENLIEU(NGUYENLIEU instance);
     partial void InsertNHANVIEN(NHANVIEN instance);
     partial void UpdateNHANVIEN(NHANVIEN instance);
     partial void DeleteNHANVIEN(NHANVIEN instance);
@@ -63,6 +60,9 @@ namespace FastFood
     partial void InsertTHONGKE_T(THONGKE_T instance);
     partial void UpdateTHONGKE_T(THONGKE_T instance);
     partial void DeleteTHONGKE_T(THONGKE_T instance);
+    partial void InsertNGUYENLIEU(NGUYENLIEU instance);
+    partial void UpdateNGUYENLIEU(NGUYENLIEU instance);
+    partial void DeleteNGUYENLIEU(NGUYENLIEU instance);
     #endregion
 		
 		public QLBH_FastFoodDataContext() : 
@@ -151,14 +151,6 @@ namespace FastFood
 			}
 		}
 		
-		public System.Data.Linq.Table<NGUYENLIEU> NGUYENLIEUs
-		{
-			get
-			{
-				return this.GetTable<NGUYENLIEU>();
-			}
-		}
-		
 		public System.Data.Linq.Table<NHANVIEN> NHANVIENs
 		{
 			get
@@ -188,6 +180,22 @@ namespace FastFood
 			get
 			{
 				return this.GetTable<v_SanPham>();
+			}
+		}
+		
+		public System.Data.Linq.Table<NGUYENLIEU> NGUYENLIEUs
+		{
+			get
+			{
+				return this.GetTable<NGUYENLIEU>();
+			}
+		}
+		
+		public System.Data.Linq.Table<v_NguyenLieu> v_NguyenLieus
+		{
+			get
+			{
+				return this.GetTable<v_NguyenLieu>();
 			}
 		}
 		
@@ -238,11 +246,25 @@ namespace FastFood
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThemNguyenLieu")]
+		public int sp_ThemNguyenLieu([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNL", DbType="Int")] System.Nullable<int> maNL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenNL", DbType="NVarChar(30)")] string tenNL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GiaNL", DbType="Int")] System.Nullable<int> giaNL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DonVi", DbType="NVarChar(15)")] string donVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SL", DbType="Int")] System.Nullable<int> sL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Ban", DbType="Bit")] System.Nullable<bool> tT_Ban)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNL, tenNL, giaNL, donVi, sL, tT_Ban);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_NguyenLieuDGV")]
 		public ISingleResult<sp_NguyenLieuDGVResult> sp_NguyenLieuDGV([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaSP", DbType="Int")] System.Nullable<int> maSP)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maSP);
 			return ((ISingleResult<sp_NguyenLieuDGVResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_SuaNguyenLieu")]
+		public int sp_SuaNguyenLieu([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNL", DbType="Int")] System.Nullable<int> maNL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenNL", DbType="NVarChar(30)")] string tenNL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GiaNL", DbType="Int")] System.Nullable<int> giaNL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DonVi", DbType="NVarChar(15)")] string donVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SL", DbType="Int")] System.Nullable<int> sL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Ban", DbType="Bit")] System.Nullable<bool> tT_Ban)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNL, tenNL, giaNL, donVi, sL, tT_Ban);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -372,9 +394,9 @@ namespace FastFood
 		
 		private int _SoLuong;
 		
-		private EntityRef<NGUYENLIEU> _NGUYENLIEU;
-		
 		private EntityRef<SANPHAM> _SANPHAM;
+		
+		private EntityRef<NGUYENLIEU> _NGUYENLIEU;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -390,8 +412,8 @@ namespace FastFood
 		
 		public CHEBIEN()
 		{
-			this._NGUYENLIEU = default(EntityRef<NGUYENLIEU>);
 			this._SANPHAM = default(EntityRef<SANPHAM>);
+			this._NGUYENLIEU = default(EntityRef<NGUYENLIEU>);
 			OnCreated();
 		}
 		
@@ -463,40 +485,6 @@ namespace FastFood
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NGUYENLIEU_CHEBIEN", Storage="_NGUYENLIEU", ThisKey="MaNL", OtherKey="MaNL", IsForeignKey=true)]
-		public NGUYENLIEU NGUYENLIEU
-		{
-			get
-			{
-				return this._NGUYENLIEU.Entity;
-			}
-			set
-			{
-				NGUYENLIEU previousValue = this._NGUYENLIEU.Entity;
-				if (((previousValue != value) 
-							|| (this._NGUYENLIEU.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._NGUYENLIEU.Entity = null;
-						previousValue.CHEBIENs.Remove(this);
-					}
-					this._NGUYENLIEU.Entity = value;
-					if ((value != null))
-					{
-						value.CHEBIENs.Add(this);
-						this._MaNL = value.MaNL;
-					}
-					else
-					{
-						this._MaNL = default(int);
-					}
-					this.SendPropertyChanged("NGUYENLIEU");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SANPHAM_CHEBIEN", Storage="_SANPHAM", ThisKey="MaSP", OtherKey="MaSP", IsForeignKey=true)]
 		public SANPHAM SANPHAM
 		{
@@ -527,6 +515,40 @@ namespace FastFood
 						this._MaSP = default(int);
 					}
 					this.SendPropertyChanged("SANPHAM");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NGUYENLIEU_CHEBIEN", Storage="_NGUYENLIEU", ThisKey="MaNL", OtherKey="MaNL", IsForeignKey=true)]
+		public NGUYENLIEU NGUYENLIEU
+		{
+			get
+			{
+				return this._NGUYENLIEU.Entity;
+			}
+			set
+			{
+				NGUYENLIEU previousValue = this._NGUYENLIEU.Entity;
+				if (((previousValue != value) 
+							|| (this._NGUYENLIEU.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._NGUYENLIEU.Entity = null;
+						previousValue.CHEBIENs.Remove(this);
+					}
+					this._NGUYENLIEU.Entity = value;
+					if ((value != null))
+					{
+						value.CHEBIENs.Add(this);
+						this._MaNL = value.MaNL;
+					}
+					else
+					{
+						this._MaNL = default(int);
+					}
+					this.SendPropertyChanged("NGUYENLIEU");
 				}
 			}
 		}
@@ -1418,192 +1440,6 @@ namespace FastFood
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NGUYENLIEU")]
-	public partial class NGUYENLIEU : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _MaNL;
-		
-		private string _TenNL;
-		
-		private System.Nullable<int> _GiaNL;
-		
-		private string _DonVi;
-		
-		private int _SLTonKho;
-		
-		private EntitySet<CHEBIEN> _CHEBIENs;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnMaNLChanging(int value);
-    partial void OnMaNLChanged();
-    partial void OnTenNLChanging(string value);
-    partial void OnTenNLChanged();
-    partial void OnGiaNLChanging(System.Nullable<int> value);
-    partial void OnGiaNLChanged();
-    partial void OnDonViChanging(string value);
-    partial void OnDonViChanged();
-    partial void OnSLTonKhoChanging(int value);
-    partial void OnSLTonKhoChanged();
-    #endregion
-		
-		public NGUYENLIEU()
-		{
-			this._CHEBIENs = new EntitySet<CHEBIEN>(new Action<CHEBIEN>(this.attach_CHEBIENs), new Action<CHEBIEN>(this.detach_CHEBIENs));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNL", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MaNL
-		{
-			get
-			{
-				return this._MaNL;
-			}
-			set
-			{
-				if ((this._MaNL != value))
-				{
-					this.OnMaNLChanging(value);
-					this.SendPropertyChanging();
-					this._MaNL = value;
-					this.SendPropertyChanged("MaNL");
-					this.OnMaNLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNL", DbType="NVarChar(30)")]
-		public string TenNL
-		{
-			get
-			{
-				return this._TenNL;
-			}
-			set
-			{
-				if ((this._TenNL != value))
-				{
-					this.OnTenNLChanging(value);
-					this.SendPropertyChanging();
-					this._TenNL = value;
-					this.SendPropertyChanged("TenNL");
-					this.OnTenNLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaNL", DbType="Int")]
-		public System.Nullable<int> GiaNL
-		{
-			get
-			{
-				return this._GiaNL;
-			}
-			set
-			{
-				if ((this._GiaNL != value))
-				{
-					this.OnGiaNLChanging(value);
-					this.SendPropertyChanging();
-					this._GiaNL = value;
-					this.SendPropertyChanged("GiaNL");
-					this.OnGiaNLChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonVi", DbType="NVarChar(15)")]
-		public string DonVi
-		{
-			get
-			{
-				return this._DonVi;
-			}
-			set
-			{
-				if ((this._DonVi != value))
-				{
-					this.OnDonViChanging(value);
-					this.SendPropertyChanging();
-					this._DonVi = value;
-					this.SendPropertyChanged("DonVi");
-					this.OnDonViChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLTonKho", DbType="Int NOT NULL")]
-		public int SLTonKho
-		{
-			get
-			{
-				return this._SLTonKho;
-			}
-			set
-			{
-				if ((this._SLTonKho != value))
-				{
-					this.OnSLTonKhoChanging(value);
-					this.SendPropertyChanging();
-					this._SLTonKho = value;
-					this.SendPropertyChanged("SLTonKho");
-					this.OnSLTonKhoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NGUYENLIEU_CHEBIEN", Storage="_CHEBIENs", ThisKey="MaNL", OtherKey="MaNL")]
-		public EntitySet<CHEBIEN> CHEBIENs
-		{
-			get
-			{
-				return this._CHEBIENs;
-			}
-			set
-			{
-				this._CHEBIENs.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_CHEBIENs(CHEBIEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.NGUYENLIEU = this;
-		}
-		
-		private void detach_CHEBIENs(CHEBIEN entity)
-		{
-			this.SendPropertyChanging();
-			entity.NGUYENLIEU = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NHANVIEN")]
 	public partial class NHANVIEN : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2423,6 +2259,333 @@ namespace FastFood
 				if ((this._GiaBan != value))
 				{
 					this._GiaBan = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NGUYENLIEU")]
+	public partial class NGUYENLIEU : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _MaNL;
+		
+		private string _TenNL;
+		
+		private int _GiaNL;
+		
+		private string _DonVi;
+		
+		private int _SLTonKho;
+		
+		private System.Nullable<bool> _TT_Ban;
+		
+		private EntitySet<CHEBIEN> _CHEBIENs;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnMaNLChanging(int value);
+    partial void OnMaNLChanged();
+    partial void OnTenNLChanging(string value);
+    partial void OnTenNLChanged();
+    partial void OnGiaNLChanging(int value);
+    partial void OnGiaNLChanged();
+    partial void OnDonViChanging(string value);
+    partial void OnDonViChanged();
+    partial void OnSLTonKhoChanging(int value);
+    partial void OnSLTonKhoChanged();
+    partial void OnTT_BanChanging(System.Nullable<bool> value);
+    partial void OnTT_BanChanged();
+    #endregion
+		
+		public NGUYENLIEU()
+		{
+			this._CHEBIENs = new EntitySet<CHEBIEN>(new Action<CHEBIEN>(this.attach_CHEBIENs), new Action<CHEBIEN>(this.detach_CHEBIENs));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNL", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MaNL
+		{
+			get
+			{
+				return this._MaNL;
+			}
+			set
+			{
+				if ((this._MaNL != value))
+				{
+					this.OnMaNLChanging(value);
+					this.SendPropertyChanging();
+					this._MaNL = value;
+					this.SendPropertyChanged("MaNL");
+					this.OnMaNLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNL", DbType="NVarChar(30)")]
+		public string TenNL
+		{
+			get
+			{
+				return this._TenNL;
+			}
+			set
+			{
+				if ((this._TenNL != value))
+				{
+					this.OnTenNLChanging(value);
+					this.SendPropertyChanging();
+					this._TenNL = value;
+					this.SendPropertyChanged("TenNL");
+					this.OnTenNLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaNL", DbType="Int NOT NULL")]
+		public int GiaNL
+		{
+			get
+			{
+				return this._GiaNL;
+			}
+			set
+			{
+				if ((this._GiaNL != value))
+				{
+					this.OnGiaNLChanging(value);
+					this.SendPropertyChanging();
+					this._GiaNL = value;
+					this.SendPropertyChanged("GiaNL");
+					this.OnGiaNLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonVi", DbType="NVarChar(15)")]
+		public string DonVi
+		{
+			get
+			{
+				return this._DonVi;
+			}
+			set
+			{
+				if ((this._DonVi != value))
+				{
+					this.OnDonViChanging(value);
+					this.SendPropertyChanging();
+					this._DonVi = value;
+					this.SendPropertyChanged("DonVi");
+					this.OnDonViChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLTonKho", DbType="Int NOT NULL")]
+		public int SLTonKho
+		{
+			get
+			{
+				return this._SLTonKho;
+			}
+			set
+			{
+				if ((this._SLTonKho != value))
+				{
+					this.OnSLTonKhoChanging(value);
+					this.SendPropertyChanging();
+					this._SLTonKho = value;
+					this.SendPropertyChanged("SLTonKho");
+					this.OnSLTonKhoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TT_Ban", DbType="Bit")]
+		public System.Nullable<bool> TT_Ban
+		{
+			get
+			{
+				return this._TT_Ban;
+			}
+			set
+			{
+				if ((this._TT_Ban != value))
+				{
+					this.OnTT_BanChanging(value);
+					this.SendPropertyChanging();
+					this._TT_Ban = value;
+					this.SendPropertyChanged("TT_Ban");
+					this.OnTT_BanChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="NGUYENLIEU_CHEBIEN", Storage="_CHEBIENs", ThisKey="MaNL", OtherKey="MaNL")]
+		public EntitySet<CHEBIEN> CHEBIENs
+		{
+			get
+			{
+				return this._CHEBIENs;
+			}
+			set
+			{
+				this._CHEBIENs.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_CHEBIENs(CHEBIEN entity)
+		{
+			this.SendPropertyChanging();
+			entity.NGUYENLIEU = this;
+		}
+		
+		private void detach_CHEBIENs(CHEBIEN entity)
+		{
+			this.SendPropertyChanging();
+			entity.NGUYENLIEU = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.v_NguyenLieu")]
+	public partial class v_NguyenLieu
+	{
+		
+		private int _MaNL;
+		
+		private string _TenNL;
+		
+		private int _GiaNL;
+		
+		private string _DonVi;
+		
+		private int _SLTonKho;
+		
+		private System.Nullable<bool> _TT_Ban;
+		
+		public v_NguyenLieu()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNL", DbType="Int NOT NULL")]
+		public int MaNL
+		{
+			get
+			{
+				return this._MaNL;
+			}
+			set
+			{
+				if ((this._MaNL != value))
+				{
+					this._MaNL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenNL", DbType="NVarChar(30)")]
+		public string TenNL
+		{
+			get
+			{
+				return this._TenNL;
+			}
+			set
+			{
+				if ((this._TenNL != value))
+				{
+					this._TenNL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaNL", DbType="Int NOT NULL")]
+		public int GiaNL
+		{
+			get
+			{
+				return this._GiaNL;
+			}
+			set
+			{
+				if ((this._GiaNL != value))
+				{
+					this._GiaNL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DonVi", DbType="NVarChar(15)")]
+		public string DonVi
+		{
+			get
+			{
+				return this._DonVi;
+			}
+			set
+			{
+				if ((this._DonVi != value))
+				{
+					this._DonVi = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLTonKho", DbType="Int NOT NULL")]
+		public int SLTonKho
+		{
+			get
+			{
+				return this._SLTonKho;
+			}
+			set
+			{
+				if ((this._SLTonKho != value))
+				{
+					this._SLTonKho = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TT_Ban", DbType="Bit")]
+		public System.Nullable<bool> TT_Ban
+		{
+			get
+			{
+				return this._TT_Ban;
+			}
+			set
+			{
+				if ((this._TT_Ban != value))
+				{
+					this._TT_Ban = value;
 				}
 			}
 		}
