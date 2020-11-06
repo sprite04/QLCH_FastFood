@@ -43,14 +43,15 @@
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvSanPham = new System.Windows.Forms.DataGridView();
-            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelMa = new System.Windows.Forms.Label();
             this.lblMa = new System.Windows.Forms.Label();
             this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongGiaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ngay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenSP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnFind)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
@@ -190,8 +191,9 @@
             this.dgvSanPham.ColumnHeadersHeight = 35;
             this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvSanPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaSP,
             this.TenSP,
-            this.SoLuong});
+            this.SL});
             this.dgvSanPham.EnableHeadersVisualStyles = false;
             this.dgvSanPham.GridColor = System.Drawing.Color.DimGray;
             this.dgvSanPham.Location = new System.Drawing.Point(1043, 184);
@@ -220,22 +222,6 @@
             this.dgvSanPham.TabIndex = 12;
             this.dgvSanPham.Visible = false;
             // 
-            // TenSP
-            // 
-            this.TenSP.HeaderText = "TenSP";
-            this.TenSP.MinimumWidth = 8;
-            this.TenSP.Name = "TenSP";
-            this.TenSP.ReadOnly = true;
-            this.TenSP.Width = 250;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.HeaderText = "SoLuong";
-            this.SoLuong.MinimumWidth = 8;
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.ReadOnly = true;
-            this.SoLuong.Width = 80;
-            // 
             // labelMa
             // 
             this.labelMa.AutoSize = true;
@@ -260,7 +246,7 @@
             // MaHD
             // 
             this.MaHD.FillWeight = 30F;
-            this.MaHD.HeaderText = "MaHD";
+            this.MaHD.HeaderText = "ID";
             this.MaHD.MinimumWidth = 8;
             this.MaHD.Name = "MaHD";
             this.MaHD.ReadOnly = true;
@@ -269,7 +255,7 @@
             // TongTien
             // 
             this.TongTien.FillWeight = 30F;
-            this.TongTien.HeaderText = "TongTien";
+            this.TongTien.HeaderText = "Total Money";
             this.TongTien.MinimumWidth = 8;
             this.TongTien.Name = "TongTien";
             this.TongTien.ReadOnly = true;
@@ -278,7 +264,7 @@
             // TongGiaSP
             // 
             this.TongGiaSP.FillWeight = 30F;
-            this.TongGiaSP.HeaderText = "TongGiaSP";
+            this.TongGiaSP.HeaderText = "Total Price";
             this.TongGiaSP.MinimumWidth = 8;
             this.TongGiaSP.Name = "TongGiaSP";
             this.TongGiaSP.ReadOnly = true;
@@ -287,11 +273,35 @@
             // Ngay
             // 
             this.Ngay.FillWeight = 30F;
-            this.Ngay.HeaderText = "Ngay";
+            this.Ngay.HeaderText = "Date";
             this.Ngay.MinimumWidth = 8;
             this.Ngay.Name = "Ngay";
             this.Ngay.ReadOnly = true;
             this.Ngay.Width = 180;
+            // 
+            // MaSP
+            // 
+            this.MaSP.HeaderText = "ID";
+            this.MaSP.MinimumWidth = 8;
+            this.MaSP.Name = "MaSP";
+            this.MaSP.ReadOnly = true;
+            this.MaSP.Width = 150;
+            // 
+            // TenSP
+            // 
+            this.TenSP.HeaderText = "Product\'s Name";
+            this.TenSP.MinimumWidth = 8;
+            this.TenSP.Name = "TenSP";
+            this.TenSP.ReadOnly = true;
+            this.TenSP.Width = 250;
+            // 
+            // SL
+            // 
+            this.SL.HeaderText = "Amount";
+            this.SL.MinimumWidth = 8;
+            this.SL.Name = "SL";
+            this.SL.ReadOnly = true;
+            this.SL.Width = 80;
             // 
             // Bill
             // 
@@ -327,11 +337,12 @@
         private System.Windows.Forms.Label labelMa;
         private System.Windows.Forms.Label lblBill;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaHD;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongGiaSP;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ngay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenSP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
     }
 }

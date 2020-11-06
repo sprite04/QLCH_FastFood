@@ -18,21 +18,36 @@ namespace FastFood.UIQuanLy
             InitializeComponent();
         }
 
-
         BLHoaDon blHD;
         List<HOADON> dsHD = new List<HOADON>();
+        List<v_HoaDon> dsVHD;
         BLSanPham blSP = new BLSanPham();
-        List<CHITIET_HD> dsCT = new List<CHITIET_HD>();
-        List<SANPHAM> dsSP = new List<SANPHAM>();
+        BLChiTietHD blCT = new BLChiTietHD();
+        List<sp_ChiTietDGVResult> dsVCT;
 
-        private void LoadCT(HOADON hd)
+        private void LoadCT(v_HoaDon hd)
         {
-            
+            blCT = new BLChiTietHD();
+            dsVCT = blCT.dsChiTietHDDGV(hd);
+            dgvSanPham.Rows.Clear();
+            lblMa.Visible = true;
+            labelMa.Visible = true;
+            lblMa.Text = hd.MaHD.ToString();
+            for (int i = 0; i < dsVCT.Count; i++)
+            {
+                dgvSanPham.Rows.Add(dsVCT[i].MaSP,dsVCT[i].TenSP, dsVCT[i].SL);
+            }
         }
 
         private void LoadData()
         {
-            
+            blHD = new BLHoaDon();
+            dsVHD = blHD.dsVHoaDon();
+            dgvHoaDon.Rows.Clear();
+            for (int i = 0; i < dsVHD.Count; i++)
+            {
+                dgvHoaDon.Rows.Add(dsVHD[i].MaHD, dsVHD[i].TongTien, dsVHD[i].TongGiaSP, dsVHD[i].Ngay);
+            }
         }
 
         private void Bill_Load(object sender, EventArgs e)
@@ -49,14 +64,14 @@ namespace FastFood.UIQuanLy
         private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             rowselect = e.RowIndex;
-            if (rowselect >= 0 && rowselect < dgvHoaDon.Rows.Count - 1)
+            if (rowselect >= 0 && rowselect < dsVHD.Count)
             {
-                for (int i = 0; i < dsHD.Count; i++)
+                for (int i = 0; i < dsVHD.Count; i++)
                 {
                     if (dsHD[i].MaHD.ToString() == dgvHoaDon.Rows[rowselect].Cells[0].Value.ToString())
                     {
                         dgvSanPham.Visible = true;
-                        LoadCT(dsHD[i]);
+                        LoadCT(dsVHD[i]);
                     }
                 }
             }

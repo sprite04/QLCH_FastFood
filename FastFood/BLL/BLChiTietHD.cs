@@ -8,5 +8,18 @@ namespace FastFood.BLL
 {
     public class BLChiTietHD
     {
+        public List<CHITIET_HD> dsCT_HD()
+        {
+            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            List<CHITIET_HD> dsCT = context.CHITIET_HDs.ToList();
+            return dsCT;
+        }
+
+        public List<sp_ChiTietDGVResult> dsChiTietHDDGV(v_HoaDon hd)
+        {
+            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            var dsCT = context.sp_ChiTietDGV(hd.MaHD).ToList();
+            return dsCT;
+        }
     }
 }

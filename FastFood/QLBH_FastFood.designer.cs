@@ -207,6 +207,14 @@ namespace FastFood
 			}
 		}
 		
+		public System.Data.Linq.Table<v_HoaDon> v_HoaDons
+		{
+			get
+			{
+				return this.GetTable<v_HoaDon>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Login")]
 		public ISingleResult<sp_LoginResult> sp_Login([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNV", DbType="Int")] System.Nullable<int> maNV)
 		{
@@ -287,6 +295,13 @@ namespace FastFood
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNV, hoTen, gT, cMND, sDT, diaChi, tT_Lam, matKhau, maCV);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ChiTietDGV")]
+		public ISingleResult<sp_ChiTietDGVResult> sp_ChiTietDGV([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaHD", DbType="Int")] System.Nullable<int> maHD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maHD);
+			return ((ISingleResult<sp_ChiTietDGVResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -2748,6 +2763,105 @@ namespace FastFood
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.v_HoaDon")]
+	public partial class v_HoaDon
+	{
+		
+		private int _MaHD;
+		
+		private int _TongTien;
+		
+		private int _TongGiaSP;
+		
+		private System.Nullable<System.DateTime> _Ngay;
+		
+		private System.Nullable<bool> _TT_HD;
+		
+		public v_HoaDon()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaHD", DbType="Int NOT NULL")]
+		public int MaHD
+		{
+			get
+			{
+				return this._MaHD;
+			}
+			set
+			{
+				if ((this._MaHD != value))
+				{
+					this._MaHD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongTien", DbType="Int NOT NULL")]
+		public int TongTien
+		{
+			get
+			{
+				return this._TongTien;
+			}
+			set
+			{
+				if ((this._TongTien != value))
+				{
+					this._TongTien = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongGiaSP", DbType="Int NOT NULL")]
+		public int TongGiaSP
+		{
+			get
+			{
+				return this._TongGiaSP;
+			}
+			set
+			{
+				if ((this._TongGiaSP != value))
+				{
+					this._TongGiaSP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngay", DbType="Date")]
+		public System.Nullable<System.DateTime> Ngay
+		{
+			get
+			{
+				return this._Ngay;
+			}
+			set
+			{
+				if ((this._Ngay != value))
+				{
+					this._Ngay = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TT_HD", DbType="Bit")]
+		public System.Nullable<bool> TT_HD
+		{
+			get
+			{
+				return this._TT_HD;
+			}
+			set
+			{
+				if ((this._TT_HD != value))
+				{
+					this._TT_HD = value;
+				}
+			}
+		}
+	}
+	
 	public partial class sp_LoginResult
 	{
 		
@@ -2993,6 +3107,86 @@ namespace FastFood
 				if ((this._SL != value))
 				{
 					this._SL = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_ChiTietDGVResult
+	{
+		
+		private int _MaHD;
+		
+		private int _MaSP;
+		
+		private int _SL;
+		
+		private string _TenSP;
+		
+		public sp_ChiTietDGVResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaHD", DbType="Int NOT NULL")]
+		public int MaHD
+		{
+			get
+			{
+				return this._MaHD;
+			}
+			set
+			{
+				if ((this._MaHD != value))
+				{
+					this._MaHD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="Int NOT NULL")]
+		public int MaSP
+		{
+			get
+			{
+				return this._MaSP;
+			}
+			set
+			{
+				if ((this._MaSP != value))
+				{
+					this._MaSP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SL", DbType="Int NOT NULL")]
+		public int SL
+		{
+			get
+			{
+				return this._SL;
+			}
+			set
+			{
+				if ((this._SL != value))
+				{
+					this._SL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenSP", DbType="NVarChar(30)")]
+		public string TenSP
+		{
+			get
+			{
+				return this._TenSP;
+			}
+			set
+			{
+				if ((this._TenSP != value))
+				{
+					this._TenSP = value;
 				}
 			}
 		}
