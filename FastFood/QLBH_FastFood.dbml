@@ -259,4 +259,12 @@
       <Column Name="TenSP" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.sp_ThemHoaDon" Method="sp_ThemHoaDon">
+    <Parameter Name="MaHD" Parameter="maHD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_XoaHoaDon" Method="sp_XoaHoaDon">
+    <Parameter Name="MaHD" Parameter="maHD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

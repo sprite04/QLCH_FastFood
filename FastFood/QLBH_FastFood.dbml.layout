@@ -64,14 +64,14 @@
         <elementListCompartment Id="4b90e0dd-55b3-4993-acfe-607c6b9cd315" absoluteBounds="3.8899999999999997, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.875 : 1.09699625651042); (7 : 1.09699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.875 : 1.09699625651042); (7 : 1.09699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QLBH_FastFoodDataContext/NHANVIEN/NHANVIEN_DIEMDANH" />
       <nodes>
         <classShapeMoniker Id="188bc1d0-2b35-4914-86dd-1db2151d4b3c" />
         <classShapeMoniker Id="39a6a418-61cc-4e6e-8ab6-6b4f406784f8" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7 : 2.45755126953125); (5.875 : 2.45755126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7 : 2.45755126953125); (5.875 : 2.45755126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QLBH_FastFoodDataContext/CHUCVU/CHUCVU_NHANVIEN" />
       <nodes>
         <classShapeMoniker Id="57ed5f7e-7723-42a8-8243-dfa1e5c7c72e" />

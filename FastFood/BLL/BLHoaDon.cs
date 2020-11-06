@@ -21,5 +21,37 @@ namespace FastFood.BLL
             List<v_HoaDon> dsVHD = context.v_HoaDons.ToList();
             return dsVHD;
         }
+
+        public bool Insert(int MaHD, out string message)
+        {
+            message = "";
+            try
+            {
+                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                context.sp_ThemHoaDon(MaHD);
+                return true;
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+            return false;
+        }
+
+        public bool Delete(int MaHD, out string message)
+        {
+            message = "";
+            try
+            {
+                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                context.sp_XoaHoaDon(MaHD);
+                return true;
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+            return false;
+        }
     }
 }

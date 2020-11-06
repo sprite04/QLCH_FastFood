@@ -154,7 +154,7 @@
             this.dgvHoaDon.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvHoaDon.RowTemplate.Height = 28;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(957, 483);
+            this.dgvHoaDon.Size = new System.Drawing.Size(860, 483);
             this.dgvHoaDon.TabIndex = 8;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
             // 
@@ -196,7 +196,7 @@
             this.SL});
             this.dgvSanPham.EnableHeadersVisualStyles = false;
             this.dgvSanPham.GridColor = System.Drawing.Color.DimGray;
-            this.dgvSanPham.Location = new System.Drawing.Point(1043, 184);
+            this.dgvSanPham.Location = new System.Drawing.Point(948, 184);
             this.dgvSanPham.Name = "dgvSanPham";
             this.dgvSanPham.ReadOnly = true;
             this.dgvSanPham.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -218,7 +218,7 @@
             this.dgvSanPham.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvSanPham.RowTemplate.Height = 28;
             this.dgvSanPham.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSanPham.Size = new System.Drawing.Size(595, 281);
+            this.dgvSanPham.Size = new System.Drawing.Size(545, 281);
             this.dgvSanPham.TabIndex = 12;
             this.dgvSanPham.Visible = false;
             // 
@@ -226,7 +226,7 @@
             // 
             this.labelMa.AutoSize = true;
             this.labelMa.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMa.Location = new System.Drawing.Point(1039, 144);
+            this.labelMa.Location = new System.Drawing.Point(944, 144);
             this.labelMa.Name = "labelMa";
             this.labelMa.Size = new System.Drawing.Size(70, 23);
             this.labelMa.TabIndex = 13;
@@ -237,7 +237,7 @@
             // 
             this.lblMa.AutoSize = true;
             this.lblMa.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMa.Location = new System.Drawing.Point(1225, 144);
+            this.lblMa.Location = new System.Drawing.Point(1148, 144);
             this.lblMa.Name = "lblMa";
             this.lblMa.Size = new System.Drawing.Size(0, 23);
             this.lblMa.TabIndex = 13;
@@ -250,7 +250,7 @@
             this.MaHD.MinimumWidth = 8;
             this.MaHD.Name = "MaHD";
             this.MaHD.ReadOnly = true;
-            this.MaHD.Width = 80;
+            this.MaHD.Width = 50;
             // 
             // TongTien
             // 
@@ -285,7 +285,7 @@
             this.MaSP.MinimumWidth = 8;
             this.MaSP.Name = "MaSP";
             this.MaSP.ReadOnly = true;
-            this.MaSP.Width = 150;
+            this.MaSP.Width = 50;
             // 
             // TenSP
             // 
@@ -293,7 +293,7 @@
             this.TenSP.MinimumWidth = 8;
             this.TenSP.Name = "TenSP";
             this.TenSP.ReadOnly = true;
-            this.TenSP.Width = 250;
+            this.TenSP.Width = 170;
             // 
             // SL
             // 
@@ -301,7 +301,7 @@
             this.SL.MinimumWidth = 8;
             this.SL.Name = "SL";
             this.SL.ReadOnly = true;
-            this.SL.Width = 80;
+            this.SL.Width = 70;
             // 
             // Bill
             // 

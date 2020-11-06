@@ -46,7 +46,9 @@ namespace FastFood.UIQuanLy
             dgvHoaDon.Rows.Clear();
             for (int i = 0; i < dsVHD.Count; i++)
             {
-                dgvHoaDon.Rows.Add(dsVHD[i].MaHD, dsVHD[i].TongTien, dsVHD[i].TongGiaSP, dsVHD[i].Ngay);
+                DateTime dt = DateTime.Parse(dsVHD[i].Ngay.ToString());
+                
+                dgvHoaDon.Rows.Add(dsVHD[i].MaHD, dsVHD[i].TongTien, dsVHD[i].TongGiaSP,dt.ToString("dd/MM/yyyy"));
             }
         }
 
@@ -57,7 +59,30 @@ namespace FastFood.UIQuanLy
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            
+            if (dgvHoaDon.SelectedRows.Count > 0)
+            {
+                if (rowselect == -1 || rowselect >= dsVHD.Count)
+                    return;
+                int vt = 0;
+                for (int i = 0; i < dsVHD.Count; i++)
+                {
+                    if (dsVHD[i].MaHD == (int)(dgvHoaDon.Rows[rowselect].Cells[0].Value))
+                    {
+                        vt = i;
+                        break;
+                    }
+                }
+                DialogResult dialog = MessageBox.Show("Bạn có muốn xoá không?", "Xoá", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialog == DialogResult.Yes)
+                {
+                    string message;
+
+                    bool result = blHD.Delete(dsVHD[vt].MaHD, out message);
+                    if (result == false)
+                        MessageBox.Show(message);
+                    LoadData();
+                }
+            }
         }
 
         int rowselect = 0;
@@ -68,7 +93,7 @@ namespace FastFood.UIQuanLy
             {
                 for (int i = 0; i < dsVHD.Count; i++)
                 {
-                    if (dsHD[i].MaHD.ToString() == dgvHoaDon.Rows[rowselect].Cells[0].Value.ToString())
+                    if (dsVHD[i].MaHD.ToString() == dgvHoaDon.Rows[rowselect].Cells[0].Value.ToString())
                     {
                         dgvSanPham.Visible = true;
                         LoadCT(dsVHD[i]);
@@ -79,7 +104,13 @@ namespace FastFood.UIQuanLy
 
         private void dtpFind_ValueChanged(object sender, EventArgs e)
         {
-            
+            dgvHoaDon.Rows.Clear();
+            for (int i = 0; i < dsVHD.Count; i++)
+            {
+                DateTime dt = DateTime.Parse(dsVHD[i].Ngay.ToString());
+                if (dt.Day==dtpFind.Value.Day && dt.Month==dtpFind.Value.Month&& dt.Year==dtpFind.Value.Year)
+                    dgvHoaDon.Rows.Add(dsVHD[i].MaHD, dsVHD[i].TongTien, dsVHD[i].TongGiaSP, dt.ToString("dd/MM/yyyy"));
+            }
         }
 
         private void lblBill_Click(object sender, EventArgs e)

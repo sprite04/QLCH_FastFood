@@ -303,6 +303,20 @@ namespace FastFood
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maHD);
 			return ((ISingleResult<sp_ChiTietDGVResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThemHoaDon")]
+		public int sp_ThemHoaDon([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaHD", DbType="Int")] System.Nullable<int> maHD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maHD);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_XoaHoaDon")]
+		public int sp_XoaHoaDon([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaHD", DbType="Int")] System.Nullable<int> maHD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maHD);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CA")]
