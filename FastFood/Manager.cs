@@ -130,12 +130,24 @@ namespace FastFood
 
         private void btnBill_Click(object sender, EventArgs e)
         {
-           
+            this.WindowState = FormWindowState.Maximized;
+            btnMaximize.Visible = false;
+            btnRestore.Visible = true;
+            pnShow.Controls.Clear();
+            Bill bill = new Bill();
+            bill.Dock = DockStyle.Fill;
+            pnShow.Controls.Add(bill);
         }
 
         private void btnSalary_Click(object sender, EventArgs e)
         {
-           
+            this.WindowState = FormWindowState.Maximized;
+            btnMaximize.Visible = false;
+            btnRestore.Visible = true;
+            pnShow.Controls.Clear();
+            Salary salary = new Salary();
+            salary.Dock = DockStyle.Fill;
+            pnShow.Controls.Add(salary);
         }
 
         private void btnRevene_Click(object sender, EventArgs e)
@@ -148,10 +160,6 @@ namespace FastFood
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
 
         private void btnMaterial_Click(object sender, EventArgs e)
         {
@@ -159,6 +167,17 @@ namespace FastFood
             Material materials = new Material();
             materials.Dock = DockStyle.Fill;
             pnShow.Controls.Add(materials);
+        }
+
+        private void btnShift_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+            btnMaximize.Visible = false;
+            btnRestore.Visible = true;
+            pnShow.Controls.Clear();
+            Shift shift = new Shift();
+            shift.Dock = DockStyle.Fill;
+            pnShow.Controls.Add(shift);
         }
     }
 }

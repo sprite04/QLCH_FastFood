@@ -35,7 +35,10 @@ namespace FastFood
             dgvNhanVien.Rows.Clear();
             for (int i = 0; i < dsVNV.Count; i++)
             {
-                dgvNhanVien.Rows.Add(dsVNV[i].MaNV,dsVNV[i].HoTen,dsVNV[i].TenCV,dsVNV[i].GT,dsVNV[i].CMND,dsVNV[i].SDT);
+                if(dsVNV[i].GT==true)
+                    dgvNhanVien.Rows.Add(dsVNV[i].MaNV,dsVNV[i].HoTen,dsVNV[i].TenCV,"Nữ",dsVNV[i].CMND,dsVNV[i].SDT);
+                else
+                    dgvNhanVien.Rows.Add(dsVNV[i].MaNV, dsVNV[i].HoTen, dsVNV[i].TenCV, "Nam", dsVNV[i].CMND, dsVNV[i].SDT);
             }
         }
 
