@@ -15,6 +15,12 @@ namespace FastFood.BLL
             return dsCa;
         }
 
+        public List<sp_CaResult> dsCaNgay()
+        {
+            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            var dsCaNgay = context.sp_Ca(DateTime.Now).ToList();
+            return dsCaNgay;
+        }
         public bool Insert(DateTime MaCa, out string message)
         {
             message = "";

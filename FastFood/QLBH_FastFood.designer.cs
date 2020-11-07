@@ -324,6 +324,20 @@ namespace FastFood
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maCa);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Ca")]
+		public ISingleResult<sp_CaResult> sp_Ca([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ngay", DbType="DateTime")] System.Nullable<System.DateTime> ngay)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ngay);
+			return ((ISingleResult<sp_CaResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_DiemDanh")]
+		public ISingleResult<sp_DiemDanhResult> sp_DiemDanh([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ngay", DbType="DateTime")] System.Nullable<System.DateTime> ngay)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ngay);
+			return ((ISingleResult<sp_DiemDanhResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CA")]
@@ -3208,6 +3222,94 @@ namespace FastFood
 				if ((this._TenSP != value))
 				{
 					this._TenSP = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_CaResult
+	{
+		
+		private System.DateTime _MaCa;
+		
+		private System.Nullable<int> _SoGio;
+		
+		public sp_CaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaCa", DbType="DateTime NOT NULL")]
+		public System.DateTime MaCa
+		{
+			get
+			{
+				return this._MaCa;
+			}
+			set
+			{
+				if ((this._MaCa != value))
+				{
+					this._MaCa = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SoGio", DbType="Int")]
+		public System.Nullable<int> SoGio
+		{
+			get
+			{
+				return this._SoGio;
+			}
+			set
+			{
+				if ((this._SoGio != value))
+				{
+					this._SoGio = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_DiemDanhResult
+	{
+		
+		private int _MaNV;
+		
+		private System.DateTime _MaCa;
+		
+		public sp_DiemDanhResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNV", DbType="Int NOT NULL")]
+		public int MaNV
+		{
+			get
+			{
+				return this._MaNV;
+			}
+			set
+			{
+				if ((this._MaNV != value))
+				{
+					this._MaNV = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaCa", DbType="DateTime NOT NULL")]
+		public System.DateTime MaCa
+		{
+			get
+			{
+				return this._MaCa;
+			}
+			set
+			{
+				if ((this._MaCa != value))
+				{
+					this._MaCa = value;
 				}
 			}
 		}

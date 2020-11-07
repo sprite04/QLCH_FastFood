@@ -271,4 +271,18 @@
     <Parameter Name="MaCa" Parameter="maCa" Type="System.DateTime" DbType="DateTime" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.sp_Ca" Method="sp_Ca">
+    <Parameter Name="Ngay" Parameter="ngay" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_CaResult">
+      <Column Name="MaCa" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="SoGio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_DiemDanh" Method="sp_DiemDanh">
+    <Parameter Name="Ngay" Parameter="ngay" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_DiemDanhResult">
+      <Column Name="MaNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaCa" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>
