@@ -317,6 +317,13 @@ namespace FastFood
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maHD);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThemCa")]
+		public int sp_ThemCa([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCa", DbType="DateTime")] System.Nullable<System.DateTime> maCa)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maCa);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CA")]

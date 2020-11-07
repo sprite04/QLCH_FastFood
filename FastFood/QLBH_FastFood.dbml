@@ -267,4 +267,8 @@
     <Parameter Name="MaHD" Parameter="maHD" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.sp_ThemCa" Method="sp_ThemCa">
+    <Parameter Name="MaCa" Parameter="maCa" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

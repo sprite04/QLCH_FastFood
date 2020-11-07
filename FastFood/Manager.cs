@@ -1,4 +1,5 @@
-﻿using FastFood.UIQuanLy;
+﻿using FastFood.BLL;
+using FastFood.UIQuanLy;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -171,6 +172,45 @@ namespace FastFood
 
         private void btnShift_Click(object sender, EventArgs e)
         {
+            BLCa blCa = new BLCa();
+            var dsCa = blCa.dsCa();
+            if(DateTime.Now.Hour>=7&&DateTime.Now.Hour<12)
+            {
+                var ds = (from ca in dsCa
+                          where ca.MaCa.Day == DateTime.Now.Day && ca.MaCa.Month == DateTime.Now.Month && ca.MaCa.Year == DateTime.Now.Year && ca.MaCa.Hour >= 7 && ca.MaCa.Hour < 12
+                          select ca.MaCa).ToList();
+                if (ds.Count == 0)
+                {
+                    string message;
+                    DateTime dt = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 7, 0, 0);
+                    blCa.Insert(dt,out message);
+                }
+            }   
+            else if (DateTime.Now.Hour >= 12 && DateTime.Now.Hour < 17)
+            {
+                var ds = (from ca in dsCa
+                          where ca.MaCa.Day == DateTime.Now.Day && ca.MaCa.Month == DateTime.Now.Month && ca.MaCa.Year == DateTime.Now.Year && ca.MaCa.Hour >= 12 && ca.MaCa.Hour < 17
+                          select ca.MaCa).ToList();
+                if (ds.Count == 0)
+                {
+                    string message;
+                    DateTime dt = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 0, 0);
+                    blCa.Insert(dt, out message);
+                }
+            }
+            else if (DateTime.Now.Hour >= 17 && DateTime.Now.Hour < 22)
+            {
+                var ds = (from ca in dsCa
+                          where ca.MaCa.Day == DateTime.Now.Day && ca.MaCa.Month == DateTime.Now.Month && ca.MaCa.Year == DateTime.Now.Year && ca.MaCa.Hour >= 17 && ca.MaCa.Hour < 22
+                          select ca.MaCa).ToList();
+                if (ds.Count == 0)
+                {
+                    string message;
+                    DateTime dt = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 17, 0, 0);
+                    blCa.Insert(dt, out message);
+                }
+            }
+
             this.WindowState = FormWindowState.Maximized;
             btnMaximize.Visible = false;
             btnRestore.Visible = true;
