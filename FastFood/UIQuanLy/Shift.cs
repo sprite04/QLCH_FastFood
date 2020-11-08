@@ -78,6 +78,7 @@ namespace FastFood.UIQuanLy
         private void Shift_Click(object sender, EventArgs e)
         {
             flpDiemDanh.Visible = true;
+            flpDiemDanh.Controls.Clear();
             btnSave.Visible = true;
             blNV = new BLNhanVien();
             blDD = new BLDiemDanh();
@@ -90,9 +91,9 @@ namespace FastFood.UIQuanLy
                 danhsach = new CheckBox[dsNV.Count];
                 for (int i = 0; i < dsNV.Count; i++)
                 {
-                    var ds = (from nv in dsDD
-                              where nv.MaNV == dsNV[i].MaNV
-                              select nv.MaNV).ToList();
+                    var ds = (from dd in dsDD
+                              where dd.MaNV == dsNV[i].MaNV && dd.MaCa.Hour == (int)rb.Tag
+                              select dd.MaNV).ToList();
                     if (ds.Count > 0)
                     {
                         danhsach[i] = new CheckBox();
@@ -105,7 +106,7 @@ namespace FastFood.UIQuanLy
                     else
                     {
                         danhsach[i] = new CheckBox();
-                        danhsach[i].Text = dsNV[i].MaNV + " " + dsNV[i].HoTen;
+                        danhsach[i].Text = dsNV[i].MaNV + "   " + dsNV[i].HoTen;
                         danhsach[i].Tag = dsNV[i].MaNV;
                         danhsach[i].AutoSize = true;
                         danhsach[i].Padding = new System.Windows.Forms.Padding(30, 20, 20, 0);

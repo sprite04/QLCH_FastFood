@@ -21,5 +21,21 @@ namespace FastFood.BLL
             var dsCT = context.sp_ChiTietDGV(hd.MaHD).ToList();
             return dsCT;
         }
+
+        public bool Insert(CHITIET_HD ct, out string message)
+        {
+            message = "";
+            try
+            {
+                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                context.sp_ThemChiTietHD(ct.MaHD, ct.MaSP, ct.SL);
+                return true;
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+            return false;
+        }
     }
 }

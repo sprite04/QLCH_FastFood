@@ -175,14 +175,6 @@ namespace FastFood
 			}
 		}
 		
-		public System.Data.Linq.Table<v_SanPham> v_SanPhams
-		{
-			get
-			{
-				return this.GetTable<v_SanPham>();
-			}
-		}
-		
 		public System.Data.Linq.Table<NGUYENLIEU> NGUYENLIEUs
 		{
 			get
@@ -212,6 +204,14 @@ namespace FastFood
 			get
 			{
 				return this.GetTable<v_HoaDon>();
+			}
+		}
+		
+		public System.Data.Linq.Table<v_SanPham> v_SanPhams
+		{
+			get
+			{
+				return this.GetTable<v_SanPham>();
 			}
 		}
 		
@@ -350,6 +350,13 @@ namespace FastFood
 		public int sp_XoaDiemDanh([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Ngay", DbType="DateTime")] System.Nullable<System.DateTime> ngay)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), ngay);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThemChiTietHD")]
+		public int sp_ThemChiTietHD([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaHD", DbType="Int")] System.Nullable<int> maHD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaSP", DbType="Int")] System.Nullable<int> maSP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SL", DbType="Int")] System.Nullable<int> sL)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maHD, maSP, sL);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -2269,87 +2276,6 @@ namespace FastFood
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.v_SanPham")]
-	public partial class v_SanPham
-	{
-		
-		private int _MaSP;
-		
-		private string _TenSP;
-		
-		private System.Nullable<int> _GiaGoc;
-		
-		private System.Nullable<int> _GiaBan;
-		
-		public v_SanPham()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="Int NOT NULL")]
-		public int MaSP
-		{
-			get
-			{
-				return this._MaSP;
-			}
-			set
-			{
-				if ((this._MaSP != value))
-				{
-					this._MaSP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenSP", DbType="NVarChar(30)")]
-		public string TenSP
-		{
-			get
-			{
-				return this._TenSP;
-			}
-			set
-			{
-				if ((this._TenSP != value))
-				{
-					this._TenSP = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaGoc", DbType="Int")]
-		public System.Nullable<int> GiaGoc
-		{
-			get
-			{
-				return this._GiaGoc;
-			}
-			set
-			{
-				if ((this._GiaGoc != value))
-				{
-					this._GiaGoc = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaBan", DbType="Int")]
-		public System.Nullable<int> GiaBan
-		{
-			get
-			{
-				return this._GiaBan;
-			}
-			set
-			{
-				if ((this._GiaBan != value))
-				{
-					this._GiaBan = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.NGUYENLIEU")]
 	public partial class NGUYENLIEU : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2906,6 +2832,105 @@ namespace FastFood
 				if ((this._TT_HD != value))
 				{
 					this._TT_HD = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.v_SanPham")]
+	public partial class v_SanPham
+	{
+		
+		private int _MaSP;
+		
+		private string _TenSP;
+		
+		private System.Data.Linq.Binary _HinhSP;
+		
+		private System.Nullable<int> _GiaGoc;
+		
+		private System.Nullable<int> _GiaBan;
+		
+		public v_SanPham()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSP", DbType="Int NOT NULL")]
+		public int MaSP
+		{
+			get
+			{
+				return this._MaSP;
+			}
+			set
+			{
+				if ((this._MaSP != value))
+				{
+					this._MaSP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenSP", DbType="NVarChar(30)")]
+		public string TenSP
+		{
+			get
+			{
+				return this._TenSP;
+			}
+			set
+			{
+				if ((this._TenSP != value))
+				{
+					this._TenSP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HinhSP", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary HinhSP
+		{
+			get
+			{
+				return this._HinhSP;
+			}
+			set
+			{
+				if ((this._HinhSP != value))
+				{
+					this._HinhSP = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaGoc", DbType="Int")]
+		public System.Nullable<int> GiaGoc
+		{
+			get
+			{
+				return this._GiaGoc;
+			}
+			set
+			{
+				if ((this._GiaGoc != value))
+				{
+					this._GiaGoc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaBan", DbType="Int")]
+		public System.Nullable<int> GiaBan
+		{
+			get
+			{
+				return this._GiaBan;
+			}
+			set
+			{
+				if ((this._GiaBan != value))
+				{
+					this._GiaBan = value;
 				}
 			}
 		}

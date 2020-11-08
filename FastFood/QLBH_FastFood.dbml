@@ -98,14 +98,6 @@
       <Column Name="TongDoanhThu" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.v_SanPham" Member="v_SanPhams">
-    <Type Name="v_SanPham">
-      <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="TenSP" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="GiaGoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GiaBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.NGUYENLIEU" Member="NGUYENLIEUs">
     <Type Name="NGUYENLIEU">
       <Column Name="MaNL" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -145,6 +137,15 @@
       <Column Name="TongGiaSP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Ngay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="TT_HD" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.v_SanPham" Member="v_SanPhams">
+    <Type Name="v_SanPham">
+      <Column Name="MaSP" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenSP" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="HinhSP" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GiaGoc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GiaBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_Login" Method="sp_Login">
@@ -292,6 +293,12 @@
   </Function>
   <Function Name="dbo.sp_XoaDiemDanh" Method="sp_XoaDiemDanh">
     <Parameter Name="Ngay" Parameter="ngay" Type="System.DateTime" DbType="DateTime" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_ThemChiTietHD" Method="sp_ThemChiTietHD">
+    <Parameter Name="MaHD" Parameter="maHD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaSP" Parameter="maSP" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SL" Parameter="sL" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
 </Database>
