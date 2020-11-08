@@ -77,6 +77,7 @@ namespace FastFood.UIQuanLy
         List<NHANVIEN> dsNV;
         private void Shift_Click(object sender, EventArgs e)
         {
+            lbThongBao.Text = "";
             flpDiemDanh.Visible = true;
             flpDiemDanh.Controls.Clear();
             btnSave.Visible = true;
@@ -204,7 +205,8 @@ namespace FastFood.UIQuanLy
             }
             else
             {
-                MessageBox.Show("Ngoài thời gian điểm danh của ca này");
+                lbThongBao.Text = "Ngoài thời gian điểm danh của ca này";
+                
             }    
         }
 

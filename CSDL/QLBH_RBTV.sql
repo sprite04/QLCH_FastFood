@@ -1,0 +1,247 @@
+USE QLBH_CHTAN
+GO
+
+
+-- Tinh tong tien ban va tong tien von tren HOADON
+
+CREATE FUNCTION fn_TienVonSP(@MaSP INT)
+RETURNS FLOAT AS
+BEGIN
+	DECLARE @TV FLOAT
+	SELECT @TV=SUM(BANG.Gia)
+	FROM 
+	(
+		SELECT CB.MaSP AS MaSP,CB.SoLuong*NL.GiaNL AS Gia
+		FROM dbo.CHEBIEN CB, dbo.NGUYENLIEU NL
+		WHERE CB.MaNL=NL.MaNL
+	) AS BANG
+	WHERE BANG.MaSP=@MaSP
+	GROUP BY BANG.MaSP
+	IF @TV IS NULL
+		SET @TV=0
+	RETURN @TV
+END
+GO
+
+
+CREATE FUNCTION fn_TienBanSP(@MaSP INT)
+RETURNS FLOAT AS
+BEGIN
+	DECLARE @TB FLOAT
+	SELECT @TB=dbo.fn_TienVonSP(@MaSP)*(1+SP.LoiNhuan-SP.GiamGia)
+	FROM dbo.SANPHAM SP
+	WHERE SP.MaSP=@MaSP
+	IF @TB IS NULL
+		SET @TB=0
+	RETURN @TB
+END
+GO
+
+
+CREATE FUNCTION fn_TienHoaDon(@MaHD INT)
+RETURNS FLOAT AS
+BEGIN
+	DECLARE @Tien FLOAT
+	SELECT @Tien=SUM(CT.SL*dbo.fn_TienBanSP(CT.MaSP))
+	FROM dbo.HOADON HD,dbo.CHITIET_HD CT
+	WHERE HD.MaHD=CT.MaHD AND HD.MaHD=@MaHD
+	GROUP BY CT.MaHD
+	IF @Tien IS NULL
+		SET @Tien=0
+	RETURN @Tien
+END
+GO
+
+
+
+CREATE FUNCTION fn_TienVonHoaDon(@MaHD INT)
+RETURNS FLOAT AS
+BEGIN
+	DECLARE @Tien FLOAT
+	SELECT @Tien=SUM(CT.SL*dbo.fn_TienVonSP(CT.MaSP))
+	FROM dbo.HOADON HD,dbo.CHITIET_HD CT
+	WHERE HD.MaHD=CT.MaHD AND HD.MaHD=@MaHD
+	GROUP BY CT.MaHD
+	IF @Tien IS NULL
+		SET @Tien=0
+	RETURN @Tien
+END
+GO
+
+
+
+CREATE TRIGGER tg_CapNhatTien ON dbo.CHITIET_HD
+FOR UPDATE, INSERT AS
+UPDATE dbo.HOADON SET TongTien=ROUND(dbo.fn_TienHoaDon(Inserted.MaHD),0) ,TongGiaSP=ROUND(dbo.fn_TienVonHoaDon(Inserted.MaHD),0) 
+FROM Inserted
+WHERE Inserted.MaHD=HOADON.MaHD
+GO
+
+CREATE TRIGGER tg_CapNhatTienX ON dbo.CHITIET_HD
+FOR DELETE AS
+UPDATE dbo.HOADON SET TongTien=ROUND(dbo.fn_TienHoaDon(Deleted.MaHD),0) ,TongGiaSP=ROUND(dbo.fn_TienVonHoaDon(Deleted.MaHD),0) 
+FROM Deleted
+WHERE Deleted.MaHD=HOADON.MaHD
+GO
+
+--*Tao HOADON
+CREATE TRIGGER tg_HoaDon ON dbo.HOADON
+FOR INSERT AS
+UPDATE dbo.HOADON SET Ngay=GETDATE(), TT_HD='True'
+FROM Inserted I
+WHERE HOADON.MaHD=I.MaHD
+GO
+
+--*TT_Con tren SanPham khi NguyenLieu thay doi
+CREATE TRIGGER tg_TTConSP ON dbo.NGUYENLIEU
+FOR UPDATE AS
+UPDATE dbo.SANPHAM SET TT_Con='False'
+FROM dbo.CHEBIEN CB, Inserted I
+WHERE CB.MaSP=SANPHAM.MaSP AND I.MaNL=CB.MaNL AND I.SLTonKho<=0
+GO
+
+
+
+--*Thay doi so luong nguyen lieu khi 1 san pham duoc ban ra
+
+
+CREATE FUNCTION fn_SPNL(@MaSP INT, @MaNL INT)-- So luong moi nguyen lieu/1 san pham KHI CHE BIEN
+RETURNS INT AS
+BEGIN
+	DECLARE @SL INT
+	SELECT @SL=CB.SoLuong
+	FROM dbo.CHEBIEN CB
+	WHERE CB.MaSP=@MaSP AND CB.MaNL=@MaNL
+RETURN @SL
+END
+GO
+
+
+CREATE FUNCTION fn_KTCon(@MaSP INT, @SLSP INT, @MaNL INT) --tra ve SL nguyen lieu thuc te con lai khi them 1 sp vao hoa don
+RETURNS INT AS
+BEGIN
+	DECLARE @Con INT
+	SELECT @Con=NL.SLTonKho-(dbo.fn_SPNL(@MaSP,@MaNL))*@SLSP
+	FROM dbo.NGUYENLIEU NL
+	WHERE NL.MaNL=@MaNL
+RETURN @Con
+END
+GO
+
+
+CREATE FUNCTION fn_Con(@MaSP INT, @SLSP INT)
+RETURNS INT AS
+BEGIN
+	DECLARE @Con INT
+	SELECT @Con=COUNT(*)
+	FROM dbo.NGUYENLIEU NL, dbo.CHEBIEN CB
+	WHERE NL.MaNL=CB.MaNL AND CB.MaSP=@MaSP AND dbo.fn_KTCon(@MaSP,@SLSP,NL.MaNL)>=0
+	IF @Con IS NULL
+		SET @Con=-1
+	RETURN @Con
+END
+GO
+
+
+--*Cap nhat Luong tu Ca
+CREATE FUNCTION fn_TongSoGio(@MaNV INT, @MaCa DATETIME)
+RETURNS INT AS
+BEGIN
+	DECLARE @SoGio INT
+	SELECT @SoGio= SUM(BANG.SoGio)
+	FROM
+		(SELECT D.MaNV AS MaNV,C.SoGio AS SoGio
+		FROM dbo.DIEMDANH D, dbo.CA C
+		WHERE D.MaCa=C.MaCa AND MONTH(D.MaCa)=MONTH(@MaCa) AND YEAR(D.MaCa)=YEAR(@MaCa)) BANG
+	WHERE BANG.MaNV=@MaNV
+	GROUP BY BANG.MaNV
+RETURN @SoGio
+END
+GO
+
+
+
+
+CREATE TRIGGER tg_Luong ON dbo.DIEMDANH
+FOR INSERT, UPDATE AS
+DECLARE @Luong INT
+SELECT @Luong=dbo.fn_TongSoGio(I.MaNV,I.MaCa)*L.LuongCB*CV.HS_Luong
+FROM Inserted I, dbo.LUONG L, dbo.NHANVIEN NV, dbo.CHUCVU CV
+WHERE I.MaNV=L.MaNV AND I.MaNV=NV.MaNV AND NV.MaCV=CV.MaCV
+UPDATE dbo.LUONG SET LuongTong=@Luong
+FROM Inserted I
+WHERE I.MaNV=dbo.LUONG.MaNV AND dbo.LUONG.Thang=MONTH(I.MaCa) AND dbo.LUONG.Nam=YEAR(i.MaCa)
+GO
+
+CREATE TRIGGER tg_LuongX ON dbo.DIEMDANH
+FOR DELETE AS
+DECLARE @Luong INT
+SELECT @Luong=dbo.fn_TongSoGio(D.MaNV,D.MaCa)*L.LuongCB*CV.HS_Luong
+FROM Deleted D, dbo.LUONG L, dbo.NHANVIEN NV, dbo.CHUCVU CV
+WHERE D.MaNV=L.MaNV AND D.MaNV=NV.MaNV AND NV.MaCV=CV.MaCV
+UPDATE dbo.LUONG SET LuongTong=@Luong
+FROM Deleted D
+WHERE D.MaNV=dbo.LUONG.MaNV AND dbo.LUONG.Thang=MONTH(D.MaCa) AND dbo.LUONG.Nam=YEAR(D.MaCa)
+GO
+
+--*Cap nhat cac gia tri vao bang thong ke
+--cap nhat luong tong
+CREATE TRIGGER tg_TongLuong ON dbo.LUONG
+FOR INSERT,UPDATE AS
+DECLARE @TongLuong INT
+SELECT @TongLuong=SUM(L.LuongTong)
+FROM Inserted I,dbo.LUONG L
+WHERE I.Thang=L.Thang AND I.Nam=L.Nam
+GROUP BY L.Thang,L.Nam
+UPDATE dbo.THONGKE_T SET TongLuong=@TongLuong
+FROM Inserted I
+WHERE I.Thang=dbo.THONGKE_T.Thang AND I.Nam=dbo.THONGKE_T.Nam
+GO
+
+CREATE TRIGGER tg_TongLuongX ON dbo.LUONG
+FOR DELETE AS
+DECLARE @TongLuong INT
+SELECT @TongLuong=SUM(L.LuongTong)
+FROM Deleted D,dbo.LUONG L
+WHERE D.Thang=L.Thang AND D.Nam=L.Nam
+GROUP BY L.Thang,L.Nam
+UPDATE dbo.THONGKE_T SET TongLuong=@TongLuong
+FROM Deleted D
+WHERE D.Thang=dbo.THONGKE_T.Thang AND D.Nam=dbo.THONGKE_T.Nam
+GO
+
+--cap nhat tong gia nguyen lieu va tong doanh thu
+CREATE TRIGGER tg_TongNLDT ON dbo.HOADON
+FOR INSERT,UPDATE AS
+DECLARE @TongNL INT, @TongDT INT
+SELECT @TongNL=SUM(HD.TongGiaSP), @TongDT=SUM(HD.TongTien)
+FROM Inserted I, dbo.HOADON HD
+WHERE I.Ngay=HD.Ngay AND HD.TT_HD='True'
+GROUP BY MONTH(HD.Ngay),YEAR(HD.Ngay)
+UPDATE dbo.THONGKE_T SET TongGiaNL=@TongNL, TongDoanhThu=@TongDT
+FROM Inserted I
+WHERE dbo.THONGKE_T.Thang=MONTH(I.Ngay) AND dbo.THONGKE_T.Nam=YEAR(I.Ngay)
+GO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
