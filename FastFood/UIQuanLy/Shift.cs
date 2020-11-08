@@ -29,53 +29,65 @@ namespace FastFood.UIQuanLy
             LoadData1();
         }
 
+        RadioButton[] mangCa;
+        List<sp_CaResult> dsCaNgay;
         private void LoadData1()
         {
+            btnSave.Visible = false;
+            flpDiemDanh.Visible = false;
             blCa = new BLCa();
-            var dsCaNgay=blCa.dsCaNgay();
-            RadioButton[] mangCa = new RadioButton[5];
+            dsCaNgay=blCa.dsCaNgay();
+            mangCa = new RadioButton[dsCaNgay.Count];
             for(int i=0; i<dsCaNgay.Count;i++)
             {
-                RadioButton rd = new RadioButton();
-                rd.Size = new System.Drawing.Size(212, 40);
-                rd.Location = new System.Drawing.Point(3, 3+i*40);
-                rd.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+                mangCa[i] = new RadioButton();
+                mangCa[i].Size = new System.Drawing.Size(212, 40);
+                mangCa[i].Location = new System.Drawing.Point(3, 3+i*40);
+                mangCa[i].Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
                 if (dsCaNgay[i].MaCa.Hour == 7)
                 {
-                    rd.Text = "Ca Sáng";
-                    rd.Tag = 7;
+                    mangCa[i].Text = "Ca Sáng";
+                    mangCa[i].Tag = 7;
                 }
                 else if (dsCaNgay[i].MaCa.Hour == 12)
                 {
-                    rd.Text = "Ca Trưa";
-                    rd.Tag = 12;
+                    mangCa[i].Text = "Ca Trưa";
+                    mangCa[i].Tag = 12;
                 }
                 else if (dsCaNgay[i].MaCa.Hour == 17)
                 {
-                    rd.Text = "Ca Chiều";
-                    rd.Tag = 17;
+                    mangCa[i].Text = "Ca Chiều";
+                    mangCa[i].Tag = 17;
                 }
-                mangCa[i] = rd;
             }
             for(int i=0; i<dsCaNgay.Count;i++)
             {
-                flpCa.Controls.Add(mangCa[i]);
                 mangCa[i].Click += Shift_Click;
+                flpCa.Controls.Add(mangCa[i]);
+                
             }    
 
         }
 
-        
 
+        CheckBox[] danhsach;
+        BLDiemDanh blDD;
+        BLNhanVien blNV;
+        List<sp_DiemDanhResult> dsDD;
+        List<NHANVIEN> dsNV;
         private void Shift_Click(object sender, EventArgs e)
         {
-            BLNhanVien blNV = new BLNhanVien();
-            BLDiemDanh blDD = new BLDiemDanh();
-            var dsDD = blDD.dsDiemDanhNgay();
-            List<NHANVIEN> dsNV = blNV.dsNhanVien();
+            flpDiemDanh.Visible = true;
+            btnSave.Visible = true;
+            blNV = new BLNhanVien();
+            blDD = new BLDiemDanh();
+            dsDD = blDD.dsDiemDanhNgay();
+            dsNV = blNV.dsNhanVien();
             if (dsNV.Count > 0)
             {
-                CheckBox[] danhsach = new CheckBox[dsNV.Count];
+                RadioButton rb = sender as RadioButton;
+                gbCa.Text = DateTime.Now.ToString("dd-MMM-yyyy") + "   " + rb.Text;
+                danhsach = new CheckBox[dsNV.Count];
                 for (int i = 0; i < dsNV.Count; i++)
                 {
                     var ds = (from nv in dsDD
@@ -83,25 +95,121 @@ namespace FastFood.UIQuanLy
                               select nv.MaNV).ToList();
                     if (ds.Count > 0)
                     {
-                        CheckBox cb = new CheckBox();
-                        cb.Text = dsNV[i].MaNV + " " + dsNV[i].HoTen;
-                        cb.Tag = dsNV[i].MaNV;
-                        cb.AutoSize = true;
-                        cb.Checked = true;
-                        danhsach[i] = cb;
+                        danhsach[i] = new CheckBox();
+                        danhsach[i].Text = dsNV[i].MaNV + " " + dsNV[i].HoTen;
+                        danhsach[i].Tag = dsNV[i].MaNV;
+                        danhsach[i].AutoSize = true;
+                        danhsach[i].Checked = true;
+                        danhsach[i].Padding = new System.Windows.Forms.Padding(30, 20, 20, 0);
                     }
                     else
                     {
-                        CheckBox cb = new CheckBox();
-                        cb.Text = dsNV[i].MaNV + " " + dsNV[i].HoTen;
-                        cb.Tag = dsNV[i].MaNV;
-                        cb.AutoSize = true;
-                        danhsach[i] = cb;
+                        danhsach[i] = new CheckBox();
+                        danhsach[i].Text = dsNV[i].MaNV + " " + dsNV[i].HoTen;
+                        danhsach[i].Tag = dsNV[i].MaNV;
+                        danhsach[i].AutoSize = true;
+                        danhsach[i].Padding = new System.Windows.Forms.Padding(30, 20, 20, 0);
                     }
+                    danhsach[i].CheckedChanged += Shift_CheckedChanged;
                     flpDiemDanh.Controls.Add(danhsach[i]);
                 }
             }
         }
 
+        private void Shift_CheckedChanged(object sender, EventArgs e)
+        {
+            lbThongBao.Text = "";
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            int vt = -1;
+            for(int i=0; i< dsCaNgay.Count; i++)
+            {
+                if (mangCa[i].Checked == true)
+                    vt = i;
+            }
+            if((int)mangCa[vt].Tag==7 && DateTime.Now.Hour>=7 && DateTime.Now.Hour<12)
+            {
+                string message;
+                DateTime dt = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 7, 0, 0);
+                bool result=blDD.Delete(dt, out message);
+                if(result==false)
+                {
+                    lbThongBao.Text = message;
+                    return;
+                }
+                for (int i=0; i<dsNV.Count; i++)
+                {
+                    if (danhsach[i].Checked == true)
+                    {
+                        result = blDD.Insert(dt, (int)danhsach[i].Tag, out message);
+                        if (result == false)
+                        {
+                            lbThongBao.Text = message;
+                            return;
+                        }
+                    }
+                }
+                lbThongBao.Text = "Thực hiện thành công";
+            }
+            else if ((int)mangCa[vt].Tag == 12 && DateTime.Now.Hour >= 12 && DateTime.Now.Hour < 17)
+            {
+                string message;
+                DateTime dt = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 12, 0, 0);
+                bool result = blDD.Delete(dt, out message);
+                if (result == false)
+                {
+                    lbThongBao.Text = message;
+                    return;
+                }
+                for (int i = 0; i < dsNV.Count; i++)
+                {
+                    if (danhsach[i].Checked == true)
+                    {
+                        result = blDD.Insert(dt, (int)danhsach[i].Tag, out message);
+                        if (result == false)
+                        {
+                            lbThongBao.Text = message;
+                            return;
+                        }
+                    }
+                }
+                lbThongBao.Text = "Thực hiện thành công";
+            }
+            else if ((int)mangCa[vt].Tag == 17 && DateTime.Now.Hour >= 17 && DateTime.Now.Hour < 22)
+            {
+                string message;
+                DateTime dt = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 17, 0, 0);
+                bool result = blDD.Delete(dt, out message);
+                if (result == false)
+                {
+                    MessageBox.Show(message);
+                    return;
+                }
+                for (int i = 0; i < dsNV.Count; i++)
+                {
+                    if (danhsach[i].Checked == true)
+                    {
+                        result = blDD.Insert(dt, (int)danhsach[i].Tag, out message);
+                        if (result == false)
+                        {
+                            lbThongBao.Text = message;
+                            return;
+                        }
+                    }
+                }
+                lbThongBao.Text = "Thực hiện thành công";
+            }
+            else
+            {
+                MessageBox.Show("Ngoài thời gian điểm danh của ca này");
+            }    
+        }
+
+        private void tabMenu_Click(object sender, EventArgs e)
+        {
+            lbThongBao.Text = "";
+        }
     }
 }

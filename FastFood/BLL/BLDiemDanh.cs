@@ -21,5 +21,37 @@ namespace FastFood.BLL
             List<sp_DiemDanhResult> dsDD = context.sp_DiemDanh(DateTime.Now).ToList();
             return dsDD;
         }
+
+        public bool Insert(DateTime dt, int MaNV, out string message)
+        {
+            message = "";
+            try
+            {
+                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                context.sp_ThemDiemDanh(dt, MaNV);
+                return true;
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+            return false;
+        }
+
+        public bool Delete(DateTime dt, out string message)
+        {
+            message = "";
+            try
+            {
+                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                context.sp_XoaDiemDanh(dt);
+                return true;
+            }
+            catch (Exception e)
+            {
+                message = e.Message;
+            }
+            return false;
+        }
     }
 }
