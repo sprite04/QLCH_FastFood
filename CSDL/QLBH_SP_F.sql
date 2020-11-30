@@ -224,6 +224,18 @@ VALUES  ( @MaHD, -- MaHD - int
           )
 GO
 
+--Thieu Quan
+--View ShiftAndEmployee:
+CREATE VIEW v_ShiftAndEmployee
+AS
+SELECT dbo.NHANVIEN.MaNV AS MaNV, dbo.NHANVIEN.HoTen AS HoTen, dbo.DIEMDANH.MaCa AS MaCa,
+		dbo.CHUCVU.TenCV AS TenCV, dbo.NHANVIEN.GT AS GT, dbo.NHANVIEN.CMND AS CMND, dbo.NHANVIEN.SDT AS SDT
+FROM dbo.NHANVIEN, dbo.DIEMDANH, dbo.CHUCVU
+WHERE dbo.NHANVIEN.MaNV = dbo.DIEMDANH.MaNV AND dbo.NHANVIEN.MaCV = dbo.CHUCVU.MaCV
+GO
+--
+SELECT *
+FROM dbo.v_ShiftAndEmployee
 
 
 

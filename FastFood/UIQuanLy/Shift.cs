@@ -75,6 +75,7 @@ namespace FastFood.UIQuanLy
         BLNhanVien blNV;
         List<sp_DiemDanhResult> dsDD;
         List<NHANVIEN> dsNV;
+        List<v_ShiftAndEmployee> dsNVandDD;
         private void Shift_Click(object sender, EventArgs e)
         {
             lbThongBao.Text = "";
@@ -213,6 +214,70 @@ namespace FastFood.UIQuanLy
         private void tabMenu_Click(object sender, EventArgs e)
         {
             lbThongBao.Text = "";
+            if (tabMenu.SelectedIndex == 1)
+            {
+                LoadSearchNameData();
+            }
+            if (tabMenu.SelectedIndex == 2)
+            {
+                LoadSearchDateData();
+            }
+        }
+
+
+        private void LoadSearchNameData()
+        {
+            blDD = new BLDiemDanh();
+            dsNVandDD = blDD.dsVShiftAndEmployee();
+            dgvNhanVien.Rows.Clear();
+            for (int i = 0; i < dsNVandDD.Count; i++)
+            {
+                dgvNhanVien.Rows.Add(dsNVandDD[i].MaNV,dsNVandDD[i].HoTen, dsNVandDD[i].MaCa.ToString("dd/MM/yyy"), dsNVandDD[i].MaCa.TimeOfDay);
+            }
+        }
+
+        private void LoadSearchDateData()
+        {
+            blDD = new BLDiemDanh();
+            dsNVandDD = blDD.dsVShiftAndEmployee();
+            dgvSearchDate.Rows.Clear();
+            for (int i = 0; i < dsNVandDD.Count; i++)
+            {
+                if (dsNVandDD[i].GT == true)
+                    dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nữ", dsNVandDD[i].CMND, dsNVandDD[i].SDT);
+                else
+                    dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nam", dsNVandDD[i].CMND, dsNVandDD[i].SDT);
+            }
+        }
+
+        private void txtFind_TextChanged_1(object sender, EventArgs e)
+        {
+            if (txtFind.Text == "")
+                LoadSearchNameData();
+            else
+            {
+                LoadSearchNameData();
+                dgvNhanVien.Rows.Clear();
+                for (int i = 0; i < dsNVandDD.Count; i++)
+                {
+                    if (dsNVandDD[i].HoTen.ToLower().Contains(txtFind.Text.ToLower()))
+                        dgvNhanVien.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].MaCa.ToString("dd/MM/yyy"), dsNVandDD[i].MaCa.TimeOfDay);
+                }
+            }
+        }
+
+        private void dtpFind_ValueChanged(object sender, EventArgs e)
+        {
+            dgvSearchDate.Rows.Clear();
+            for (int i = 0; i < dsNVandDD.Count; i++)
+            {
+                DateTime dt = DateTime.Parse(dsNVandDD[i].MaCa.ToString());
+                if (dt.Day == dtpFind.Value.Day && dt.Month == dtpFind.Value.Month && dt.Year == dtpFind.Value.Year)
+                    if (dsNVandDD[i].GT == true)
+                        dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nữ", dsNVandDD[i].CMND, dsNVandDD[i].SDT);
+                    else
+                        dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nam", dsNVandDD[i].CMND, dsNVandDD[i].SDT);
+            }
         }
     }
 }

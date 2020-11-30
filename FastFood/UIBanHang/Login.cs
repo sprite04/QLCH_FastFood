@@ -142,5 +142,10 @@ namespace FastFood
                 }
             }
         }
+
+        private void txtMatKhau_TextChanged(object sender, EventArgs e)
+        {
+            txtMatKhau.PasswordChar = '•';
+        }
     }
 }

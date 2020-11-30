@@ -101,6 +101,7 @@
             this.txtMatKhau.TabIndex = 28;
             this.txtMatKhau.Text = "Password";
             this.txtMatKhau.Click += new System.EventHandler(this.txtMatKhau_Click);
+            this.txtMatKhau.TextChanged += new System.EventHandler(this.txtMatKhau_TextChanged);
             this.txtMatKhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatKhau_KeyDown);
             this.txtMatKhau.Leave += new System.EventHandler(this.txtMatKhau_Leave);
             // 
