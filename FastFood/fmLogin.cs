@@ -121,5 +121,25 @@ namespace FastFood
         {
             txtMatKhau.PasswordChar = '•';
         }
+
+        private void txtMatKhau_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (txtMaNV.Text == "Username" || txtMaNV.Text == "")
+                {
+                    errorProvider1.SetError(txtMatKhau, "Bạn chưa nhập tài khoản!");
+                }
+                else if (txtMatKhau.Text == "Password" || txtMatKhau.Text == "")
+                {
+                    errorProvider1.SetError(txtMatKhau, "Bạn chưa nhập mật khẩu!");
+                }
+                else
+                {
+                    btnLogin.PerformClick();
+                }
+            }
+        }
     }
 }

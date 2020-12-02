@@ -119,6 +119,7 @@
             this.txtMatKhau.Click += new System.EventHandler(this.txtMatKhau_Click_1);
             this.txtMatKhau.TextChanged += new System.EventHandler(this.txtMatKhau_TextChanged);
             this.txtMatKhau.Enter += new System.EventHandler(this.txtMatKhau_Enter);
+            this.txtMatKhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatKhau_KeyDown);
             this.txtMatKhau.Leave += new System.EventHandler(this.txtMatKhau_Leave_1);
             // 
             // panel9

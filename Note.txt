@@ -1,0 +1,7 @@
+30/11/2020
+Thiệu Quân
+Thêm view mới vào BLDiemDanh
+Thêm chức năng search ca bằng tên.
+Thêm chức năng search ca bằng ngày.
+Chuyển tab khi nhập mật khẩu (còn bug)
+Chỉnh sửa tên các tab của mục shift

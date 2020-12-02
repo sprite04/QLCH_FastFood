@@ -8,16 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FastFood.BLL;
+using System.Data.SqlClient;
 
 namespace FastFood
 {
     public partial class Products : UserControl
     {
+        SqlConnection conn;
         public Products()
         {
             InitializeComponent();
         }
-
+        public Products(SqlConnection conn)
+        {
+            InitializeComponent();
+            this.conn = conn;
+        }
         BLSanPham blSP;
         public List<v_SanPham> dsVSP;
         public List<SANPHAM> dsSP;

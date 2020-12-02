@@ -8,3 +8,10 @@ D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\test\bin\Debug\test.pdb
 D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\test\obj\Debug\test.exe
 D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\test\obj\Debug\test.pdb
 D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\test\obj\Debug\test.Form1.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test\obj\Debug\test.csprojAssemblyReference.cache
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test\obj\Debug\test.Form1.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test\obj\Debug\test.Properties.Resources.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test\obj\Debug\test.csproj.GenerateResource.cache
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test\obj\Debug\test.exe
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test\obj\Debug\test.pdb
