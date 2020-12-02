@@ -68,3 +68,29 @@ D:\2021 HK1\Hệ quản trị CSDL\Web\FastFood\FastFood\obj\Debug\FastFood.cspr
 D:\2021 HK1\Hệ quản trị CSDL\Web\FastFood\FastFood\obj\Debug\FastFood.csproj.CoreCompileInputs.cache
 D:\2021 HK1\Hệ quản trị CSDL\Web\FastFood\FastFood\obj\Debug\FastFood.exe
 D:\2021 HK1\Hệ quản trị CSDL\Web\FastFood\FastFood\obj\Debug\FastFood.pdb
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\bin\Debug\FastFood.exe.config
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\bin\Debug\FastFood.exe
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\bin\Debug\FastFood.pdb
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.csprojAssemblyReference.cache
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.UIQuanLy.Bill.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.DetailEmployee.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.UIQuanLy.DetailMaterial.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.DetailProduct.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.UIQuanLy.Material.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.Products.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.Employee.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.Form1.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.Manager.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.Home.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.Item.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.Login.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.Menu.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.PicItem.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.Properties.Resources.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.UIQuanLy.Salary.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.UIQuanLy.Shift.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.csproj.GenerateResource.cache
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.csproj.CoreCompileInputs.cache
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.exe
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.pdb
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\QLCH_FastFood-master\FastFood\obj\Debug\FastFood.fmLogin.resources

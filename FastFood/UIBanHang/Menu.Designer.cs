@@ -159,6 +159,7 @@
             this.flpSanPham.Name = "flpSanPham";
             this.flpSanPham.Size = new System.Drawing.Size(460, 460);
             this.flpSanPham.TabIndex = 6;
+            this.flpSanPham.Paint += new System.Windows.Forms.PaintEventHandler(this.flpSanPham_Paint);
             // 
             // panel1
             // 

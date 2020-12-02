@@ -8,14 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FastFood.BLL;
+using System.Data.SqlClient;
 
 namespace FastFood.UIQuanLy
 {
     public partial class Material : UserControl
     {
+        SqlConnection conn;
         public Material()
         {
             InitializeComponent();
+        }
+        public Material(SqlConnection conn)
+        {
+            InitializeComponent();
+            this.conn = conn;
         }
 
         BLNguyenLieu blNL;
