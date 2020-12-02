@@ -68,3 +68,27 @@ D:\2021 HK1\Hệ quản trị CSDL\Web\FastFood\FastFood\obj\Debug\FastFood.cspr
 D:\2021 HK1\Hệ quản trị CSDL\Web\FastFood\FastFood\obj\Debug\FastFood.csproj.CoreCompileInputs.cache
 D:\2021 HK1\Hệ quản trị CSDL\Web\FastFood\FastFood\obj\Debug\FastFood.exe
 D:\2021 HK1\Hệ quản trị CSDL\Web\FastFood\FastFood\obj\Debug\FastFood.pdb
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\bin\Debug\FastFood.exe.config
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\bin\Debug\FastFood.exe
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\bin\Debug\FastFood.pdb
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.csprojAssemblyReference.cache
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.UIQuanLy.Bill.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.DetailEmployee.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.UIQuanLy.DetailMaterial.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.DetailProduct.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.UIQuanLy.Material.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.Products.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.Employee.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.Form1.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.Manager.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.Home.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.Item.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.Login.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.Menu.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.PicItem.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.Properties.Resources.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.UIQuanLy.Salary.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.UIQuanLy.Shift.resources
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.csproj.GenerateResource.cache
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.exe
+D:\Teddy\Documents\HK1-2020-2021\Hệ Quản Trị Cơ Sở Dữ Liệu\GitHub\QLCH_FastFood\FastFood\obj\Debug\FastFood.pdb
