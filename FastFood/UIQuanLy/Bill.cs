@@ -8,16 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FastFood.BLL;
+using System.Data.SqlClient;
 
 namespace FastFood.UIQuanLy
 {
     public partial class Bill : UserControl
     {
+        SqlConnection conn = new SqlConnection();
         public Bill()
         {
             InitializeComponent();
         }
-
+        public Bill(SqlConnection conn)
+        {
+            InitializeComponent();
+            this.conn = conn;
+        }
         BLHoaDon blHD;
         List<HOADON> dsHD = new List<HOADON>();
         List<v_HoaDon> dsVHD;
