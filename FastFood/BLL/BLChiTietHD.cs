@@ -27,6 +27,7 @@ namespace FastFood.BLL
             message = "";
             try
             {
+                
                 QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
                 context.sp_ThemChiTietHD(ct.MaHD, ct.MaSP, ct.SL);
                 return true;

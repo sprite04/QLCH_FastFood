@@ -18,7 +18,6 @@ namespace FastFood
         {
             InitializeComponent();
         }
-
         int ThanhTien = 0;
         BLSanPham blSP = new BLSanPham();
         BLHoaDon blHD = new BLHoaDon();
@@ -35,6 +34,12 @@ namespace FastFood
         }
         private void Menu_Load(object sender, EventArgs e)
         {
+            //string connection = System.Configuration.ConfigurationManager.ConnectionStrings["FastFood.Properties.Settings.QLBH_FastFoodConnectionString"].ConnectionString;
+
+            //MessageBox.Show(connection);
+            //if (conn.State == ConnectionState.Open)
+            //    conn.Close();
+            //conn.Open();
             pnThanhToan.Visible = false;
 
             dsVSP = blSP.dsVSanPham();
@@ -56,7 +61,7 @@ namespace FastFood
         }
 
 
-
+       
         public void AddControl(PicItem pi)
         {
             int Ma = (int)pi.Tag;
@@ -182,6 +187,11 @@ namespace FastFood
                 listPi[i].Count = 0;
             }
             pnThanhToan.Visible = false;
+        }
+
+        private void flpSanPham_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

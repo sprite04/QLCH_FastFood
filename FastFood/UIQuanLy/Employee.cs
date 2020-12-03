@@ -8,11 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FastFood.BLL;
+using System.Data.SqlClient;
 
 namespace FastFood
 {
     public partial class Employee : UserControl
     {
+        SqlConnection conn = new SqlConnection();
+        public Employee(SqlConnection sql)
+        {
+            InitializeComponent();
+            conn = sql;
+        }
         public Employee(Login l)
         {
             InitializeComponent();
@@ -60,13 +67,27 @@ namespace FastFood
                     DataGridViewRow row = dgvNhanVien.Rows[rowselect];
                     int Ma = (int)row.Cells[0].Value;
                     NHANVIEN nv = dsNV.Find(x => x.MaNV == Ma);
-
-                    if ((nv.MaCV < QuanLi() && QuanLi() == 3) || QuanLi() == 4 || login.MaNV == nv.MaNV)
+                    
+                    if (conn.ConnectionString.Contains("admin"))
                     {
-                        bool kind = (QuanLi() == 4);
+                        bool kind = (conn.ConnectionString.Contains("admin"));
                         bool pass = (login.MaNV == nv.MaNV);
                         DetailEmployee detail = new DetailEmployee(pass,kind, nv);
                         var result = detail.ShowDialog();
+                    }
+                    else if (conn.ConnectionString.Contains("shiftmanager"))
+                    {
+                        if (nv.MaCV >= 3)
+                        {
+                            MessageBox.Show("Bạn không có quyền hạn chỉnh sửa thông tin người này", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            bool kind = (conn.ConnectionString.Contains("shiftmanager"));
+                            bool pass = (login.MaNV == nv.MaNV);
+                            DetailEmployee detail = new DetailEmployee(pass, kind, nv);
+                            var result = detail.ShowDialog();
+                        }
                     }
                     else
                         MessageBox.Show("Bạn không có quyền hạn chỉnh sửa thông tin người này", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -78,12 +99,12 @@ namespace FastFood
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (rowselect >= 0 && rowselect < dsVNV.Count && QuanLi() != 4)
+            if (rowselect >= 0 && rowselect < dsVNV.Count && !conn.ConnectionString.Contains("admin"))
             {
-                MessageBox.Show("Bạn có quyền hạn thêm nhân viên", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Bạn không có quyền hạn thêm nhân viên", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (QuanLi() == 4)
+            if (conn.ConnectionString.Contains("admin"))
             {
                 DetailEmployee detail = new DetailEmployee(true);
                 var result = detail.ShowDialog();
@@ -96,12 +117,12 @@ namespace FastFood
 
             if (dgvNhanVien.SelectedRows.Count > 0)
             {
-                if (rowselect >=0 && rowselect <dsVNV.Count && QuanLi() != 4)
+                if (rowselect >=0 && rowselect <dsVNV.Count && !conn.ConnectionString.Contains("admin"))
                 {
-                    MessageBox.Show("Bạn có quyền hạn xoá thông tin người này", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Bạn không có quyền hạn xoá thông tin người này", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                else if(rowselect >= 0 && rowselect < dsVNV.Count)
+                else if(rowselect >= 0 && rowselect < dsVNV.Count && conn.ConnectionString.Contains("admin"))
                 {
                     int vt = 0;
                     for (int i = 0; i < dsVNV.Count; i++)
@@ -115,7 +136,7 @@ namespace FastFood
                     string message;
                     NHANVIEN nv = dsNV.Find(x => x.MaNV == dsVNV[vt].MaNV);
                     nv.TT_Lam = false;
-                    if (QuanLi() == 4)
+                    if (conn.ConnectionString.Contains("admin"))
                     {
                         DialogResult dialog = MessageBox.Show("Bạn có muốn xoá không?", "Xoá", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (dialog == DialogResult.Yes)

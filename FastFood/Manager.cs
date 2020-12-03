@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -20,11 +21,34 @@ namespace FastFood
             InitializeComponent();
             login = l;
         }
+        SqlConnection conn;
+        public Manager(SqlConnection connection)
+        {
+            InitializeComponent();
+            sqlConnection = connection;
+            conn = connection;
+
+            //làm cái này đẹp đẹp xíu nè. Kiểu welcome ..... hay là login thành công gì đó
+            //MessageBox.Show(arrListStr);
+
+        }
+        public Manager(Login l, SqlConnection connection)
+        {
+            InitializeComponent();
+            login = l;
+            conn = connection;
+
+
+  
+            //làm cái này đẹp đẹp xíu nè. Kiểu welcome ..... hay là login thành công gì đó
+            //MessageBox.Show(arrListStr);
+
+        }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
+        SqlConnection sqlConnection = new SqlConnection();
         Form1 FORM = new Form1();
         Login login = new Login();
         public Manager(Form1 form)
@@ -36,11 +60,145 @@ namespace FastFood
 
         private void Manager_Load(object sender, EventArgs e)
         {
+            List<Button> admin_btns = new List<Button>();
+            List<PictureBox> admin_pic = new List<PictureBox>();
+            List<Button> all_btns = new List<Button>();
+            List<PictureBox> all_pic = new List<PictureBox>();
+            List<Button> emp_btn = new List<Button>();
+            List<Button> stkp_btn = new List<Button>();
+            List<PictureBox> stkp_pic = new List<PictureBox>();
+            List<Button> shiftmanager_btns = new List<Button>();
+            List<PictureBox> shiftmanager_pic = new List<PictureBox>();
+
+            admin_btns.Add(btnBill);
+            admin_btns.Add(btnEmployee);
+            admin_btns.Add(btnItem);
+            admin_btns.Add(btnMaterial);
+            admin_btns.Add(btnRevene);
+            admin_btns.Add(btnSalary);
+            admin_btns.Add(btnShift);
+            admin_btns.Add(btnDashboard);
+            admin_pic.Add(picItem);
+            admin_pic.Add(picRevenue);
+            admin_pic.Add(picSalary);
+            admin_pic.Add(pictureBox2);
+            admin_pic.Add(pictureBox3);
+            admin_pic.Add(picBill);
+            admin_pic.Add(picDashboard);
+            admin_pic.Add(picEmployee);
+
+            //Thieu Quan
+
+            all_btns.Add(btnBill);
+            all_btns.Add(btnEmployee);
+            all_btns.Add(btnItem);
+            all_btns.Add(btnMaterial);
+            all_btns.Add(btnRevene);
+            all_btns.Add(btnSalary);
+            all_btns.Add(btnShift);
+            all_btns.Add(btnDashboard);
+            all_pic.Add(picItem);
+            all_pic.Add(picRevenue);
+            all_pic.Add(picSalary);
+            all_pic.Add(pictureBox2);
+            all_pic.Add(pictureBox3);
+            all_pic.Add(picBill);
+            all_pic.Add(picDashboard);
+            all_pic.Add(picEmployee);
+
+            shiftmanager_btns.Add(btnBill);
+            shiftmanager_btns.Add(btnEmployee);
+            shiftmanager_btns.Add(btnItem);
+            shiftmanager_btns.Add(btnMaterial);
+            shiftmanager_btns.Add(btnRevene);
+            shiftmanager_btns.Add(btnSalary);
+            shiftmanager_btns.Add(btnShift);
+            shiftmanager_btns.Add(btnDashboard);
+            shiftmanager_pic.Add(picItem);
+            shiftmanager_pic.Add(picRevenue);
+            shiftmanager_pic.Add(picSalary);
+            shiftmanager_pic.Add(pictureBox2);
+            shiftmanager_pic.Add(pictureBox3);
+            shiftmanager_pic.Add(picBill);
+            shiftmanager_pic.Add(picDashboard);
+            shiftmanager_pic.Add(picEmployee);
+            //end
+
+            emp_btn.Add(btnItem);
+            emp_btn.Add(btnItem);
+            emp_btn.Add(btnItem);
+            emp_btn.Add(btnItem);
+
+            stkp_btn.Add(btnMaterial);
+            stkp_pic.Add(pictureBox2);
+            string connect = sqlConnection.ConnectionString;
+            // Set all pics and buttons to false
+            foreach (Button but in all_btns)
+            {
+                but.Enabled = false;
+                but.Visible = false;
+            }
+            foreach (PictureBox pic in admin_pic)
+            {
+                pic.Visible = false;
+            }
+            //
+            if (connect.Contains("admin"))
+            {
+                foreach(Button a in admin_btns)
+                {
+                    a.Enabled = true;
+                    a.Visible = true;
+                }
+                foreach (PictureBox x in admin_pic)
+                {
+                    x.Visible = true;
+                }    
+            }
+            else if (connect.Contains("shiftmanager"))
+            {
+                foreach (Button a in shiftmanager_btns)
+                {
+                    a.Enabled = true;
+                    a.Visible = true;
+                }
+                foreach (PictureBox x in shiftmanager_pic)
+                {
+                    x.Visible = true;
+                }
+            }
+            else if (connect.Contains("stkp"))
+            {
+                foreach (Button a in stkp_btn)
+                {
+                    a.Enabled = true;
+                    a.Visible = true;
+                }
+                foreach (PictureBox x in stkp_pic)
+                {
+                    x.Visible = true;
+                }
+            }
+                
             this.WindowState = FormWindowState.Normal;
             this.Size = new Size(1000, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
         }
+        private string Get_ID(SqlConnection conn)
+        {
+            try
+            {
+                string[] arrListStr = conn.ConnectionString.Split(';');
+                string temp = arrListStr[arrListStr.Length - 2];
+                string[] temp_list = temp.Split('=');
+                return temp_list[1];
+            }
+            catch
+            {
+                return "Not available";
+            }
 
+        }
         private void btnZoom_Click(object sender, EventArgs e)
         {
             if (pnList.Width == 258)
@@ -83,7 +241,7 @@ namespace FastFood
         private void btnItem_Click(object sender, EventArgs e)
         {
             pnShow.Controls.Clear();
-            Products products = new Products();
+            Products products = new Products(conn);
             products.Dock = DockStyle.Fill;
             pnShow.Controls.Add(products);
         }
@@ -124,7 +282,7 @@ namespace FastFood
             btnMaximize.Visible = false;
             btnRestore.Visible = true;
             pnShow.Controls.Clear();
-            Employee employee = new Employee(login);
+            Employee employee = new Employee(conn);
             employee.Dock = DockStyle.Fill;
             pnShow.Controls.Add(employee);
         }
@@ -135,7 +293,7 @@ namespace FastFood
             btnMaximize.Visible = false;
             btnRestore.Visible = true;
             pnShow.Controls.Clear();
-            Bill bill = new Bill();
+            Bill bill = new Bill(conn);
             bill.Dock = DockStyle.Fill;
             pnShow.Controls.Add(bill);
         }
@@ -146,7 +304,7 @@ namespace FastFood
             btnMaximize.Visible = false;
             btnRestore.Visible = true;
             pnShow.Controls.Clear();
-            Salary salary = new Salary();
+            Salary salary = new Salary(conn);
             salary.Dock = DockStyle.Fill;
             pnShow.Controls.Add(salary);
         }
@@ -165,7 +323,7 @@ namespace FastFood
         private void btnMaterial_Click(object sender, EventArgs e)
         {
             pnShow.Controls.Clear();
-            Material materials = new Material();
+            Material materials = new Material(conn);
             materials.Dock = DockStyle.Fill;
             pnShow.Controls.Add(materials);
         }

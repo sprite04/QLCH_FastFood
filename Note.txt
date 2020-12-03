@@ -5,3 +5,6 @@ Thêm chức năng search ca bằng tên.
 Thêm chức năng search ca bằng ngày.
 Chuyển tab khi nhập mật khẩu (còn bug)
 Chỉnh sửa tên các tab của mục shift
+
+3/12/2020
+Phân quyền manager

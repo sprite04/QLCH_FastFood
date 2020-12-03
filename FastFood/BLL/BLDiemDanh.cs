@@ -54,12 +54,11 @@ namespace FastFood.BLL
             return false;
         }
 
-        //Thieu Quan
         public List<v_ShiftAndEmployee> dsVShiftAndEmployee()
         {
             QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<v_ShiftAndEmployee> dsNVandDD = context.v_ShiftAndEmployees.ToList();
-            return dsNVandDD;
+            List<v_ShiftAndEmployee> dsVShiftAndEmployee = context.v_ShiftAndEmployees.ToList();
+            return dsVShiftAndEmployee;
         }
     }
 }

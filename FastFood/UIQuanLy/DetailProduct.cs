@@ -133,6 +133,7 @@ namespace FastFood
             {
                 if (cbKind.SelectedIndex >= 0)
                 {
+                    //Lấy mã sản phẩm
                     int value = 0;
                     if (cbKind.SelectedItem.ToString() == "Burger")
                     {

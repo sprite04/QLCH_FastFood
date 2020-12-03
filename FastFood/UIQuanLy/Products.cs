@@ -8,14 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FastFood.BLL;
+using System.Data.SqlClient;
 
 namespace FastFood
 {
     public partial class Products : UserControl
     {
+        SqlConnection conn = new SqlConnection();
         public Products()
         {
             InitializeComponent();
+        }
+
+        public Products(SqlConnection conn)
+        {
+            InitializeComponent();
+            this.conn = conn;
         }
 
         BLSanPham blSP;
@@ -61,6 +69,11 @@ namespace FastFood
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (conn.ConnectionString.Contains("shiftmanager"))
+            {
+                MessageBox.Show("Bạn không có quyền hạn cho chức năng này", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (dgvSanPham.SelectedRows.Count > 0)
             {
                 if (rowselect == -1 || rowselect >= dsVSP.Count)
@@ -84,6 +97,11 @@ namespace FastFood
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (conn.ConnectionString.Contains("shiftmanager"))
+            {
+                MessageBox.Show("Bạn không có quyền hạn cho chức năng này", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             DetailProduct detail = new DetailProduct(true);
             var result = detail.ShowDialog();
             LoadData();
@@ -91,6 +109,11 @@ namespace FastFood
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            if (conn.ConnectionString.Contains("shiftmanager"))
+            {
+                MessageBox.Show("Bạn không có quyền hạn cho chức năng này", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (dgvSanPham.SelectedRows.Count > 0)
             {
                 if (rowselect == -1 || rowselect >= dsVSP.Count)

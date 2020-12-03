@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FastFood.BLL;
+using System.Data.SqlClient;
 
 namespace FastFood.UIQuanLy
 {
@@ -36,13 +37,13 @@ namespace FastFood.UIQuanLy
             btnSave.Visible = false;
             flpDiemDanh.Visible = false;
             blCa = new BLCa();
-            dsCaNgay=blCa.dsCaNgay();
+            dsCaNgay = blCa.dsCaNgay();
             mangCa = new RadioButton[dsCaNgay.Count];
-            for(int i=0; i<dsCaNgay.Count;i++)
+            for (int i = 0; i < dsCaNgay.Count; i++)
             {
                 mangCa[i] = new RadioButton();
                 mangCa[i].Size = new System.Drawing.Size(212, 40);
-                mangCa[i].Location = new System.Drawing.Point(3, 3+i*40);
+                mangCa[i].Location = new System.Drawing.Point(3, 3 + i * 40);
                 mangCa[i].Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
                 if (dsCaNgay[i].MaCa.Hour == 7)
                 {
@@ -60,12 +61,12 @@ namespace FastFood.UIQuanLy
                     mangCa[i].Tag = 17;
                 }
             }
-            for(int i=0; i<dsCaNgay.Count;i++)
+            for (int i = 0; i < dsCaNgay.Count; i++)
             {
                 mangCa[i].Click += Shift_Click;
                 flpCa.Controls.Add(mangCa[i]);
-                
-            }    
+
+            }
 
         }
 
@@ -127,22 +128,22 @@ namespace FastFood.UIQuanLy
         private void btnSave_Click(object sender, EventArgs e)
         {
             int vt = -1;
-            for(int i=0; i< dsCaNgay.Count; i++)
+            for (int i = 0; i < dsCaNgay.Count; i++)
             {
                 if (mangCa[i].Checked == true)
                     vt = i;
             }
-            if((int)mangCa[vt].Tag==7 && DateTime.Now.Hour>=7 && DateTime.Now.Hour<12)
+            if ((int)mangCa[vt].Tag == 7 && DateTime.Now.Hour >= 7 && DateTime.Now.Hour < 12)
             {
                 string message;
                 DateTime dt = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 7, 0, 0);
-                bool result=blDD.Delete(dt, out message);
-                if(result==false)
+                bool result = blDD.Delete(dt, out message);
+                if (result == false)
                 {
                     lbThongBao.Text = message;
                     return;
                 }
-                for (int i=0; i<dsNV.Count; i++)
+                for (int i = 0; i < dsNV.Count; i++)
                 {
                     if (danhsach[i].Checked == true)
                     {
@@ -207,8 +208,8 @@ namespace FastFood.UIQuanLy
             else
             {
                 lbThongBao.Text = "Ngoài thời gian điểm danh của ca này";
-                
-            }    
+
+            }
         }
 
         private void tabMenu_Click(object sender, EventArgs e)
@@ -221,6 +222,7 @@ namespace FastFood.UIQuanLy
             if (tabMenu.SelectedIndex == 2)
             {
                 LoadSearchDateData();
+                dtpFind.Value = DateTime.Now;
             }
         }
 
@@ -232,7 +234,7 @@ namespace FastFood.UIQuanLy
             dgvNhanVien.Rows.Clear();
             for (int i = 0; i < dsNVandDD.Count; i++)
             {
-                dgvNhanVien.Rows.Add(dsNVandDD[i].MaNV,dsNVandDD[i].HoTen, dsNVandDD[i].MaCa.ToString("dd/MM/yyy"), dsNVandDD[i].MaCa.TimeOfDay);
+                dgvNhanVien.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].MaCa.ToString("dd/MM/yyy"), dsNVandDD[i].MaCa.TimeOfDay);
             }
         }
 
@@ -267,6 +269,20 @@ namespace FastFood.UIQuanLy
         }
 
         private void dtpFind_ValueChanged(object sender, EventArgs e)
+        {
+            dgvSearchDate.Rows.Clear();
+            for (int i = 0; i < dsNVandDD.Count; i++)
+            {
+                DateTime dt = DateTime.Parse(dsNVandDD[i].MaCa.ToString());
+                if (dt.Day == dtpFind.Value.Day && dt.Month == dtpFind.Value.Month && dt.Year == dtpFind.Value.Year)
+                    if (dsNVandDD[i].GT == true)
+                        dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nữ", dsNVandDD[i].CMND, dsNVandDD[i].SDT);
+                    else
+                        dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nam", dsNVandDD[i].CMND, dsNVandDD[i].SDT);
+            }
+        }
+
+        private void dtpFind_ValueChanged_1(object sender, EventArgs e)
         {
             dgvSearchDate.Rows.Clear();
             for (int i = 0; i < dsNVandDD.Count; i++)

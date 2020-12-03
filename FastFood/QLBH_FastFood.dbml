@@ -148,6 +148,17 @@
       <Column Name="GiaBan" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.v_ShiftAndEmployee" Member="v_ShiftAndEmployees">
+    <Type Name="v_ShiftAndEmployee">
+      <Column Name="MaNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="MaCa" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="TenCV" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="GT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CMND" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.sp_Login" Method="sp_Login">
     <Parameter Name="MaNV" Parameter="maNV" Type="System.Int32" DbType="Int" />
     <ElementType Name="sp_LoginResult">

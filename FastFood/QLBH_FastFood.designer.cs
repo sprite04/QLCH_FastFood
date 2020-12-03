@@ -214,7 +214,7 @@ namespace FastFood
 				return this.GetTable<v_SanPham>();
 			}
 		}
-
+		
 		public System.Data.Linq.Table<v_ShiftAndEmployee> v_ShiftAndEmployees
 		{
 			get
@@ -222,7 +222,7 @@ namespace FastFood
 				return this.GetTable<v_ShiftAndEmployee>();
 			}
 		}
-
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_Login")]
 		public ISingleResult<sp_LoginResult> sp_Login([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNV", DbType="Int")] System.Nullable<int> maNV)
 		{
@@ -2943,31 +2943,30 @@ namespace FastFood
 			}
 		}
 	}
-
-	[global::System.Data.Linq.Mapping.TableAttribute(Name = "dbo.v_ShiftAndEmployee")]
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.v_ShiftAndEmployee")]
 	public partial class v_ShiftAndEmployee
 	{
-
+		
 		private int _MaNV;
-
+		
 		private string _HoTen;
-
-		private DateTime _MaCa;
-
+		
+		private System.DateTime _MaCa;
+		
 		private string _TenCV;
-
+		
 		private System.Nullable<bool> _GT;
-
+		
 		private string _CMND;
-
+		
 		private string _SDT;
-
-
+		
 		public v_ShiftAndEmployee()
 		{
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MaNV", DbType = "Int NOT NULL")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaNV", DbType="Int NOT NULL")]
 		public int MaNV
 		{
 			get
@@ -2982,8 +2981,8 @@ namespace FastFood
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_HoTen", DbType = "NVarChar(30)")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoTen", DbType="NVarChar(30)")]
 		public string HoTen
 		{
 			get
@@ -2998,9 +2997,9 @@ namespace FastFood
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_MaCa", DbType = "DateTime NOT NULL")]
-		public DateTime MaCa
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaCa", DbType="DateTime NOT NULL")]
+		public System.DateTime MaCa
 		{
 			get
 			{
@@ -3014,8 +3013,8 @@ namespace FastFood
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TenCV", DbType = "NVarChar(20)")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenCV", DbType="NVarChar(20)")]
 		public string TenCV
 		{
 			get
@@ -3030,8 +3029,8 @@ namespace FastFood
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_GT", DbType = "Bit")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GT", DbType="Bit")]
 		public System.Nullable<bool> GT
 		{
 			get
@@ -3046,8 +3045,8 @@ namespace FastFood
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_CMND", DbType = "VarChar(15)")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMND", DbType="VarChar(15)")]
 		public string CMND
 		{
 			get
@@ -3062,8 +3061,8 @@ namespace FastFood
 				}
 			}
 		}
-
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_SDT", DbType = "VarChar(12)")]
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SDT", DbType="VarChar(12)")]
 		public string SDT
 		{
 			get
@@ -3079,7 +3078,7 @@ namespace FastFood
 			}
 		}
 	}
-
+	
 	public partial class sp_LoginResult
 	{
 		
