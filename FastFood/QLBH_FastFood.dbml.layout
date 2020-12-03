@@ -75,42 +75,42 @@
         <classShapeMoniker Id="86d0d622-e735-4bcc-9c96-053bb3c44f70" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 6.875); (3.125 : 6.5); (3.125 : 1.44314697265625); (3.5 : 1.44314697265625)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 6.875); (3.125 : 6.5); (3.125 : 1.44314697265625); (3.5 : 1.44314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QLBH_FastFoodDataContext/HOADON/HOADON_CHITIET_HD" />
       <nodes>
         <classShapeMoniker Id="a1b2a503-6720-46ad-ac8c-5b95e6d9e5ec" />
         <classShapeMoniker Id="3b84a852-0477-45d3-a6c9-a79b87ffc663" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 9.90625); (3.59375 : 9.90625); (3.59375 : 5.1362939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 9.90625); (3.59375 : 9.90625); (3.59375 : 5.1362939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QLBH_FastFoodDataContext/NGUYENLIEU/NGUYENLIEU_CHEBIEN" />
       <nodes>
         <classShapeMoniker Id="90b427cd-655c-4b53-a9a0-6648236632d0" />
         <classShapeMoniker Id="b5a21673-9777-4c65-8525-db68f4a4a105" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.5 : 7.84699625651042); (9.25 : 7.84699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.5 : 7.84699625651042); (9.25 : 7.84699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QLBH_FastFoodDataContext/NHANVIEN/NHANVIEN_DIEMDANH" />
       <nodes>
         <classShapeMoniker Id="80cd4d25-7b64-4b69-aa9d-90becd0568c6" />
         <classShapeMoniker Id="86d0d622-e735-4bcc-9c96-053bb3c44f70" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 7.94314697265625); (6.5 : 7.94314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.75 : 7.94314697265625); (6.5 : 7.94314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QLBH_FastFoodDataContext/CHUCVU/CHUCVU_NHANVIEN" />
       <nodes>
         <classShapeMoniker Id="76184747-dace-482b-bb3f-f6334b4f6b68" />
         <classShapeMoniker Id="80cd4d25-7b64-4b69-aa9d-90becd0568c6" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 4.44314697265625); (3.04166666666667 : 4.44314697265625 : JumpStart); (3.20833333333333 : 4.44314697265625 : JumpEnd); (3.5 : 4.44314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 4.44314697265625); (3.5 : 4.44314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QLBH_FastFoodDataContext/SANPHAM/SANPHAM_CHEBIEN" />
       <nodes>
         <classShapeMoniker Id="424372e4-0b8a-44cf-b7e9-1bed5a802fca" />
         <classShapeMoniker Id="b5a21673-9777-4c65-8525-db68f4a4a105" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 3.375); (1.75 : 1.82097295898437); (3.04166666666667 : 1.82097295898437 : JumpStart); (3.20833333333333 : 1.82097295898437 : JumpEnd); (3.5 : 1.82097295898437)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.75 : 3.375); (1.75 : 1.82097295898437); (3.5 : 1.82097295898437)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QLBH_FastFoodDataContext/SANPHAM/SANPHAM_CHITIET_HD" />
       <nodes>
         <classShapeMoniker Id="424372e4-0b8a-44cf-b7e9-1bed5a802fca" />

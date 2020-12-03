@@ -76,6 +76,30 @@ VALUES  ( @MaSP, -- MaSP - int
           )
 GO
 
+CREATE PROCEDURE sp_ThemLuong(@MaNV INT, @Thang INT, @nam INT)
+AS	
+INSERT dbo.LUONG
+        ( MaNV ,
+          Thang ,
+          Nam ,
+          NgayTL ,
+          LuongCB ,
+          LuongTong
+        )
+VALUES  ( @MaNV , -- MaNV - int
+          @Thang , -- Thang - int
+          @nam , -- Nam - int
+          GETDATE() , -- NgayTL - date
+          0 , -- LuongCB - int
+          0  -- LuongTong - int
+        )
+
+GO
+CREATE PROCEDURE sp_TraLuong(@MaNV INT, @Thang INT, @nam INT, @date date)
+AS 
+	UPDATE dbo.LUONG SET NgayTL = @date WHERE MaNV = @MaNV AND Thang = @Thang AND Nam = @nam
+go
+
 CREATE PROCEDURE sp_XoaCheBien(@MaSP INT)
 AS
 DELETE FROM dbo.CHEBIEN WHERE MaSP=@MaSP

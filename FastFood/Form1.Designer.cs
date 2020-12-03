@@ -352,12 +352,12 @@
             // txtInfo
             // 
             this.txtInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.txtInfo.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.txtInfo.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInfo.ForeColor = System.Drawing.SystemColors.Info;
             this.txtInfo.Location = new System.Drawing.Point(16, 25);
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.ReadOnly = true;
-            this.txtInfo.Size = new System.Drawing.Size(350, 35);
+            this.txtInfo.Size = new System.Drawing.Size(350, 52);
             this.txtInfo.TabIndex = 5;
             // 
             // Form1

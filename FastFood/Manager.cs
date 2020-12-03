@@ -244,6 +244,7 @@ namespace FastFood
 
         private void btnSalary_Click(object sender, EventArgs e)
         {
+            BLLuong bLLuong = new BLLuong();
             this.WindowState = FormWindowState.Maximized;
             btnMaximize.Visible = false;
             btnRestore.Visible = true;
