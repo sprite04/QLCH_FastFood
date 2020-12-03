@@ -56,7 +56,7 @@ namespace FastFood
                 if (conn.State == ConnectionState.Open)
                     conn.Close();
                 conn.Open();
-                if (conn.ConnectionString.Contains("stkp"))
+                if (conn.ConnectionString.Contains("storekeeper"))
                 {
                     Manager manager = new Manager(conn);
                     manager.ShowDialog();

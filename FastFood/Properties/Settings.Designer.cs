@@ -32,5 +32,15 @@ namespace FastFood.Properties {
                 return ((string)(this["QLBH_FastFoodConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=QLBH_FastFood;Integrated Security=True")]
+        public string QLBH_FastFoodConnectionString1 {
+            get {
+                return ((string)(this["QLBH_FastFoodConnectionString1"]));
+            }
+        }
     }
 }

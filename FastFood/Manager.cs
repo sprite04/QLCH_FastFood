@@ -102,7 +102,7 @@ namespace FastFood
                     x.Visible = true;
                 }    
             }
-            else
+            else if (connect.Contains("storekeeper")) 
             {
                 foreach (Button a in admin_btns)
                 {

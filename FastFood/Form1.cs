@@ -7,12 +7,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FastFood.BLL;
 using System.Windows.Forms;
 namespace FastFood
 {
     public partial class Form1 : Form
     {
-        SqlConnection sqlConnection = new SqlConnection();
+        SqlConnection sqlConnection;
+        List<NHANVIEN> dsNV = new List<NHANVIEN>();
+        BLNhanVien blNV;
         public Form1()
         {
             InitializeComponent();
@@ -26,19 +29,38 @@ namespace FastFood
         public Form1(SqlConnection connection)
         {
             InitializeComponent();
+            blNV = new BLNhanVien();
+            dsNV = blNV.dsNhanVien();
             sqlConnection = connection;
             string arrListStr = Get_ID(connection);
             string connect = sqlConnection.ConnectionString;
-            if (connect.Contains("admin"))
+            if (connect.Contains("employee"))
+            {
+                btnManager.Enabled = false;
+                btnManager.Visible = false;
+
+            }
+            else
             {
                 btnManager.Enabled = true;
                 btnManager.Visible = true;
             }
-            else
+            NHANVIEN nv = dsNV.Find(x => x.MaNV == getNumber(arrListStr));
+            txtInfo.Text = (string.Format("{0}", nv.HoTen));
+        }
+        private int getNumber(string input)
+        {
+            try
             {
-                btnManager.Enabled = false;
-                btnManager.Visible = false;
+                string id_s = input.Substring(input.Length - 3);
+                int id = int.Parse(id_s);
+                return id;
             }
+            catch
+            {
+                return 0;
+            }
+
         }
         public Form1(Login l, SqlConnection connection)
         {
@@ -47,18 +69,19 @@ namespace FastFood
             sqlConnection = connection;
             string arrListStr = Get_ID(connection);
             string connect = sqlConnection.ConnectionString;
-            if (connect.Contains("admin"))
+            if (connect.Contains("employee"))
+            {
+                btnManager.Enabled = false;
+                btnManager.Visible = false;
+
+            }
+            else
             {
                 btnManager.Enabled = true;
                 btnManager.Visible = true;
             }
-            else
-            {
-                btnManager.Enabled = false;
-                btnManager.Visible = false;
-            }
-            //làm cái này đẹp đẹp xíu nè. Kiểu welcome ..... hay là login thành công gì đó
-            //MessageBox.Show(arrListStr);
+
+            txtInfo.Text = (string.Format("{0}", getNumber(arrListStr)));
         }
 
         private string Get_ID(SqlConnection connection)
