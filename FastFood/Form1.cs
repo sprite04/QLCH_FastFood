@@ -129,9 +129,34 @@ namespace FastFood
         {
             this.WindowState = FormWindowState.Maximized;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Prestart();
             btnHome.PerformClick();
         }
 
+
+        public void Prestart()
+        {
+            try
+            {
+                int month = DateTime.Now.Month;
+                int year = DateTime.Now.Year;
+                BLLThongKe bltk = new BLLThongKe();
+                string err;
+                bltk.Insert(year, month, out err);
+                BLLuong bLLuong = new BLLuong();
+                BLNhanVien bLNhanvien = new BLNhanVien();
+                List<v_NhanVien> dsnv = bLNhanvien.dsVNhanVien();
+                foreach (v_NhanVien nv in dsnv)
+                {
+                    bLLuong.Insert(DateTime.Now, nv.MaNV, out err);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Data error (from Form1.cs line 156)");
+            }
+
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();

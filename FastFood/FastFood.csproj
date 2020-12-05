@@ -54,6 +54,7 @@
     <Compile Include="BLL\BLChucVu.cs" />
     <Compile Include="BLL\BLDiemDanh.cs" />
     <Compile Include="BLL\BLHoaDon.cs" />
+    <Compile Include="BLL\BLLThongKe.cs" />
     <Compile Include="BLL\BLLuong.cs" />
     <Compile Include="BLL\BLNguyenLieu.cs" />
     <Compile Include="BLL\BLNhanVien.cs" />

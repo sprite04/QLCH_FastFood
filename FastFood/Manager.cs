@@ -123,10 +123,36 @@ namespace FastFood
                     x.Visible = true;
                 }
             }
-                
+            
+            
+
             this.WindowState = FormWindowState.Normal;
             this.Size = new Size(1000, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
+            Prestart();
+        }
+        public void Prestart()
+        {
+            try
+            {
+                int month = DateTime.Now.Month;
+                int year = DateTime.Now.Year;
+                BLLThongKe bltk = new BLLThongKe();
+                string err;
+                bltk.Insert(year, month, out err);
+                BLLuong bLLuong = new BLLuong();
+                BLNhanVien bLNhanvien = new BLNhanVien();
+                List<v_NhanVien> dsnv = bLNhanvien.dsVNhanVien();
+                foreach (v_NhanVien nv in dsnv)
+                {
+                    bLLuong.Insert(DateTime.Now, nv.MaNV, out err);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Data error (from Manager.cs line 153)");
+            }
+
         }
         private string Get_ID(SqlConnection conn)
         {
@@ -244,21 +270,21 @@ namespace FastFood
 
         private void btnSalary_Click(object sender, EventArgs e)
         {
-            string err = "";
-            try
-            {
-                BLLuong bLLuong = new BLLuong();
-                BLNhanVien bLNhanvien = new BLNhanVien();
-                List<v_NhanVien> dsnv = bLNhanvien.dsVNhanVien();
-                foreach (v_NhanVien nv in dsnv)
-                {
-                    bLLuong.Insert(DateTime.Now, nv.MaNV, out err);
-                }
-            }
-            catch
-            {
-                MessageBox.Show(err);
-            }
+            //string err = "";
+            //try
+            //{
+            //    BLLuong bLLuong = new BLLuong();
+            //    BLNhanVien bLNhanvien = new BLNhanVien();
+            //    List<v_NhanVien> dsnv = bLNhanvien.dsVNhanVien();
+            //    foreach (v_NhanVien nv in dsnv)
+            //    {
+            //        bLLuong.Insert(DateTime.Now, nv.MaNV, out err);
+            //    }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show(err);
+            //}
             this.WindowState = FormWindowState.Maximized;
             btnMaximize.Visible = false;
             btnRestore.Visible = true;
@@ -270,7 +296,7 @@ namespace FastFood
 
         private void btnRevene_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
