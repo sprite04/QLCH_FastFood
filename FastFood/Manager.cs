@@ -244,7 +244,21 @@ namespace FastFood
 
         private void btnSalary_Click(object sender, EventArgs e)
         {
-            BLLuong bLLuong = new BLLuong();
+            string err = "";
+            try
+            {
+                BLLuong bLLuong = new BLLuong();
+                BLNhanVien bLNhanvien = new BLNhanVien();
+                List<v_NhanVien> dsnv = bLNhanvien.dsVNhanVien();
+                foreach (v_NhanVien nv in dsnv)
+                {
+                    bLLuong.Insert(DateTime.Now, nv.MaNV, out err);
+                }
+            }
+            catch
+            {
+                MessageBox.Show(err);
+            }
             this.WindowState = FormWindowState.Maximized;
             btnMaximize.Visible = false;
             btnRestore.Visible = true;

@@ -8,12 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using FastFood.BLL;
 
 namespace FastFood.UIQuanLy
 {
     public partial class Salary : UserControl
     {
         SqlConnection conn;
+        BLLuong BLLuong;
+        List<st_LUONGResult> dsvLuong = new List<st_LUONGResult>();
+        List<NHANVIEN> dsNV = new List<NHANVIEN>();
+        
         public Salary()
         {
             InitializeComponent();
@@ -21,12 +26,36 @@ namespace FastFood.UIQuanLy
         public Salary(SqlConnection conn)
         {
             InitializeComponent();
+            dtpFind.Value = DateTime.Now;
+            
             this.conn = conn;
+            dtpFind.Format = DateTimePickerFormat.Custom;
+            dtpFind.CustomFormat = "MMMM yyyy";
+            //dtpFind.ShowUpDown = true;
+        }
+        private void LoadData(int Nam, int Thang)
+        {
+            BLLuong = new BLLuong();
+            dsvLuong = BLLuong.dsVLuong(Nam,Thang);
+
+            dgvNhanVien.Rows.Clear();
+            for (int i = 0; i < dsvLuong.Count; i++)
+            {
+                if (dsvLuong[i].GT == true)
+                    dgvNhanVien.Rows.Add(dsvLuong[i].MaNV, dsvLuong[i].HoTen, dsvLuong[i].TenCV, "Nữ", dsvLuong[i].CMND, dsvLuong[i].SoGioLamViec, dsvLuong[i].Luong,dsvLuong[i].Thang,dsvLuong[i].Nam);
+                else
+                    dgvNhanVien.Rows.Add(dsvLuong[i].MaNV, dsvLuong[i].HoTen, dsvLuong[i].TenCV, "Nam", dsvLuong[i].CMND, dsvLuong[i].SoGioLamViec, dsvLuong[i].Luong, dsvLuong[i].Thang, dsvLuong[i].Nam);
+            }
         }
 
         private void Salary_Load(object sender, EventArgs e)
         {
+            this.LoadData(dtpFind.Value.Year,dtpFind.Value.Month);
+        }
 
+        private void dtpFind_ValueChanged(object sender, EventArgs e)
+        {
+            this.LoadData(dtpFind.Value.Year, dtpFind.Value.Month);
         }
     }
 }

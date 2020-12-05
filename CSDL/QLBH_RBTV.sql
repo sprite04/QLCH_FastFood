@@ -1,4 +1,4 @@
-USE QLBH_CHTAN
+USE QLBH_FastFood
 GO
 
 
@@ -141,6 +141,7 @@ BEGIN
 	RETURN @Con
 END
 GO
+
 
 
 --*Cap nhat Luong tu Ca

@@ -46,7 +46,8 @@ namespace FastFood
                 btnManager.Visible = true;
             }
             NHANVIEN nv = dsNV.Find(x => x.MaNV == getNumber(arrListStr));
-            txtInfo.Text = (string.Format("{0}", nv.HoTen));
+            if (nv!=null)
+                txtInfo.Text = (string.Format("{0}", nv.HoTen));
         }
         private int getNumber(string input)
         {

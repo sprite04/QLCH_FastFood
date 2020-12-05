@@ -159,6 +159,17 @@
       <Column Name="SDT" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.v_LUONG" Member="v_LUONGs">
+    <Type Name="v_LUONG">
+      <Column Name="MaNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="GT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CMND" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="TenCV" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SoGioLamViec" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Luong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.sp_Ca" Method="sp_Ca">
     <Parameter Name="Ngay" Parameter="ngay" Type="System.DateTime" DbType="DateTime" />
     <ElementType Name="sp_CaResult">
@@ -377,5 +388,20 @@
     <Parameter Name="Thang" Parameter="thang" Type="System.Int32" DbType="Int" />
     <Parameter Name="nam" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.st_LUONG" Method="st_LUONG">
+    <Parameter Name="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="thang" Type="System.Int32" DbType="Int" />
+    <ElementType Name="st_LUONGResult">
+      <Column Name="MaNV" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HoTen" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="GT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CMND" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="TenCV" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="SoGioLamViec" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Luong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Thang" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nam" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>

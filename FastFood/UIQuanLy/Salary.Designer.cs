@@ -33,15 +33,18 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dtpFind = new System.Windows.Forms.DateTimePicker();
             this.MaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dtpFind = new System.Windows.Forms.DateTimePicker();
+            this.SoGio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cl_salary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.month = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.year = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,7 +81,10 @@
             this.CV,
             this.GT,
             this.CMND,
-            this.SDT});
+            this.SoGio,
+            this.cl_salary,
+            this.month,
+            this.year});
             this.dgvNhanVien.EnableHeadersVisualStyles = false;
             this.dgvNhanVien.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvNhanVien.Location = new System.Drawing.Point(63, 193);
@@ -103,8 +109,39 @@
             this.dgvNhanVien.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvNhanVien.RowTemplate.Height = 28;
             this.dgvNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNhanVien.Size = new System.Drawing.Size(1177, 483);
+            this.dgvNhanVien.Size = new System.Drawing.Size(1312, 483);
             this.dgvNhanVien.TabIndex = 5;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.pictureBox1);
+            this.panel7.Controls.Add(this.dtpFind);
+            this.panel7.Location = new System.Drawing.Point(63, 120);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(496, 44);
+            this.panel7.TabIndex = 14;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::FastFood.Properties.Resources.icons8_search_60px;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // dtpFind
+            // 
+            this.dtpFind.CalendarFont = new System.Drawing.Font("Century Schoolbook", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFind.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFind.Location = new System.Drawing.Point(49, -1);
+            this.dtpFind.Name = "dtpFind";
+            this.dtpFind.Size = new System.Drawing.Size(445, 39);
+            this.dtpFind.TabIndex = 11;
+            this.dtpFind.ValueChanged += new System.EventHandler(this.dtpFind_ValueChanged);
             // 
             // MaNV
             // 
@@ -144,45 +181,42 @@
             this.CMND.MinimumWidth = 8;
             this.CMND.Name = "CMND";
             this.CMND.ReadOnly = true;
+            this.CMND.Visible = false;
             this.CMND.Width = 105;
             // 
-            // SDT
+            // SoGio
             // 
-            this.SDT.HeaderText = "Phone Number";
-            this.SDT.MinimumWidth = 8;
-            this.SDT.Name = "SDT";
-            this.SDT.ReadOnly = true;
-            this.SDT.Width = 150;
+            this.SoGio.HeaderText = "Working hours";
+            this.SoGio.MinimumWidth = 8;
+            this.SoGio.Name = "SoGio";
+            this.SoGio.ReadOnly = true;
+            this.SoGio.Width = 150;
             // 
-            // panel7
+            // cl_salary
             // 
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel7.Controls.Add(this.pictureBox1);
-            this.panel7.Controls.Add(this.dtpFind);
-            this.panel7.Location = new System.Drawing.Point(63, 120);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(496, 44);
-            this.panel7.TabIndex = 14;
+            this.cl_salary.HeaderText = "Salary";
+            this.cl_salary.MinimumWidth = 8;
+            this.cl_salary.Name = "cl_salary";
+            this.cl_salary.ReadOnly = true;
+            this.cl_salary.Width = 150;
             // 
-            // pictureBox1
+            // month
             // 
-            this.pictureBox1.BackgroundImage = global::FastFood.Properties.Resources.icons8_search_60px;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.month.HeaderText = "Month";
+            this.month.MinimumWidth = 8;
+            this.month.Name = "month";
+            this.month.ReadOnly = true;
+            this.month.Visible = false;
+            this.month.Width = 150;
             // 
-            // dtpFind
+            // year
             // 
-            this.dtpFind.CalendarFont = new System.Drawing.Font("Century Schoolbook", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFind.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFind.Location = new System.Drawing.Point(49, -1);
-            this.dtpFind.Name = "dtpFind";
-            this.dtpFind.Size = new System.Drawing.Size(445, 39);
-            this.dtpFind.TabIndex = 11;
+            this.year.HeaderText = "Year";
+            this.year.MinimumWidth = 8;
+            this.year.Name = "year";
+            this.year.ReadOnly = true;
+            this.year.Visible = false;
+            this.year.Width = 150;
             // 
             // Salary
             // 
@@ -206,14 +240,17 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvNhanVien;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DateTimePicker dtpFind;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaNV;
         private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn CV;
         private System.Windows.Forms.DataGridViewTextBoxColumn GT;
         private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DateTimePicker dtpFind;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoGio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cl_salary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn month;
+        private System.Windows.Forms.DataGridViewTextBoxColumn year;
     }
 }

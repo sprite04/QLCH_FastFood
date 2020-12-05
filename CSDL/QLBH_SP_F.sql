@@ -76,29 +76,6 @@ VALUES  ( @MaSP, -- MaSP - int
           )
 GO
 
-CREATE PROCEDURE sp_ThemLuong(@MaNV INT, @Thang INT, @nam INT)
-AS	
-INSERT dbo.LUONG
-        ( MaNV ,
-          Thang ,
-          Nam ,
-          NgayTL ,
-          LuongCB ,
-          LuongTong
-        )
-VALUES  ( @MaNV , -- MaNV - int
-          @Thang , -- Thang - int
-          @nam , -- Nam - int
-          GETDATE() , -- NgayTL - date
-          0 , -- LuongCB - int
-          0  -- LuongTong - int
-        )
-
-GO
-CREATE PROCEDURE sp_TraLuong(@MaNV INT, @Thang INT, @nam INT, @date date)
-AS 
-	UPDATE dbo.LUONG SET NgayTL = @date WHERE MaNV = @MaNV AND Thang = @Thang AND Nam = @nam
-go
 
 CREATE PROCEDURE sp_XoaCheBien(@MaSP INT)
 AS
@@ -262,8 +239,62 @@ SELECT *
 FROM dbo.v_ShiftAndEmployee
 
 
+------------------------------------------------------------------------------------------------------------------
+----------------------------------------------Truong An-----------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+GO
 
 
+
+ALTER PROCEDURE sp_ThemLuong(@MaNV INT, @Thang INT, @nam INT)
+AS	
+BEGIN
+IF NOT EXISTS 
+		(SELECT *  
+		 FROM dbo.LUONG
+		 WHERE MaNV = @MaNV AND Thang = @Thang AND Nam = @nam)
+		 BEGIN
+				INSERT dbo.LUONG
+				( MaNV ,
+				  Thang ,
+				  Nam ,
+				  NgayTL ,
+				  LuongCB ,
+				  LuongTong
+				)
+				VALUES  
+				( @MaNV , -- MaNV - int
+				  @Thang , -- Thang - int
+				  @nam , -- Nam - int
+				  GETDATE() , -- NgayTL - date
+				  20000 , -- LuongCB - int
+				  0  -- LuongTong - int
+				)
+		 END
+
+END 
+
+GO
+alter PROCEDURE sp_TraLuong(@MaNV INT, @Thang INT, @nam INT, @date date)
+AS 
+	UPDATE dbo.LUONG SET NgayTL = @date WHERE MaNV = @MaNV AND Thang = @Thang AND Nam = @nam
+go
+
+
+
+
+ALTER VIEW v_LUONG
+AS
+SELECT NV.MaNV AS MaNV, NV.HoTen AS HoTen, NV.GT AS GT, NV.CMND AS CMND,CV.TenCV AS TenCV, dbo.fn_TongSoGio(NV.MaNV,DATETIMEFROMPARTS(L.Nam,L.Thang,1,5,0,0,0)) AS SoGioLamViec, L.LuongTong AS Luong, L.Thang AS Thang, L.Nam AS Nam
+FROM dbo.NHANVIEN NV,dbo.CHUCVU CV,dbo.LUONG L
+WHERE NV.TT_Lam='True' AND NV.MaCV=CV.MaCV AND NV.MaNV = L.MaNV
+GO
+
+ALTER PROCEDURE st_LUONG (@nam INT, @thang int)
+AS
+SELECT *
+FROM dbo.v_LUONG
+WHERE dbo.v_LUONG.Thang = @thang AND dbo.v_LUONG.Nam = @nam
 
 
 

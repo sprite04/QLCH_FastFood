@@ -30,6 +30,12 @@ namespace FastFood.BLL
             }
             return false;
         }
+        public List<st_LUONGResult> dsVLuong(int nam, int thang)
+        {
+            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            List<st_LUONGResult> dsl = context.st_LUONG(nam, thang).ToList();
+            return dsl;
+        }
 
     }
 
