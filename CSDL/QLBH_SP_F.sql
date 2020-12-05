@@ -254,6 +254,7 @@ IF NOT EXISTS
 		 FROM dbo.LUONG
 		 WHERE MaNV = @MaNV AND Thang = @Thang AND Nam = @nam)
 		 BEGIN
+
 				INSERT dbo.LUONG
 				( MaNV ,
 				  Thang ,
@@ -266,7 +267,7 @@ IF NOT EXISTS
 				( @MaNV , -- MaNV - int
 				  @Thang , -- Thang - int
 				  @nam , -- Nam - int
-				  GETDATE() , -- NgayTL - date
+				  NULL , -- NgayTL - date
 				  20000 , -- LuongCB - int
 				  0  -- LuongTong - int
 				)
@@ -290,6 +291,8 @@ FROM dbo.NHANVIEN NV,dbo.CHUCVU CV,dbo.LUONG L
 WHERE NV.TT_Lam='True' AND NV.MaCV=CV.MaCV AND NV.MaNV = L.MaNV
 GO
 
+
+--loc luong theo thang
 ALTER PROCEDURE st_LUONG (@nam INT, @thang int)
 AS
 SELECT *
@@ -297,7 +300,61 @@ FROM dbo.v_LUONG
 WHERE dbo.v_LUONG.Thang = @thang AND dbo.v_LUONG.Nam = @nam
 
 
+go
+--function kiemtra tra luong thang nay chua
+ALTER FUNCTION fn_TraLuongCheck(@nam INT, @thang INT)
+RETURNS int
+AS
+BEGIN
+	DECLARE @da DATE
+	DECLARE @manv INT 
+	DECLARE @bool int
+    SELECT @da = NgayTL
+	FROM dbo.LUONG
+	WHERE nam = @nam AND Thang = @thang
+	SELECT @manv =  MaNV
+	FROM dbo.LUONG
+	WHERE nam = @nam AND Thang = @thang
+	IF @da IS NULL AND @manv IS NOT NULL
+		SET @bool = 1
+	ELSE 
+		SET @bool = 0
+	RETURN @bool
+END
+go
+SELECT dbo.fn_TraLuongCheck(2020,12)
+go
+--store procedure tra luong
+ALTER PROCEDURE sp_TraLuong(@nam INT, @thang int, @ngayTL date)
+AS
+	IF dbo.fn_TraLuongCheck(@nam,@thang) = 1
+		UPDATE dbo.LUONG SET NgayTL=@ngayTL WHERE Thang = @thang AND Nam = @nam
+
+
+GO
+
+--
+CREATE PROCEDURE sp_TaoTK(@nam INT, @Thang INT )
+AS 
+IF NOT EXISTS 
+		(SELECT Thang  
+		 FROM dbo.THONGKE_T
+		 WHERE Thang = @Thang AND Nam = @nam)
+		 INSERT INTO dbo.THONGKE_T
+		         ( Thang ,
+		           Nam ,
+		           TongLuong ,
+		           TongGiaNL ,
+		           TongDoanhThu
+		         )
+		 VALUES  ( @Thang , -- Thang - int
+		           @nam , -- Nam - int
+		           0 , -- TongLuong - int
+		           0 , -- TongGiaNL - int
+		           0  -- TongDoanhThu - int
+		         )
 
 
 
 
+				

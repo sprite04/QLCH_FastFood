@@ -36,6 +36,12 @@ namespace FastFood.BLL
             List<st_LUONGResult> dsl = context.st_LUONG(nam, thang).ToList();
             return dsl;
         }
+        public int CheckLuong(int nam, int thang)
+        {
+            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            int a = context.fn_TraLuongCheck(nam,thang).GetValueOrDefault();
+            return a;
+        }
 
     }
 

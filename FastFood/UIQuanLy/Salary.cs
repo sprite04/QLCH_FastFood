@@ -56,6 +56,15 @@ namespace FastFood.UIQuanLy
         private void dtpFind_ValueChanged(object sender, EventArgs e)
         {
             this.LoadData(dtpFind.Value.Year, dtpFind.Value.Month);
+            if (BLLuong.CheckLuong(dtpFind.Value.Year, dtpFind.Value.Month)==1)
+                btn_TraLuong.Enabled = true;
+            else
+                btn_TraLuong.Enabled = false;
+        }
+
+        private void btn_TraLuong_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
