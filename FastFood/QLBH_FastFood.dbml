@@ -414,4 +414,10 @@
     <Parameter Name="thang" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.sp_TraLuong" Method="sp_TraLuong1">
+    <Parameter Name="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="thang" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ngayTL" Type="System.DateTime" DbType="Date" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

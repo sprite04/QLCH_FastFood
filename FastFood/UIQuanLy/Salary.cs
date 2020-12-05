@@ -65,6 +65,44 @@ namespace FastFood.UIQuanLy
         private void btn_TraLuong_Click(object sender, EventArgs e)
         {
             
+            int month_show = dtpFind.Value.Month;
+            int year_show = dtpFind.Value.Year;
+            int month_now = DateTime.Now.Month;
+            int year_now = DateTime.Now.Year;
+            if(month_show < month_now && year_show <= year_now)
+            {
+                DialogResult dialog = MessageBox.Show("Bạn có muốn tính lương không (Chỉ được tính MỘT lần) ?", "Tính lương", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialog == DialogResult.Yes)
+                {
+                    bool a = BLLuong.Pay(dtpFind.Value.Year, dtpFind.Value.Month, DateTime.Now);
+                    if (a)
+                        MessageBox.Show("Pay salary successful");
+                    else
+                        MessageBox.Show("Pay salary fail");
+                }    
+            }
+            else
+            {
+                if (month_show == month_now && year_show == year_now)
+                {
+                    DialogResult dialog1 = MessageBox.Show("Chưa hết tháng, bạn có chắc chắn?","", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialog1 == DialogResult.Yes)
+                    {
+                        DialogResult dialog = MessageBox.Show("Bạn có muốn tính lương không (Chỉ được tính MỘT lần) ?", "Tính lương", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dialog == DialogResult.Yes)
+                        {
+                            bool a = BLLuong.Pay(dtpFind.Value.Year, dtpFind.Value.Month, DateTime.Now);
+                            if (a)
+                                MessageBox.Show("Pay salary successful");
+                            else
+                                MessageBox.Show("Pay salary fail");
+                        }
+                    }    
+                       
+                }
+            }
+
+
         }
     }
 }

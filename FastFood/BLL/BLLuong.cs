@@ -42,6 +42,20 @@ namespace FastFood.BLL
             int a = context.fn_TraLuongCheck(nam,thang).GetValueOrDefault();
             return a;
         }
+        public bool Pay(int nam, int thang, DateTime dateTime)
+        {
+            try
+            {
+                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                context.sp_TraLuong1(nam,thang,dateTime.Date);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
 
     }
 
