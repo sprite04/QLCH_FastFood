@@ -43,10 +43,6 @@ namespace FastFood.UIQuanLy
         private void reportViewer1_Load(object sender, EventArgs e)
         {
 
-            
-
-
-            //reportViewer1
             reportViewer1.RefreshReport();
         }
         

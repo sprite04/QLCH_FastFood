@@ -126,9 +126,10 @@ namespace FastFood
             
             
 
-            this.WindowState = FormWindowState.Normal;
+            this.WindowState = FormWindowState.Maximized;
             this.Size = new Size(1000, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
+            
             Prestart();
         }
         public void Prestart()
