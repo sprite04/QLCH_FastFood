@@ -1,0 +1,16 @@
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\bin\Debug\test_report.exe.config
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\bin\Debug\test_report.exe
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\bin\Debug\test_report.pdb
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\bin\Debug\Microsoft.ReportViewer.Common.dll
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\bin\Debug\Microsoft.ReportViewer.WinForms.xml
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\obj\Debug\test_report.csprojAssemblyReference.cache
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\obj\Debug\test_report.Form1.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\obj\Debug\test_report.Properties.Resources.resources
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\obj\Debug\test_report.csproj.GenerateResource.cache
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\obj\Debug\test_report.csproj.CoreCompileInputs.cache
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\obj\Debug\test_report.csproj.CopyComplete
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\obj\Debug\test_report.exe
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\test_report\obj\Debug\test_report.pdb

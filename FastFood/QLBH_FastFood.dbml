@@ -420,4 +420,23 @@
     <Parameter Name="ngayTL" Type="System.DateTime" DbType="Date" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.GetRevenueByDate" Method="GetRevenueByDate">
+    <Parameter Name="thang" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nam" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetRevenueByDateResult">
+      <Column Name="TongLuong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TongGiaNL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TongDoanhThu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LoiNhuan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetRevenueByYear" Method="GetRevenueByYear">
+    <Parameter Name="nam" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetRevenueByYearResult">
+      <Column Name="TongLuong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TongGiaNL" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TongDoanhThu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LoiNhuan" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

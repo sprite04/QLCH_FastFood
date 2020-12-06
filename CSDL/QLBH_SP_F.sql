@@ -358,3 +358,24 @@ IF NOT EXISTS
 
 
 				
+
+
+
+GO
+ALTER PROCEDURE GetRevenueByDate(@thang INT, @nam int) 
+AS
+SELECT TK.TongLuong,TK.TongGiaNL,TK.TongDoanhThu, (TK.TongDoanhThu-TK.TongGiaNL-TK.TongLuong) AS LoiNhuan
+FROM dbo.THONGKE_T TK
+WHERE TK.Thang = @thang AND TK.Nam = @nam
+
+EXEC dbo.GetRevenueByDate @thang = 12, -- int
+    @nam = 2020 -- int
+
+
+GO
+
+ALTER PROCEDURE GetRevenueByYear(@nam int) 
+AS
+SELECT TK.Nam, TK.Thang, TK.TongLuong,TK.TongGiaNL,TK.TongDoanhThu, (TK.TongDoanhThu-TK.TongGiaNL-TK.TongLuong) AS LoiNhuan
+FROM dbo.THONGKE_T TK
+WHERE TK.Nam = @nam

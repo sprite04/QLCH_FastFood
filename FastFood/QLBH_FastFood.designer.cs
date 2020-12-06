@@ -482,6 +482,20 @@ namespace FastFood
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nam, thang, ngayTL);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetRevenueByDate")]
+		public ISingleResult<GetRevenueByDateResult> GetRevenueByDate([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> thang, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nam)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), thang, nam);
+			return ((ISingleResult<GetRevenueByDateResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.GetRevenueByYear")]
+		public ISingleResult<GetRevenueByYearResult> GetRevenueByYear([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> nam)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nam);
+			return ((ISingleResult<GetRevenueByYearResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CA")]
@@ -3912,6 +3926,166 @@ namespace FastFood
 				if ((this._Nam != value))
 				{
 					this._Nam = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetRevenueByDateResult
+	{
+		
+		private int _TongLuong;
+		
+		private int _TongGiaNL;
+		
+		private int _TongDoanhThu;
+		
+		private System.Nullable<int> _LoiNhuan;
+		
+		public GetRevenueByDateResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongLuong", DbType="Int NOT NULL")]
+		public int TongLuong
+		{
+			get
+			{
+				return this._TongLuong;
+			}
+			set
+			{
+				if ((this._TongLuong != value))
+				{
+					this._TongLuong = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongGiaNL", DbType="Int NOT NULL")]
+		public int TongGiaNL
+		{
+			get
+			{
+				return this._TongGiaNL;
+			}
+			set
+			{
+				if ((this._TongGiaNL != value))
+				{
+					this._TongGiaNL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongDoanhThu", DbType="Int NOT NULL")]
+		public int TongDoanhThu
+		{
+			get
+			{
+				return this._TongDoanhThu;
+			}
+			set
+			{
+				if ((this._TongDoanhThu != value))
+				{
+					this._TongDoanhThu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoiNhuan", DbType="Int")]
+		public System.Nullable<int> LoiNhuan
+		{
+			get
+			{
+				return this._LoiNhuan;
+			}
+			set
+			{
+				if ((this._LoiNhuan != value))
+				{
+					this._LoiNhuan = value;
+				}
+			}
+		}
+	}
+	
+	public partial class GetRevenueByYearResult
+	{
+		
+		private int _TongLuong;
+		
+		private int _TongGiaNL;
+		
+		private int _TongDoanhThu;
+		
+		private System.Nullable<int> _LoiNhuan;
+		
+		public GetRevenueByYearResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongLuong", DbType="Int NOT NULL")]
+		public int TongLuong
+		{
+			get
+			{
+				return this._TongLuong;
+			}
+			set
+			{
+				if ((this._TongLuong != value))
+				{
+					this._TongLuong = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongGiaNL", DbType="Int NOT NULL")]
+		public int TongGiaNL
+		{
+			get
+			{
+				return this._TongGiaNL;
+			}
+			set
+			{
+				if ((this._TongGiaNL != value))
+				{
+					this._TongGiaNL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TongDoanhThu", DbType="Int NOT NULL")]
+		public int TongDoanhThu
+		{
+			get
+			{
+				return this._TongDoanhThu;
+			}
+			set
+			{
+				if ((this._TongDoanhThu != value))
+				{
+					this._TongDoanhThu = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LoiNhuan", DbType="Int")]
+		public System.Nullable<int> LoiNhuan
+		{
+			get
+			{
+				return this._LoiNhuan;
+			}
+			set
+			{
+				if ((this._LoiNhuan != value))
+				{
+					this._LoiNhuan = value;
 				}
 			}
 		}

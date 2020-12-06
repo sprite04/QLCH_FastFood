@@ -296,7 +296,10 @@ namespace FastFood
 
         private void btnRevene_Click(object sender, EventArgs e)
         {
-
+            pnShow.Controls.Clear();
+            Revenue revenue = new Revenue(conn);
+            revenue.Dock = DockStyle.Fill;
+            pnShow.Controls.Add(revenue);
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
