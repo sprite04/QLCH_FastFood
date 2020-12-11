@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastFood.Static;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +9,22 @@ namespace FastFood.BLL
 {
     public class BLDiemDanh
     {
+  
+        public BLDiemDanh()
+        {
+            
+        }
         public List<DIEMDANH> dsDiemDanh()
         {
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<DIEMDANH> dsDD = context.DIEMDANHs.ToList();
+            //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            List<DIEMDANH> dsDD = Global.global_datacontext.DIEMDANHs.ToList();
             return dsDD;
         }
 
         public List<sp_DiemDanhResult> dsDiemDanhNgay()
         {
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<sp_DiemDanhResult> dsDD = context.sp_DiemDanh(DateTime.Now).ToList();
+            //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            List<sp_DiemDanhResult> dsDD = Global.global_datacontext.sp_DiemDanh(DateTime.Now).ToList();
             return dsDD;
         }
 
@@ -27,8 +33,8 @@ namespace FastFood.BLL
             message = "";
             try
             {
-                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-                context.sp_ThemDiemDanh(dt, MaNV);
+                //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                Global.global_datacontext.sp_ThemDiemDanh(dt, MaNV);
                 return true;
             }
             catch (Exception e)
@@ -43,8 +49,8 @@ namespace FastFood.BLL
             message = "";
             try
             {
-                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-                context.sp_XoaDiemDanh(dt);
+                //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                Global.global_datacontext.sp_XoaDiemDanh(dt);
                 return true;
             }
             catch (Exception e)
@@ -57,8 +63,8 @@ namespace FastFood.BLL
         //Thieu Quan
         public List<v_ShiftAndEmployee> dsVShiftAndEmployee()
         {
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<v_ShiftAndEmployee> dsNVandDD = context.v_ShiftAndEmployees.ToList();
+            //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            List<v_ShiftAndEmployee> dsNVandDD = Global.global_datacontext.v_ShiftAndEmployees.ToList();
             return dsNVandDD;
         }
     }

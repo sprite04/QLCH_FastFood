@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastFood.Static;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +9,23 @@ namespace FastFood.BLL
 {
     public class BLSanPham
     {
+
+        public BLSanPham()
+        {
+
+        }
         public List<SANPHAM> dsSanPham()
         {
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<SANPHAM> dsSP = context.SANPHAMs.ToList();
+
+            //context.Refresh();
+            List<SANPHAM> dsSP = Global.global_datacontext.SANPHAMs.ToList();
             return dsSP;
         }
 
         public List<v_SanPham> dsVSanPham()
         {
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<v_SanPham> dsVSP = context.v_SanPhams.ToList();
+           // QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            List<v_SanPham> dsVSP = Global.global_datacontext.v_SanPhams.ToList();
             return dsVSP;
         }
 
@@ -27,8 +34,8 @@ namespace FastFood.BLL
             message = "";
             try
             {
-                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-                context.sp_ThemSanPham(sp.MaSP, sp.HinhSP, sp.TenSP, sp.TT_Ban, sp.TT_Con, sp.LoiNhuan, sp.GiamGia);
+                //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                Global.global_datacontext.sp_ThemSanPham(sp.MaSP, sp.HinhSP, sp.TenSP, sp.TT_Ban, sp.TT_Con, sp.LoiNhuan, sp.GiamGia);
                 return true;
             }
             catch (Exception e)
@@ -43,8 +50,8 @@ namespace FastFood.BLL
             message = "";
             try
             {
-                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-                context.sp_SuaSanPham(sp.MaSP, sp.HinhSP, sp.TenSP, sp.TT_Ban, sp.TT_Con, sp.LoiNhuan, sp.GiamGia);
+                //  QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                Global.global_datacontext.sp_SuaSanPham(sp.MaSP, sp.HinhSP, sp.TenSP, sp.TT_Ban, sp.TT_Con, sp.LoiNhuan, sp.GiamGia);
                 return true;
             }
             catch (Exception e)

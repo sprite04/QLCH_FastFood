@@ -13,42 +13,59 @@ namespace FastFood
 {
     public partial class Form1 : Form
     {
-        SqlConnection sqlConnection;
+
+
         List<NHANVIEN> dsNV = new List<NHANVIEN>();
         BLNhanVien blNV;
+
+
+
+
         public Form1()
         {
             InitializeComponent();
             SidePanel.Height = btnHome.Height;
             SidePanel.Top = btnHome.Top;
+            
             home = new Home();
             home.Dock = DockStyle.Fill;
             home.BringToFront();
             pnShow.Controls.Add(home);
         }
-        public Form1(SqlConnection connection)
-        {
-            InitializeComponent();
-            blNV = new BLNhanVien();
-            dsNV = blNV.dsNhanVien();
-            sqlConnection = connection;
-            string arrListStr = Get_ID(connection);
-            string connect = sqlConnection.ConnectionString;
-            if (connect.Contains("employee"))
-            {
-                btnManager.Enabled = false;
-                btnManager.Visible = false;
+        //public Form1(QLBH_FastFoodDataContext context)
+        //{
+        //    InitializeComponent();
+        //    SidePanel.Height = btnHome.Height;
+        //    SidePanel.Top = btnHome.Top;
+        //    home = new Home(this.context);
+        //    home.Dock = DockStyle.Fill;
+        //    home.BringToFront();
+        //    pnShow.Controls.Add(home);
+        //    this.context = context;
+        ////}
+        //public Form1(SqlConnection connection)
+        //{
+        //    InitializeComponent();
+        //    blNV = new BLNhanVien();
+        //    dsNV = blNV.dsNhanVien();
+        //    sqlConnection = connection;
+        //    string arrListStr = Get_ID(connection);
+        //    string connect = sqlConnection.ConnectionString;
+        //    if (connect.Contains("employee"))
+        //    {
+        //        btnManager.Enabled = false;
+        //        btnManager.Visible = false;
 
-            }
-            else
-            {
-                btnManager.Enabled = true;
-                btnManager.Visible = true;
-            }
-            NHANVIEN nv = dsNV.Find(x => x.MaNV == getNumber(arrListStr));
-            if (nv!=null)
-                txtInfo.Text = (string.Format("{0}", nv.HoTen));
-        }
+        //    }
+        //    else
+        //    {
+        //        btnManager.Enabled = true;
+        //        btnManager.Visible = true;
+        //    }
+        //    NHANVIEN nv = dsNV.Find(x => x.MaNV == getNumber(arrListStr));
+        //    if (nv!=null)
+        //        txtInfo.Text = (string.Format("{0}", nv.HoTen));
+        //}
         private int getNumber(string input)
         {
             try
@@ -61,29 +78,29 @@ namespace FastFood
             {
                 return 0;
             }
-
         }
-        public Form1(Login l, SqlConnection connection)
-        {
+        //}
+        //public Form1(Login l, SqlConnection connection)
+        //{
 
-            InitializeComponent();
-            sqlConnection = connection;
-            string arrListStr = Get_ID(connection);
-            string connect = sqlConnection.ConnectionString;
-            if (connect.Contains("employee"))
-            {
-                btnManager.Enabled = false;
-                btnManager.Visible = false;
+        //    InitializeComponent();
+        //    sqlConnection = connection;
+        //    string arrListStr = Get_ID(connection);
+        //    string connect = sqlConnection.ConnectionString;
+        //    if (connect.Contains("employee"))
+        //    {
+        //        btnManager.Enabled = false;
+        //        btnManager.Visible = false;
 
-            }
-            else
-            {
-                btnManager.Enabled = true;
-                btnManager.Visible = true;
-            }
+        //    }
+        //    else
+        //    {
+        //        btnManager.Enabled = true;
+        //        btnManager.Visible = true;
+        //    }
 
-            txtInfo.Text = (string.Format("{0}", getNumber(arrListStr)));
-        }
+        //    txtInfo.Text = (string.Format("{0}", getNumber(arrListStr)));
+        //}
 
         private string Get_ID(SqlConnection connection)
         {
@@ -111,8 +128,8 @@ namespace FastFood
             pnShow.Controls.Add(home);
 
         }
-        Home home = new Home();
-        Menu monan = new Menu();
+        Home home;
+        Menu monan;
         private void button2_Click(object sender, EventArgs e)
         {
             SidePanel.Height = btnEatIn.Height;
@@ -129,7 +146,7 @@ namespace FastFood
         {
             this.WindowState = FormWindowState.Maximized;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Prestart();
+            //Prestart();
             btnHome.PerformClick();
         }
 
@@ -164,11 +181,19 @@ namespace FastFood
 
         private void btnManager_Click(object sender, EventArgs e)
         {
-            SidePanel.Height = btnManager.Height;
-            SidePanel.Top = btnManager.Top;
-            pnShow.Controls.Clear();
-            Manager manager = new Manager(sqlConnection);
-            manager.ShowDialog();
+            try
+            {
+                SidePanel.Height = btnManager.Height;
+                SidePanel.Top = btnManager.Top;
+                pnShow.Controls.Clear();
+                Manager manager = new Manager();
+                manager.ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("Bạn không có quyền truy cập");
+            }
+
 
         }
     }

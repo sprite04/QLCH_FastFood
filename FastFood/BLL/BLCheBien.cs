@@ -1,4 +1,5 @@
 ﻿using FastFood.DTO;
+using FastFood.Static;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,17 @@ namespace FastFood.BLL
 {
     public class BLCheBien
     {
+
+        public BLCheBien()
+        {
+        }
         public bool Insert(NguyenLieuDGV nl,SANPHAM sp, out string message)
         {
             message = "";
             try
             {
-                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-                context.sp_ThemCheBien(sp.MaSP, nl.MaNL, nl.SL);
+                //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                Global.global_datacontext.sp_ThemCheBien(sp.MaSP, nl.MaNL, nl.SL);
                 return true;
             }
             catch (Exception e)
@@ -30,8 +35,9 @@ namespace FastFood.BLL
             message = "";
             try
             {
-                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-                context.sp_XoaCheBien(sp.MaSP);
+                //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                
+                Global.global_datacontext.sp_XoaCheBien(sp.MaSP);
                 return true;
             }
             catch (Exception e)

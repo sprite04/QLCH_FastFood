@@ -205,6 +205,7 @@
             this.pnPass.Name = "pnPass";
             this.pnPass.Size = new System.Drawing.Size(615, 53);
             this.pnPass.TabIndex = 16;
+            this.pnPass.Paint += new System.Windows.Forms.PaintEventHandler(this.pnPass_Paint);
             // 
             // panel1
             // 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastFood.Static;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,14 @@ namespace FastFood.BLL
     public class BLLuong
     {
 
+        public BLLuong()
+        {
+
+        }
         public List<LUONG> dsLuong()
         {
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<LUONG> dsLuong = context.LUONGs.ToList();
+            //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            List<LUONG> dsLuong = Global.global_datacontext.LUONGs.ToList();
             return dsLuong;
         }
         public bool Insert(DateTime MaCa, int MaNV, out string message)
@@ -20,8 +25,8 @@ namespace FastFood.BLL
             message = "";
             try
             {
-                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-                context.sp_ThemLuong(MaNV,MaCa.Month,MaCa.Year);
+                //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                Global.global_datacontext.sp_ThemLuong(MaNV,MaCa.Month,MaCa.Year);
                 return true;
             }
             catch (Exception e)
@@ -32,22 +37,22 @@ namespace FastFood.BLL
         }
         public List<st_LUONGResult> dsVLuong(int nam, int thang)
         {
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<st_LUONGResult> dsl = context.st_LUONG(nam, thang).ToList();
+            //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            List<st_LUONGResult> dsl = Global.global_datacontext.st_LUONG(nam, thang).ToList();
             return dsl;
         }
         public int CheckLuong(int nam, int thang)
         {
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            int a = context.fn_TraLuongCheck(nam,thang).GetValueOrDefault();
+            //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            int a = Global.global_datacontext.fn_TraLuongCheck(nam,thang).GetValueOrDefault();
             return a;
         }
         public bool Pay(int nam, int thang, DateTime dateTime)
         {
             try
             {
-                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-                context.sp_TraLuong1(nam,thang,dateTime.Date);
+                //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                Global.global_datacontext.sp_TraLuong1(nam,thang,dateTime.Date);
                 return true;
             }
             catch

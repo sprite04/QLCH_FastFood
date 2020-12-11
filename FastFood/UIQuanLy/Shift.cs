@@ -14,15 +14,9 @@ namespace FastFood.UIQuanLy
 {
     public partial class Shift : UserControl
     {
-        private SqlConnection conn;
         public Shift()
         {
             InitializeComponent();
-        }
-        public Shift(SqlConnection conn)
-        {
-            InitializeComponent();
-            this.conn = conn;
         }
 
         private void txtFind_TextChanged(object sender, EventArgs e)

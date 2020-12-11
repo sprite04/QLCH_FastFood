@@ -19,21 +19,24 @@ namespace FastFood.UIQuanLy
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
+
         public DetailMaterial(bool them)
         {
             InitializeComponent();
             Them = them;
+            BLNguyenLieu blNL = new BLNguyenLieu();
         }
 
         public DetailMaterial(v_NguyenLieu n)
         {
             InitializeComponent();
             nl = n;
+            BLNguyenLieu blNL = new BLNguyenLieu();
         }
 
         v_NguyenLieu nl = new v_NguyenLieu();
         bool Them = false;
-        BLNguyenLieu blNL = new BLNguyenLieu();
+        BLNguyenLieu blNL;
         List<v_NguyenLieu> dsNL = new List<v_NguyenLieu>();
 
         private void DetailProduct_Load(object sender, EventArgs e)

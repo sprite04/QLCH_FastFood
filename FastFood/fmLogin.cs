@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using FastFood.BLL;
+using FastFood.Static;
 
 namespace FastFood
 {
     public partial class fmLogin : Form
     {
+        public string connectionString;
         public fmLogin()
         {
             InitializeComponent();
@@ -21,7 +24,30 @@ namespace FastFood
         private void fmLogin_Load(object sender, EventArgs e)
         {
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            
+            try
+            {
+                Global.global_datacontext = new QLBH_FastFoodDataContext();
+                Global.global_datacontext.Connection.Open();
+                int month = DateTime.Now.Month;
+                int year = DateTime.Now.Year;
+                BLLThongKe bltk = new BLLThongKe();
+                string err;
+                bltk.Insert(year, month, out err);
+                BLLuong bLLuong = new BLLuong();
+                BLNhanVien bLNhanvien = new BLNhanVien();
+                List<v_NhanVien> dsnv = bLNhanvien.dsVNhanVien();
+                foreach (v_NhanVien nv in dsnv)
+                {
+                    bLLuong.Insert(DateTime.Now, nv.MaNV, out err);
+                }
+                MessageBox.Show(Global.global_datacontext.Connection.ConnectionString);
+                Global.global_datacontext.Connection.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Data error (from fmLogin.cs line 42)");
+
+            }
         }
 
 
@@ -40,39 +66,33 @@ namespace FastFood
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
 
+
+            string id = txtMaNV.Text.Trim();
+            string pw = txtMatKhau.Text.Trim();
+            Global.global_connection_string = String.Format("Data Source=(local);Initial Catalog=QLBH_FastFood;User ID={0};Password={1}", id, pw);
+            
+
+
             try
             {
-                string id = txtMaNV.Text.Trim();
-                string pw = txtMatKhau.Text.Trim();
-                string strCon = String.Format("Data Source=(local);Initial Catalog=QLBH_FastFood;User ID={0};Password={1}", id, pw);
-
-
-                SqlConnection conn = null;
-                SqlDataAdapter adapter = null;
-                SqlCommand command = null;
-                conn = new SqlConnection(strCon);
-                command = new SqlCommand();
-                command.Connection = conn;
-                if (conn.State == ConnectionState.Open)
-                    conn.Close();
-                conn.Open();
-                if (conn.ConnectionString.Contains("storekeeper"))
+                //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext(connectionString);
+                Global.global_datacontext = new QLBH_FastFoodDataContext(Global.global_connection_string);
+                Global.global_datacontext.Connection.Open();
+                //MessageBox.Show(context.Connection.ConnectionString);
+                if (Global.global_datacontext.Connection.State == ConnectionState.Open)
                 {
-                    Manager manager = new Manager(conn);
-                    manager.ShowDialog();
-                }
-                else
-                {
-                    Form1 form = new Form1(conn);
+                    
+                    MessageBox.Show(Global.global_datacontext.Connection.ConnectionString);
+                    Form1 fm1 = new Form1();
 
-                    form.ShowDialog();
+                    fm1.ShowDialog();
                 }
-
             }
             catch
             {
                 errorProvider1.SetError(txtMaNV, "đăng nhập không thành công");
             }
+
         }
 
         private void txtMatKhau_Leave_1(object sender, EventArgs e)

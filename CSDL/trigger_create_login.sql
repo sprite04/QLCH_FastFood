@@ -106,7 +106,7 @@ AS
 	DECLARE @query_AddRole NVARCHAR(100)
 	IF @role  IS NOT NULL AND @pass  IS NOT NULL AND @username  IS NOT NULL 
 		BEGIN
-		SET @query_createLogin = '2'
+		
 			SET @query_createLogin = (dbo.fn_CreateQueryLogin(@role,@pass,@username))
 			
 			SET @query_createUS = dbo.fn_CreateQueryUser(@role,@username)

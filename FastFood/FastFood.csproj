@@ -98,6 +98,7 @@
       <DependentUpon>QLBH_FastFood.dbml</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Static\Global.cs" />
     <Compile Include="UIQuanLy\Bill.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -163,12 +164,6 @@
     </Compile>
     <Compile Include="UIBanHang\Item.Designer.cs">
       <DependentUpon>Item.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UIBanHang\Login.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UIBanHang\Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="UIBanHang\Menu.cs">
       <SubType>UserControl</SubType>
@@ -238,9 +233,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UIBanHang\Item.resx">
       <DependentUpon>Item.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UIBanHang\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UIBanHang\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

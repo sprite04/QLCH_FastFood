@@ -14,20 +14,18 @@ namespace FastFood.UIQuanLy
 {
     public partial class Revenue : UserControl
     {
-        SqlConnection sql;
-        BLLThongKe blTK = new BLLThongKe();
+
+        BLLThongKe blTK;
         public Revenue()
         {
             InitializeComponent();
-        }
-        public Revenue(SqlConnection sql)
-        {
-            InitializeComponent();
+            blTK = new BLLThongKe();
+            string err;
+            blTK.Insert(DateTime.Now.Year, DateTime.Now.Month, out err);
             dateTimePicker1.CustomFormat = "YYYY";
             try
             {
-                
-                this.sql = sql;
+
                 getRevenueByYearTableAdapter.Fill(dataSet_Report.GetRevenueByYear, dateTimePicker1.Value.Year);
                 reportViewer1.RefreshReport();
 
@@ -36,9 +34,8 @@ namespace FastFood.UIQuanLy
             {
                 reportViewer1.RefreshReport();
             }
-
-
         }
+
 
         private void reportViewer1_Load(object sender, EventArgs e)
         {

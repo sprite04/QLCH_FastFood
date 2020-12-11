@@ -3,22 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FastFood.Static;
+
 
 namespace FastFood.BLL
 {
     public class BLNhanVien
     {
+       
+        public BLNhanVien()
+        {
+
+        }
+
         public List<NHANVIEN> dsNhanVien()
         {
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<NHANVIEN> dsNV = context.NHANVIENs.ToList();
+            //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            List<NHANVIEN> dsNV = Global.global_datacontext.NHANVIENs.ToList();
             return dsNV;
         }
 
         public List<v_NhanVien> dsVNhanVien()
         {
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<v_NhanVien> dsVNV = context.v_NhanViens.ToList();
+            //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            List<v_NhanVien> dsVNV = Global.global_datacontext.v_NhanViens.ToList();
             return dsVNV;
         }
 

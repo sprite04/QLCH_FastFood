@@ -16,113 +16,97 @@ namespace FastFood
 {
     public partial class Manager : Form
     {
-        public Manager(Login l)
+
+        //public Manager(QLBH_FastFoodDataContext context)
+        //{
+        //    InitializeComponent();
+
+        //    //MessageBox.Show(context.THONGKE_Ts.FirstOrDefault().TongDoanhThu.ToString());
+        //    //login = l;
+        //}
+        public Manager()
         {
             InitializeComponent();
-            login = l;
+            
         }
-        SqlConnection conn;
-        public Manager(SqlConnection connection)
-        {
-            InitializeComponent();
-            sqlConnection = connection;
-            conn = connection;
 
-            //làm cái này đẹp đẹp xíu nè. Kiểu welcome ..... hay là login thành công gì đó
-            //MessageBox.Show(arrListStr);
-
-        }
-        public Manager(Login l, SqlConnection connection)
-        {
-            InitializeComponent();
-            login = l;
-            conn = connection;
-
-
-  
-            //làm cái này đẹp đẹp xíu nè. Kiểu welcome ..... hay là login thành công gì đó
-            //MessageBox.Show(arrListStr);
-
-        }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        SqlConnection sqlConnection = new SqlConnection();
-        Form1 FORM = new Form1();
-        Login login = new Login();
+
+
         public Manager(Form1 form)
         {
             InitializeComponent();
-            FORM = form;
             this.Show();
         }
 
         private void Manager_Load(object sender, EventArgs e)
         {
-            List<Button> admin_btns = new List<Button>();
-            List<PictureBox> admin_pic = new List<PictureBox>();
-            List<Button> emp_btn = new List<Button>();
-            List<Button> stkp_btn = new List<Button>();
-            List<PictureBox> stkp_pic = new List<PictureBox>();
-            admin_btns.Add(btnBill);
-            admin_btns.Add(btnEmployee);
-            admin_btns.Add(btnItem);
-            admin_btns.Add(btnMaterial);
-            admin_btns.Add(btnRevene);
-            admin_btns.Add(btnSalary);
-            admin_btns.Add(btnShift);
-            admin_btns.Add(btnDashboard);
-            admin_pic.Add(picItem);
-            admin_pic.Add(picRevenue);
-            admin_pic.Add(picSalary);
-            admin_pic.Add(pictureBox2);
-            admin_pic.Add(pictureBox3);
-            admin_pic.Add(picBill);
-            admin_pic.Add(picDashboard);
-            admin_pic.Add(picEmployee);
+            //List<Button> admin_btns = new List<Button>();
+            //List<PictureBox> admin_pic = new List<PictureBox>();
+            //List<Button> emp_btn = new List<Button>();
+            //List<Button> stkp_btn = new List<Button>();
+            //List<PictureBox> stkp_pic = new List<PictureBox>();
+            //admin_btns.Add(btnBill);
+            //admin_btns.Add(btnEmployee);
+            //admin_btns.Add(btnItem);
+            //admin_btns.Add(btnMaterial);
+            //admin_btns.Add(btnRevene);
+            //admin_btns.Add(btnSalary);
+            //admin_btns.Add(btnShift);
+            //admin_btns.Add(btnDashboard);
+            //admin_pic.Add(picItem);
+            //admin_pic.Add(picRevenue);
+            //admin_pic.Add(picSalary);
+            //admin_pic.Add(pictureBox2);
+            //admin_pic.Add(pictureBox3);
+            //admin_pic.Add(picBill);
+            //admin_pic.Add(picDashboard);
+            //admin_pic.Add(picEmployee);
 
-            emp_btn.Add(btnItem);
-            emp_btn.Add(btnItem);
-            emp_btn.Add(btnItem);
-            emp_btn.Add(btnItem);
+            //emp_btn.Add(btnItem);
+            //emp_btn.Add(btnItem);
+            //emp_btn.Add(btnItem);
+            //emp_btn.Add(btnItem);
 
-            stkp_btn.Add(btnMaterial);
-            stkp_pic.Add(pictureBox2);
-            string connect = sqlConnection.ConnectionString;
-            if (connect.Contains("admin"))
-            {
-                foreach(Button a in admin_btns)
-                {
-                    a.Enabled = true;
-                    a.Visible = true;
-                }
-                foreach (PictureBox x in admin_pic)
-                {
-                    x.Visible = true;
-                }    
-            }
-            else if (connect.Contains("storekeeper")) 
-            {
-                foreach (Button a in admin_btns)
-                {
-                    a.Enabled = false;
-                    a.Visible = false;
-                }
-                foreach (Button a in stkp_btn)
-                {
-                    a.Enabled = true;
-                    a.Visible = true;
-                }
-                foreach (PictureBox x in admin_pic)
-                {
-                    x.Visible = false;
-                }
-                foreach (PictureBox x in stkp_pic)
-                {
-                    x.Visible = true;
-                }
-            }
+            //stkp_btn.Add(btnMaterial);
+            //stkp_pic.Add(pictureBox2);
+            //string connect = sqlConnection.ConnectionString;
+            //if (connect.Contains("admin"))
+            //{
+            //    foreach(Button a in admin_btns)
+            //    {
+            //        a.Enabled = true;
+            //        a.Visible = true;
+            //    }
+            //    foreach (PictureBox x in admin_pic)
+            //    {
+            //        x.Visible = true;
+            //    }    
+            //}
+            //else if (connect.Contains("storekeeper")) 
+            //{
+            //    foreach (Button a in admin_btns)
+            //    {
+            //        a.Enabled = false;
+            //        a.Visible = false;
+            //    }
+            //    foreach (Button a in stkp_btn)
+            //    {
+            //        a.Enabled = true;
+            //        a.Visible = true;
+            //    }
+            //    foreach (PictureBox x in admin_pic) 
+            //    {
+            //        x.Visible = false;
+            //    }
+            //    foreach (PictureBox x in stkp_pic)
+            //    {
+            //        x.Visible = true;
+            //    }
+            //}
             
             
 
@@ -130,31 +114,9 @@ namespace FastFood
             this.Size = new Size(1000, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
             
-            Prestart();
-        }
-        public void Prestart()
-        {
-            try
-            {
-                int month = DateTime.Now.Month;
-                int year = DateTime.Now.Year;
-                BLLThongKe bltk = new BLLThongKe();
-                string err;
-                bltk.Insert(year, month, out err);
-                BLLuong bLLuong = new BLLuong();
-                BLNhanVien bLNhanvien = new BLNhanVien();
-                List<v_NhanVien> dsnv = bLNhanvien.dsVNhanVien();
-                foreach (v_NhanVien nv in dsnv)
-                {
-                    bLLuong.Insert(DateTime.Now, nv.MaNV, out err);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Data error (from Manager.cs line 153)");
-            }
 
         }
+
         private string Get_ID(SqlConnection conn)
         {
             try
@@ -212,7 +174,7 @@ namespace FastFood
         private void btnItem_Click(object sender, EventArgs e)
         {
             pnShow.Controls.Clear();
-            Products products = new Products(conn);
+            Products products = new Products();
             products.Dock = DockStyle.Fill;
             pnShow.Controls.Add(products);
         }
@@ -253,7 +215,7 @@ namespace FastFood
             btnMaximize.Visible = false;
             btnRestore.Visible = true;
             pnShow.Controls.Clear();
-            Employee employee = new Employee(conn);
+            Employee employee = new Employee();
             employee.Dock = DockStyle.Fill;
             pnShow.Controls.Add(employee);
         }
@@ -264,7 +226,7 @@ namespace FastFood
             btnMaximize.Visible = false;
             btnRestore.Visible = true;
             pnShow.Controls.Clear();
-            Bill bill = new Bill(conn);
+            Bill bill = new Bill();
             bill.Dock = DockStyle.Fill;
             pnShow.Controls.Add(bill);
         }
@@ -290,7 +252,7 @@ namespace FastFood
             btnMaximize.Visible = false;
             btnRestore.Visible = true;
             pnShow.Controls.Clear();
-            Salary salary = new Salary(conn);
+            Salary salary = new Salary();
             salary.Dock = DockStyle.Fill;
             pnShow.Controls.Add(salary);
         }
@@ -298,7 +260,7 @@ namespace FastFood
         private void btnRevene_Click(object sender, EventArgs e)
         {
             pnShow.Controls.Clear();
-            Revenue revenue = new Revenue(conn);
+            Revenue revenue = new Revenue();
             revenue.Dock = DockStyle.Fill;
             pnShow.Controls.Add(revenue);
         }
@@ -312,7 +274,7 @@ namespace FastFood
         private void btnMaterial_Click(object sender, EventArgs e)
         {
             pnShow.Controls.Clear();
-            Material materials = new Material(conn);
+            Material materials = new Material();
             materials.Dock = DockStyle.Fill;
             pnShow.Controls.Add(materials);
         }

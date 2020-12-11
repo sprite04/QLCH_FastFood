@@ -14,24 +14,14 @@ namespace FastFood.UIQuanLy
 {
     public partial class Salary : UserControl
     {
-        SqlConnection conn;
+
         BLLuong BLLuong;
         List<st_LUONGResult> dsvLuong = new List<st_LUONGResult>();
         List<NHANVIEN> dsNV = new List<NHANVIEN>();
-        
+
         public Salary()
         {
             InitializeComponent();
-        }
-        public Salary(SqlConnection conn)
-        {
-            InitializeComponent();
-            dtpFind.Value = DateTime.Now;
-            
-            this.conn = conn;
-            dtpFind.Format = DateTimePickerFormat.Custom;
-            dtpFind.CustomFormat = "MMMM yyyy";
-            //dtpFind.ShowUpDown = true;
         }
         private void LoadData(int Nam, int Thang)
         {
