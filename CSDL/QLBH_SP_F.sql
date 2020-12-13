@@ -228,6 +228,68 @@ VALUES  ( @MaHD, -- MaHD - int
           )
 GO
 
+
+
+--
+GO
+
+
+CREATE PROCEDURE sp_ThemChiTietHD(@MaHD INT, @MaSP INT, @SL INT) 
+AS 
+
+BEGIN
+    BEGIN TRANSACTION;
+    SAVE TRANSACTION Before_reduce;
+	
+    BEGIN TRY
+		
+		INSERT dbo.CHITIET_HD
+		VALUES  ( @MaHD, -- MaHD - int
+				  @MaSP, -- MaSP - int
+				  @SL  -- SL - int
+				  );
+		
+
+		--cap nhat bang nguyen lieu
+
+		UPDATE dbo.NGUYENLIEU
+		SET dbo.NGUYENLIEU.SLTonKho = tab.SLTonKhoDaCapNhat
+		FROM dbo.NGUYENLIEU nl JOIN (SELECT dbo.CHEBIEN.MaNL, SLTonKhoDaCapNhat = SLTonKho - SoLuong*@SL
+									FROM dbo.CHEBIEN INNER JOIN dbo.NGUYENLIEU ON NGUYENLIEU.MaNL = dbo.CHEBIEN.MaNL
+									WHERE dbo.CHEBIEN.MaSP = @MaSP) tab		
+		ON tab.MaNL = nl.MaNL
+		
+
+		--dem cac phan tu bi am
+		DECLARE @count_neg int
+		SET @count_neg = (SELECT count(*) 
+							FROM dbo.CHEBIEN INNER JOIN dbo.NGUYENLIEU ON NGUYENLIEU.MaNL = dbo.CHEBIEN.MaNL
+							WHERE dbo.NGUYENLIEU.SLTonKho <= 0 and dbo.CHEBIEN.MaSP = @MaSP)
+
+
+		IF @count_neg >= 1
+		BEGIN
+            ROLLBACK TRANSACTION Before_reduce; -- rollback to Before_reduce
+        END
+
+
+        COMMIT TRANSACTION 
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0-- so lan thuc hien
+        BEGIN
+			
+            ROLLBACK TRANSACTION Before_reduce; -- rollback to Before_reduce
+        END
+		
+    END CATCH
+END;
+
+
+
+
+
+
 --Thieu Quan
 --View ShiftAndEmployee:
 ALTER VIEW v_ShiftAndEmployee

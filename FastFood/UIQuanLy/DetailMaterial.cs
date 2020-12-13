@@ -36,7 +36,7 @@ namespace FastFood.UIQuanLy
 
         v_NguyenLieu nl = new v_NguyenLieu();
         bool Them = false;
-        BLNguyenLieu blNL;
+        BLNguyenLieu blNL = new BLNguyenLieu();
         List<v_NguyenLieu> dsNL = new List<v_NguyenLieu>();
 
         private void DetailProduct_Load(object sender, EventArgs e)
