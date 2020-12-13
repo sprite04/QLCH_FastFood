@@ -3,9 +3,6 @@ GO
 USE QLBH_FastFood
 CREATE login account1   WITH PASSWORD = '123' --test
 CREATE login account2  WITH PASSWORD = '123' --test
-CREATE USER asssas FOR LOGIN account2 
-DENY SELECT ON dbo.NHANVIEN TO asssas
-GRANT SELECT,INSERT,UPDATE,DELETE ON dbo.v_NhanVien TO asssas
 --admin
 CREATE login admin1   WITH PASSWORD = '123' 
 CREATE USER USadmin1 FOR LOGIN admin1 
@@ -143,9 +140,6 @@ GRANT SELECT,INSERT,UPDATE ON dbo.THONGKE_T TO manager
 
 
 
-
-
-
 --sp_CA
 ------EMPLOYEE
 DENY EXEC ON dbo.sp_Ca TO employee
@@ -170,11 +164,11 @@ GRANT EXEC ON dbo.sp_ThemCa TO admin
 ------EMPLOYEE
 DENY EXEC ON dbo.sp_ThemCheBien TO employee
 ------STOREKEEPER
-DENY EXEC ON dbo.sp_ThemCa TO storekeeper
+DENY EXEC ON dbo.sp_ThemCheBien TO storekeeper
 ------MANAGER
-DENY EXEC ON dbo.sp_ThemCa TO manager
+DENY EXEC ON dbo.sp_ThemCheBien TO manager
 ------ADMIN
-GRANT EXEC ON dbo.sp_ThemCa TO admin
+GRANT EXEC ON dbo.sp_ThemCheBien TO admin
 
 
 
@@ -214,11 +208,11 @@ GRANT EXEC ON dbo.sp_ThemChiTietHD TO admin
 ------EMPLOYEE
 DENY EXEC ON dbo.sp_DiemDanh TO employee
 ------STOREKEEPER
-DENY EXEC ON dbo.sp_ThemChiTietHD TO storekeeper
+DENY EXEC ON dbo.sp_DiemDanh TO storekeeper
 ------MANAGER
-GRANT EXEC ON dbo.sp_ThemChiTietHD TO manager
+GRANT EXEC ON dbo.sp_DiemDanh TO manager
 ------ADMIN
-GRANT EXEC ON dbo.sp_ThemChiTietHD TO admin
+GRANT EXEC ON dbo.sp_DiemDanh TO admin
 
 
 --sp_themdiemdanh
@@ -460,3 +454,4 @@ DENY EXEC ON dbo.sp_SuaSanPham TO storekeeper
 DENY EXEC ON dbo.sp_SuaSanPham TO manager
 ------ADMIN
 GRANT EXEC ON dbo.sp_SuaSanPham TO admin
+

@@ -127,7 +127,7 @@ GO
 --no17
 ALTER PROCEDURE sp_ThemNhanVien(@MaNV INT, @HoTen NVARCHAR(30),@GT BIT,
                                  @CMND VARCHAR(15), @SDT VARCHAR(12),@DiaChi NVARCHAR(50),
-								 @TT_Lam BIT,@MatKhau VARCHAR(50),@MaCV INT)
+								 @TT_Lam BIT,@MaCV INT)
 AS
 INSERT dbo.NHANVIEN
 VALUES  ( @MaNV , -- MaNV - int
@@ -137,16 +137,15 @@ VALUES  ( @MaNV , -- MaNV - int
           @SDT , -- SDT - varchar(12)
           @DiaChi, -- DiaChi - nvarchar(50)
           @TT_Lam , -- TT_Lam - bit
-          @MatKhau , -- MatKhau - varchar(50)
           @MaCV  -- MaCV - int
         )
 GO
 --no7
 ALTER PROCEDURE sp_SuaNhanVien(@MaNV INT, @HoTen NVARCHAR(30),@GT BIT,
                                 @CMND VARCHAR(15), @SDT VARCHAR(12),@DiaChi NVARCHAR(50),
-								@TT_Lam BIT,@MatKhau VARCHAR(50),@MaCV INT)
+								@TT_Lam BIT,@MaCV INT)
 AS
-UPDATE dbo.NHANVIEN SET HoTen=@HoTen, GT=@GT,CMND=@CMND,SDT=@SDT,DiaChi=@DiaChi,TT_Lam=@TT_Lam,MatKhau=@MatKhau,MaCV=@MaCV
+UPDATE dbo.NHANVIEN SET HoTen=@HoTen, GT=@GT,CMND=@CMND,SDT=@SDT,DiaChi=@DiaChi,TT_Lam=@TT_Lam,MaCV=@MaCV
 WHERE MaNV=@MaNV
 GO
 
@@ -404,3 +403,15 @@ BEGIN
 END
 go
 --SELECT dbo.fn_ALTERUsername('admin112')
+
+
+---------------change password for a login
+
+CREATE PROCEDURE sp_ChangePassword(@loginname NVARCHAR(50), @passnew NVARCHAR(30))
+AS 
+BEGIN
+    DECLARE @query NVARCHAR(100)
+	SET @query = 'alter login '+ @loginname + ' WITH PASSWORD = ' + quotename( @passnew,'''') 
+	EXEC(@query)
+END
+

@@ -35,8 +35,12 @@ namespace FastFood.BLL
             message = "";
             try
             {
+                // chỗ này là ngoại lệ, vì ở trigger tạo nhân viên có tạo login cho 
+                // server nên các user ở database 
+                // không có quyền tạo login
+                // vấn đề này t không tìm được cách khác để phân quyền, mn 
                 QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-                context.sp_ThemNhanVien(nv.MaNV, nv.HoTen, nv.GT, nv.CMND, nv.SDT, nv.DiaChi, nv.TT_Lam, nv.MatKhau, nv.MaCV);
+                context.sp_ThemNhanVien(nv.MaNV, nv.HoTen, nv.GT, nv.CMND, nv.SDT, nv.DiaChi, nv.TT_Lam, nv.MaCV);
                 return true;
             }
             catch (Exception e)
@@ -52,7 +56,7 @@ namespace FastFood.BLL
             try
             {
                 QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-                context.sp_SuaNhanVien(nv.MaNV, nv.HoTen, nv.GT, nv.CMND, nv.SDT, nv.DiaChi, nv.TT_Lam, nv.MatKhau, nv.MaCV);
+                context.sp_SuaNhanVien(nv.MaNV, nv.HoTen, nv.GT, nv.CMND, nv.SDT, nv.DiaChi, nv.TT_Lam, nv.MaCV);
                 return true;
             }
             catch (Exception e)

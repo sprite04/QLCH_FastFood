@@ -80,6 +80,12 @@
     <Compile Include="BLL\BLNguyenLieu.cs" />
     <Compile Include="BLL\BLNhanVien.cs" />
     <Compile Include="BLL\BLSanPham.cs" />
+    <Compile Include="ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataSet_Report.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -197,6 +203,9 @@
     <Compile Include="UIQuanLy\Shift.Designer.cs">
       <DependentUpon>Shift.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fmLogin.resx">
       <DependentUpon>fmLogin.cs</DependentUpon>
     </EmbeddedResource>

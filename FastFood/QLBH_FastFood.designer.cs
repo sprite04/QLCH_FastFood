@@ -280,13 +280,6 @@ namespace FastFood
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_SuaNhanVien")]
-		public int sp_SuaNhanVien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNV", DbType="Int")] System.Nullable<int> maNV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoTen", DbType="NVarChar(30)")] string hoTen, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GT", DbType="Bit")] System.Nullable<bool> gT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CMND", DbType="VarChar(15)")] string cMND, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SDT", DbType="VarChar(12)")] string sDT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiaChi", DbType="NVarChar(50)")] string diaChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Lam", DbType="Bit")] System.Nullable<bool> tT_Lam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MatKhau", DbType="VarChar(50)")] string matKhau, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCV", DbType="Int")] System.Nullable<int> maCV)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNV, hoTen, gT, cMND, sDT, diaChi, tT_Lam, matKhau, maCV);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_SuaSanPham")]
 		public int sp_SuaSanPham([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaSP", DbType="Int")] System.Nullable<int> maSP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HinhSP", DbType="Image")] System.Data.Linq.Binary hinhSP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenSP", DbType="NVarChar(30)")] string tenSP, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Ban", DbType="Bit")] System.Nullable<bool> tT_Ban, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Con", DbType="Bit")] System.Nullable<bool> tT_Con, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LoiNhuan", DbType="Float")] System.Nullable<double> loiNhuan, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GiamGia", DbType="Float")] System.Nullable<double> giamGia)
 		{
@@ -333,13 +326,6 @@ namespace FastFood
 		public int sp_ThemNguyenLieu([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNL", DbType="Int")] System.Nullable<int> maNL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TenNL", DbType="NVarChar(30)")] string tenNL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GiaNL", DbType="Int")] System.Nullable<int> giaNL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DonVi", DbType="NVarChar(15)")] string donVi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SL", DbType="Int")] System.Nullable<int> sL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Ban", DbType="Bit")] System.Nullable<bool> tT_Ban)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNL, tenNL, giaNL, donVi, sL, tT_Ban);
-			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThemNhanVien")]
-		public int sp_ThemNhanVien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNV", DbType="Int")] System.Nullable<int> maNV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoTen", DbType="NVarChar(30)")] string hoTen, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GT", DbType="Bit")] System.Nullable<bool> gT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CMND", DbType="VarChar(15)")] string cMND, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SDT", DbType="VarChar(12)")] string sDT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiaChi", DbType="NVarChar(50)")] string diaChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Lam", DbType="Bit")] System.Nullable<bool> tT_Lam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MatKhau", DbType="VarChar(50)")] string matKhau, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCV", DbType="Int")] System.Nullable<int> maCV)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNV, hoTen, gT, cMND, sDT, diaChi, tT_Lam, matKhau, maCV);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -495,6 +481,27 @@ namespace FastFood
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), nam);
 			return ((ISingleResult<GetRevenueByYearResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ThemNhanVien")]
+		public int sp_ThemNhanVien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNV", DbType="Int")] System.Nullable<int> maNV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoTen", DbType="NVarChar(30)")] string hoTen, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GT", DbType="Bit")] System.Nullable<bool> gT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CMND", DbType="VarChar(15)")] string cMND, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SDT", DbType="VarChar(12)")] string sDT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiaChi", DbType="NVarChar(50)")] string diaChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Lam", DbType="Bit")] System.Nullable<bool> tT_Lam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCV", DbType="Int")] System.Nullable<int> maCV)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNV, hoTen, gT, cMND, sDT, diaChi, tT_Lam, maCV);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_SuaNhanVien")]
+		public int sp_SuaNhanVien([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaNV", DbType="Int")] System.Nullable<int> maNV, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="HoTen", DbType="NVarChar(30)")] string hoTen, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="GT", DbType="Bit")] System.Nullable<bool> gT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CMND", DbType="VarChar(15)")] string cMND, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SDT", DbType="VarChar(12)")] string sDT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DiaChi", DbType="NVarChar(50)")] string diaChi, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TT_Lam", DbType="Bit")] System.Nullable<bool> tT_Lam, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaCV", DbType="Int")] System.Nullable<int> maCV)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), maNV, hoTen, gT, cMND, sDT, diaChi, tT_Lam, maCV);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_ChangePassword")]
+		public int sp_ChangePassword([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string loginname, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(30)")] string passnew)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), loginname, passnew);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -2058,8 +2065,6 @@ namespace FastFood
 		
 		private System.Nullable<bool> _TT_Lam;
 		
-		private string _MatKhau;
-		
 		private System.Nullable<int> _MaCV;
 		
 		private EntitySet<DIEMDANH> _DIEMDANHs;
@@ -2084,8 +2089,6 @@ namespace FastFood
     partial void OnDiaChiChanged();
     partial void OnTT_LamChanging(System.Nullable<bool> value);
     partial void OnTT_LamChanged();
-    partial void OnMatKhauChanging(string value);
-    partial void OnMatKhauChanged();
     partial void OnMaCVChanging(System.Nullable<int> value);
     partial void OnMaCVChanged();
     #endregion
@@ -2233,26 +2236,6 @@ namespace FastFood
 					this._TT_Lam = value;
 					this.SendPropertyChanged("TT_Lam");
 					this.OnTT_LamChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MatKhau", DbType="VarChar(50)")]
-		public string MatKhau
-		{
-			get
-			{
-				return this._MatKhau;
-			}
-			set
-			{
-				if ((this._MatKhau != value))
-				{
-					this.OnMatKhauChanging(value);
-					this.SendPropertyChanging();
-					this._MatKhau = value;
-					this.SendPropertyChanged("MatKhau");
-					this.OnMatKhauChanged();
 				}
 			}
 		}

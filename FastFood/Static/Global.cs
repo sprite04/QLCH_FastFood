@@ -10,6 +10,5 @@ namespace FastFood.Static
     {
         public static string global_connection_string;
         public static QLBH_FastFoodDataContext global_datacontext;
-
     }
 }

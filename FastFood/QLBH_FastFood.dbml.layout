@@ -56,10 +56,10 @@
         <elementListCompartment Id="1c381d76-1481-43e1-b022-38eadab7721c" absoluteBounds="0.765, 9.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="80cd4d25-7b64-4b69-aa9d-90becd0568c6" absoluteBounds="6.5, 6.625, 2, 2.5401025390625005">
+    <classShape Id="80cd4d25-7b64-4b69-aa9d-90becd0568c6" absoluteBounds="6.5, 6.625, 2, 2.3478011067708326">
       <DataClassMoniker Name="/QLBH_FastFoodDataContext/NHANVIEN" />
       <nestedChildShapes>
-        <elementListCompartment Id="b6067548-d15f-4423-92bf-b9243cb5cc74" absoluteBounds="6.515, 7.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b6067548-d15f-4423-92bf-b9243cb5cc74" absoluteBounds="6.515, 7.085, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="424372e4-0b8a-44cf-b7e9-1bed5a802fca" absoluteBounds="0.75, 3.375, 2, 2.1554996744791666">

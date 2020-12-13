@@ -78,7 +78,6 @@ namespace FastFood
                 //pnKind.Visible = Kind;
                 txtHoTen.Text = nv.HoTen;
                 txtCMND.Text = nv.CMND.ToString();
-                txtMK.Text = nv.MatKhau;
                 txtSDT.Text = nv.SDT.ToString();
                 cbGT.Checked = (Boolean)nv.GT;
                 if ((Boolean)nv.GT)
@@ -140,7 +139,6 @@ namespace FastFood
                     CMND = txtCMND.Text,
                     SDT = txtSDT.Text,
                     TT_Lam = nv.TT_Lam,
-                    MatKhau = txtMK.Text,
                     MaCV = cbKind.SelectedIndex + 1
                 };
                 string message;
@@ -161,13 +159,7 @@ namespace FastFood
 
         private void cbKind_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(Kind==true)
-            {
-                if (cbKind.SelectedIndex == 0)
-                    pnPass.Visible = false;
-                else
-                    pnPass.Visible = true;
-            }    
+ 
         }
 
         private void pnPass_Paint(object sender, PaintEventArgs e)

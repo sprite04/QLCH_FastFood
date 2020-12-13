@@ -218,3 +218,4 @@ D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\FastFood\bin\Debug\zh-HANS\Microsof
 D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\FastFood\bin\Debug\zh-HANT\Microsoft.ReportViewer.Design.resources.dll
 D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\FastFood\bin\Debug\zh-HANS\Microsoft.ReportViewer.WinForms.resources.dll
 D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\FastFood\bin\Debug\zh-HANT\Microsoft.ReportViewer.WinForms.resources.dll
+D:\IT\Nam_3\HK1\HQTCSDL\Phan quyen\git_test3\FastFood\obj\Debug\FastFood.ChangePassword.resources

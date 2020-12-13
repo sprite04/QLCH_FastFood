@@ -20,6 +20,7 @@ namespace FastFood.BLL
         public List<CA> dsCa()
         {
             //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext(conStr);
+            // thay vì tạo context mới thì dùng biến global đã được gán ở fmLogin
             List<CA> dsCa = Global.global_datacontext.CAs.ToList();
             return dsCa;
         }

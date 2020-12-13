@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtInfo = new System.Windows.Forms.TextBox();
             this.SidePanel = new System.Windows.Forms.Panel();
             this.btnManager = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.txtInfo = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -72,6 +72,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(387, 1046);
             this.panel1.TabIndex = 0;
+            // 
+            // txtInfo
+            // 
+            this.txtInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.txtInfo.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInfo.ForeColor = System.Drawing.SystemColors.Info;
+            this.txtInfo.Location = new System.Drawing.Point(16, 25);
+            this.txtInfo.Name = "txtInfo";
+            this.txtInfo.ReadOnly = true;
+            this.txtInfo.Size = new System.Drawing.Size(350, 47);
+            this.txtInfo.TabIndex = 5;
             // 
             // SidePanel
             // 
@@ -348,17 +359,6 @@
             this.button8.TabIndex = 4;
             this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button8.UseVisualStyleBackColor = true;
-            // 
-            // txtInfo
-            // 
-            this.txtInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.txtInfo.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInfo.ForeColor = System.Drawing.SystemColors.Info;
-            this.txtInfo.Location = new System.Drawing.Point(16, 25);
-            this.txtInfo.Name = "txtInfo";
-            this.txtInfo.ReadOnly = true;
-            this.txtInfo.Size = new System.Drawing.Size(350, 52);
-            this.txtInfo.TabIndex = 5;
             // 
             // Form1
             // 

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FastFood.BLL;
 using System.Windows.Forms;
+using FastFood.Static;
 namespace FastFood
 {
     public partial class Form1 : Form
@@ -31,6 +32,29 @@ namespace FastFood
             home.Dock = DockStyle.Fill;
             home.BringToFront();
             pnShow.Controls.Add(home);
+            int id = getNumber(Global.global_datacontext.Connection.ConnectionString);
+            
+            if (id == 1)
+            {
+                txtInfo.Text = "Test";
+            }
+            else
+            {
+                NHANVIEN nv = new NHANVIEN();
+                blNV = new BLNhanVien();
+                dsNV = blNV.dsNhanVien();
+                nv = dsNV.Find(x => x.MaNV == id);
+                if(nv!=null)
+                {
+                    txtInfo.Visible = true;
+                    txtInfo.Text = (string.Format("{0}", nv.HoTen));
+                }    
+                else
+                {
+                    txtInfo.Visible = false;
+                }    
+            }
+
         }
         //public Form1(QLBH_FastFoodDataContext context)
         //{
@@ -70,13 +94,17 @@ namespace FastFood
         {
             try
             {
-                string id_s = input.Substring(input.Length - 3);
+                //lấy mã nhân viên từ connection string dạng 
+                string id_s = input.Substring(input.Length - 4);
+                //xóa dấu ;
+                id_s = id_s.Remove(id_s.Length-1,1);
+                
                 int id = int.Parse(id_s);
                 return id;
             }
             catch
             {
-                return 0;
+                return 1;
             }
         }
         //}
