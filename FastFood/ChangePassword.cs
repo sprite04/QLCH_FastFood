@@ -46,8 +46,9 @@ namespace FastFood
                         {
 
                             Global.global_connection_string = "";
+                            
                             Global.global_datacontext.Connection.Close();
-
+                            Global.global_datacontext = null;
 
                         }
                         try
@@ -55,8 +56,10 @@ namespace FastFood
                             Global.global_datacontext = new QLBH_FastFoodDataContext();
                             Global.global_datacontext.Connection.Open();
                             Global.global_datacontext.sp_ChangePassword(login, passnew);
+                            
                             Global.global_datacontext.Connection.Close();
-                            DialogResult di = MessageBox.Show("Đổi mật khẩu thành công!, Chọn Ok để về Đăng nhập","Thành công",MessageBoxButtons.OK);
+                            Global.global_datacontext = null;
+                            DialogResult di = MessageBox.Show("Đổi mật khẩu thành công!, Chọn Ok để về Đăng nhập (Khởi động lại chương trình để lưu thay đổi)","Thành công",MessageBoxButtons.OK);
                             if (di == DialogResult.OK)
                             {
                                 this.Close();

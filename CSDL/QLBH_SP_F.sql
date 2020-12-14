@@ -42,7 +42,7 @@ ALTER VIEW v_SanPham
 AS
 SELECT SP.MaSP, SP.TenSP,SP.HinhSP,dbo.fn_GiaGoc(SP.MaSP) AS GiaGoc,dbo.fn_GiaBan(SP.MaSP) AS GiaBan
 FROM dbo.SANPHAM SP
-WHERE SP.TT_Ban='True'
+WHERE SP.TT_Ban='True' AND sp.TT_Con = 'True'
 GO
 --no18
 ALTER PROCEDURE sp_ThemSanPham(@MaSP INT, @HinhSP IMAGE, 
@@ -218,16 +218,9 @@ AS
 DELETE dbo.DIEMDANH
 WHERE MaCa=@Ngay
 GO
---no12
-ALTER PROCEDURE sp_ThemChiTietHD(@MaHD INT, @MaSP INT, @SL INT)
-AS
-INSERT dbo.CHITIET_HD
-VALUES  ( @MaHD, -- MaHD - int
-          @MaSP, -- MaSP - int
-          @SL  -- SL - int
-          )
-GO
 
+
+--no12
 
 
 --
@@ -257,7 +250,7 @@ BEGIN
 		FROM dbo.NGUYENLIEU nl JOIN (SELECT dbo.CHEBIEN.MaNL, SLTonKhoDaCapNhat = SLTonKho - SoLuong*@SL
 									FROM dbo.CHEBIEN INNER JOIN dbo.NGUYENLIEU ON NGUYENLIEU.MaNL = dbo.CHEBIEN.MaNL
 									WHERE dbo.CHEBIEN.MaSP = @MaSP) tab		
-		ON tab.MaNL = nl.MaNL
+								ON tab.MaNL = nl.MaNL
 		
 
 		--dem cac phan tu bi am
@@ -476,4 +469,3 @@ BEGIN
 	SET @query = 'alter login '+ @loginname + ' WITH PASSWORD = ' + quotename( @passnew,'''') 
 	EXEC(@query)
 END
-

@@ -35,10 +35,10 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txt_newpassw = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txt_comfPass = new System.Windows.Forms.TextBox();
+            this.txt_newpassw = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txt_comfPass = new System.Windows.Forms.TextBox();
             this.lb_ok = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnClose = new System.Windows.Forms.PictureBox();
@@ -111,6 +111,14 @@
             this.panel1.Size = new System.Drawing.Size(360, 1);
             this.panel1.TabIndex = 34;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DimGray;
+            this.panel2.Location = new System.Drawing.Point(3, 86);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(360, 1);
+            this.panel2.TabIndex = 36;
+            // 
             // txt_newpassw
             // 
             this.txt_newpassw.BackColor = System.Drawing.Color.White;
@@ -124,13 +132,13 @@
             this.txt_newpassw.Text = "New Password";
             this.txt_newpassw.Click += new System.EventHandler(this.txt_newpassw_Click);
             // 
-            // panel2
+            // panel3
             // 
-            this.panel2.BackColor = System.Drawing.Color.DimGray;
-            this.panel2.Location = new System.Drawing.Point(3, 86);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(360, 1);
-            this.panel2.TabIndex = 36;
+            this.panel3.BackColor = System.Drawing.Color.DimGray;
+            this.panel3.Location = new System.Drawing.Point(3, 124);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(360, 1);
+            this.panel3.TabIndex = 38;
             // 
             // txt_comfPass
             // 
@@ -146,14 +154,6 @@
             this.txt_comfPass.Click += new System.EventHandler(this.txt_comfPass_Click);
             this.txt_comfPass.TextChanged += new System.EventHandler(this.txt_comfPass_TextChanged);
             this.txt_comfPass.Leave += new System.EventHandler(this.txt_comfPass_Leave);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.DimGray;
-            this.panel3.Location = new System.Drawing.Point(3, 124);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(360, 1);
-            this.panel3.TabIndex = 38;
             // 
             // lb_ok
             // 
@@ -176,7 +176,7 @@
             this.btnClose.BackColor = System.Drawing.Color.Transparent;
             this.btnClose.BackgroundImage = global::FastFood.Properties.Resources.icons8_multiply_32px;
             this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnClose.Location = new System.Drawing.Point(447, 12);
+            this.btnClose.Location = new System.Drawing.Point(466, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(30, 30);
             this.btnClose.TabIndex = 39;
@@ -187,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(489, 271);
+            this.ClientSize = new System.Drawing.Size(508, 282);
             this.Controls.Add(this.lb_ok);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.btnClose);

@@ -48,7 +48,7 @@ namespace FastFood
                 {
                     bLLuong.Insert(DateTime.Now, nv.MaNV, out err);
                 }
-                MessageBox.Show(Global.global_datacontext.Connection.ConnectionString);
+                
                 Global.global_datacontext.Connection.Close();
             }
             catch
@@ -57,18 +57,6 @@ namespace FastFood
 
             }
         }
-
-
-
-        private string id;
-        private string pw;
-
-
-
-
-
-
-
 
 
         private void btnLogin_Click_1(object sender, EventArgs e)
@@ -95,16 +83,15 @@ namespace FastFood
                 Global.global_datacontext = new QLBH_FastFoodDataContext(Global.global_connection_string);
 
                 Global.global_datacontext.Connection.Open();
-                //MessageBox.Show(context.Connection.ConnectionString);
+
                 if (Global.global_datacontext.Connection.State == ConnectionState.Open)
                 {
-                    
-                    MessageBox.Show(Global.global_datacontext.Connection.ConnectionString);
                     Form1 fm1 = new Form1();
                     fm1.ShowDialog();
                     txtMaNV.Clear();
                     txtMatKhau.Clear();
                     Global.global_datacontext.Connection.Close();
+                    Global.global_datacontext = null;
                     Global.global_connection_string = "";
                 }
             }
