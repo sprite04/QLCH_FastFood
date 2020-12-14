@@ -1,4 +1,5 @@
 ﻿using FastFood.DTO;
+using FastFood.Static;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,25 +11,31 @@ namespace FastFood.BLL
 {
     public class BLNguyenLieu
     {
+
+        public BLNguyenLieu()
+        {
+
+        }
+
         public List<v_NguyenLieu> dsVNguyenLieu()
         {
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<v_NguyenLieu> dsNL = context.v_NguyenLieus.ToList();
+            //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            List<v_NguyenLieu> dsNL = Global.global_datacontext.v_NguyenLieus.ToList();
             return dsNL;
         }
 
         public List<NGUYENLIEU> dsNguyenLieu()
         {
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<NGUYENLIEU> dsNL = context.NGUYENLIEUs.ToList();
+            //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            List<NGUYENLIEU> dsNL = Global.global_datacontext.NGUYENLIEUs.ToList();
             return dsNL;
         }
 
         public List<NguyenLieuDGV> dsNguyenLieuDGV(SANPHAM sp)
         {
             List<NguyenLieuDGV> dsNLDGV = new List<NguyenLieuDGV>();
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            var dsNL = context.sp_NguyenLieuDGV(sp.MaSP).ToList();
+            //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            var dsNL = Global.global_datacontext.sp_NguyenLieuDGV(sp.MaSP).ToList();
             for (int i = 0; i < dsNL.Count; i++)
                 dsNLDGV.Add(new NguyenLieuDGV() { MaNL = dsNL[i].MaNL, 
                                                   TenNL = dsNL[i].TenNL, 
@@ -42,8 +49,8 @@ namespace FastFood.BLL
             message = "";
             try
             {
-                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-                context.sp_ThemNguyenLieu(nl.MaNL, nl.TenNL, nl.GiaNL, nl.DonVi, nl.SLTonKho, nl.TT_Ban);
+                //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                Global.global_datacontext.sp_ThemNguyenLieu(nl.MaNL, nl.TenNL, nl.GiaNL, nl.DonVi, nl.SLTonKho, nl.TT_Ban);
                 return true;
             }
             catch (Exception e)
@@ -58,8 +65,8 @@ namespace FastFood.BLL
             message = "";
             try
             {
-                QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-                context.sp_SuaNguyenLieu(nl.MaNL, nl.TenNL, nl.GiaNL, nl.DonVi, nl.SLTonKho, nl.TT_Ban);
+                //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+                Global.global_datacontext.sp_SuaNguyenLieu(nl.MaNL, nl.TenNL, nl.GiaNL, nl.DonVi, nl.SLTonKho, nl.TT_Ban);
                 return true;
             }
             catch (Exception e)

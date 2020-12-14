@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FastFood.Static;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,8 @@ namespace FastFood.BLL
     {
         public List<CHUCVU> dsChucVu()
         {
-            QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
-            List<CHUCVU> dsCV = context.CHUCVUs.ToList();
+            //QLBH_FastFoodDataContext context = new QLBH_FastFoodDataContext();
+            List<CHUCVU> dsCV = Global.global_datacontext.CHUCVUs.ToList();
             return dsCV;
         }
     }

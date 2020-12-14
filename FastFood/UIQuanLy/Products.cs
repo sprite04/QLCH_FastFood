@@ -14,15 +14,10 @@ namespace FastFood
 {
     public partial class Products : UserControl
     {
-        SqlConnection conn;
+
         public Products()
         {
             InitializeComponent();
-        }
-        public Products(SqlConnection conn)
-        {
-            InitializeComponent();
-            this.conn = conn;
         }
         BLSanPham blSP;
         public List<v_SanPham> dsVSP;
@@ -67,25 +62,33 @@ namespace FastFood
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dgvSanPham.SelectedRows.Count > 0)
+            try
             {
-                if (rowselect == -1 || rowselect >= dsVSP.Count)
-                    return;
-                int vt = 0;
-                for (int i = 0; i < dsVSP.Count; i++)
+                if (dgvSanPham.SelectedRows.Count > 0)
                 {
-                    if (dsVSP[i].MaSP == (int)(dgvSanPham.Rows[rowselect].Cells[0].Value))
+                    if (rowselect == -1 || rowselect >= dsVSP.Count)
+                        return;
+                    int vt = 0;
+                    for (int i = 0; i < dsVSP.Count; i++)
                     {
-                        vt = i;
-                        break;
+                        if (dsVSP[i].MaSP == (int)(dgvSanPham.Rows[rowselect].Cells[0].Value))
+                        {
+                            vt = i;
+                            break;
+                        }
                     }
+                    DataGridViewRow row = dgvSanPham.Rows[vt];
+                    int Ma = int.Parse(row.Cells[0].Value.ToString());
+                    DetailProduct detail = new DetailProduct(Ma);
+                    var result = detail.ShowDialog();
+                    LoadData();
                 }
-                DataGridViewRow row = dgvSanPham.Rows[vt];
-                int Ma = int.Parse(row.Cells[0].Value.ToString());
-                DetailProduct detail = new DetailProduct(Ma);
-                var result = detail.ShowDialog();
-                LoadData();
             }
+            catch
+            {
+                MessageBox.Show("Bạn không có quyền truy cập");
+            }
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

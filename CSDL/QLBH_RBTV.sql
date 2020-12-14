@@ -1,4 +1,4 @@
-USE QLBH_CHTAN
+USE QLBH_FastFood
 GO
 
 
@@ -72,35 +72,41 @@ GO
 
 CREATE TRIGGER tg_CapNhatTien ON dbo.CHITIET_HD
 FOR UPDATE, INSERT AS
-UPDATE dbo.HOADON SET TongTien=ROUND(dbo.fn_TienHoaDon(Inserted.MaHD),0) ,TongGiaSP=ROUND(dbo.fn_TienVonHoaDon(Inserted.MaHD),0) 
-FROM Inserted
-WHERE Inserted.MaHD=HOADON.MaHD
+	UPDATE dbo.HOADON SET TongTien=ROUND(dbo.fn_TienHoaDon(Inserted.MaHD),0) ,TongGiaSP=ROUND(dbo.fn_TienVonHoaDon(Inserted.MaHD),0) 
+	FROM Inserted
+	WHERE Inserted.MaHD=HOADON.MaHD
 GO
 
 CREATE TRIGGER tg_CapNhatTienX ON dbo.CHITIET_HD
 FOR DELETE AS
-UPDATE dbo.HOADON SET TongTien=ROUND(dbo.fn_TienHoaDon(Deleted.MaHD),0) ,TongGiaSP=ROUND(dbo.fn_TienVonHoaDon(Deleted.MaHD),0) 
-FROM Deleted
-WHERE Deleted.MaHD=HOADON.MaHD
+	UPDATE dbo.HOADON SET TongTien=ROUND(dbo.fn_TienHoaDon(Deleted.MaHD),0) ,TongGiaSP=ROUND(dbo.fn_TienVonHoaDon(Deleted.MaHD),0) 
+	FROM Deleted
+	WHERE Deleted.MaHD=HOADON.MaHD
 GO
 
 --*Tao HOADON
 CREATE TRIGGER tg_HoaDon ON dbo.HOADON
 FOR INSERT AS
-UPDATE dbo.HOADON SET Ngay=GETDATE(), TT_HD='True'
-FROM Inserted I
-WHERE HOADON.MaHD=I.MaHD
+	UPDATE dbo.HOADON SET Ngay=GETDATE(), TT_HD='True'
+	FROM Inserted I
+	WHERE HOADON.MaHD=I.MaHD
 GO
 
 --*TT_Con tren SanPham khi NguyenLieu thay doi
-CREATE TRIGGER tg_TTConSP ON dbo.NGUYENLIEU
-FOR UPDATE AS
-UPDATE dbo.SANPHAM SET TT_Con='False'
-FROM dbo.CHEBIEN CB, Inserted I
-WHERE CB.MaSP=SANPHAM.MaSP AND I.MaNL=CB.MaNL AND I.SLTonKho<=0
-GO
+ALTER TRIGGER tg_TTConSP ON dbo.NGUYENLIEU FOR UPDATE AS
+BEGIN
+
+    UPDATE dbo.SANPHAM SET TT_Con='False'
+	FROM dbo.CHEBIEN CB, Inserted I
+	WHERE CB.MaSP=SANPHAM.MaSP AND I.MaNL=CB.MaNL AND I.SLTonKho < CB.SoLuong
 
 
+	UPDATE dbo.SANPHAM SET TT_Con='True'
+	FROM dbo.CHEBIEN CB, Inserted I
+	WHERE CB.MaSP=SANPHAM.MaSP AND I.MaNL=CB.MaNL AND I.SLTonKho >= CB.SoLuong
+END
+
+GO 
 
 --*Thay doi so luong nguyen lieu khi 1 san pham duoc ban ra
 
@@ -141,6 +147,7 @@ BEGIN
 	RETURN @Con
 END
 GO
+
 
 
 --*Cap nhat Luong tu Ca
@@ -188,39 +195,39 @@ GO
 --cap nhat luong tong
 CREATE TRIGGER tg_TongLuong ON dbo.LUONG
 FOR INSERT,UPDATE AS
-DECLARE @TongLuong INT
-SELECT @TongLuong=SUM(L.LuongTong)
-FROM Inserted I,dbo.LUONG L
-WHERE I.Thang=L.Thang AND I.Nam=L.Nam
-GROUP BY L.Thang,L.Nam
-UPDATE dbo.THONGKE_T SET TongLuong=@TongLuong
-FROM Inserted I
-WHERE I.Thang=dbo.THONGKE_T.Thang AND I.Nam=dbo.THONGKE_T.Nam
+	DECLARE @TongLuong INT
+	SELECT @TongLuong=SUM(L.LuongTong)
+	FROM Inserted I,dbo.LUONG L
+	WHERE I.Thang=L.Thang AND I.Nam=L.Nam
+	GROUP BY L.Thang,L.Nam
+	UPDATE dbo.THONGKE_T SET TongLuong=@TongLuong
+	FROM Inserted I
+	WHERE I.Thang=dbo.THONGKE_T.Thang AND I.Nam=dbo.THONGKE_T.Nam
 GO
 
 CREATE TRIGGER tg_TongLuongX ON dbo.LUONG
 FOR DELETE AS
-DECLARE @TongLuong INT
-SELECT @TongLuong=SUM(L.LuongTong)
-FROM Deleted D,dbo.LUONG L
-WHERE D.Thang=L.Thang AND D.Nam=L.Nam
-GROUP BY L.Thang,L.Nam
-UPDATE dbo.THONGKE_T SET TongLuong=@TongLuong
-FROM Deleted D
-WHERE D.Thang=dbo.THONGKE_T.Thang AND D.Nam=dbo.THONGKE_T.Nam
+	DECLARE @TongLuong INT
+	SELECT @TongLuong=SUM(L.LuongTong)
+	FROM Deleted D,dbo.LUONG L
+	WHERE D.Thang=L.Thang AND D.Nam=L.Nam
+	GROUP BY L.Thang,L.Nam
+	UPDATE dbo.THONGKE_T SET TongLuong=@TongLuong
+	FROM Deleted D
+	WHERE D.Thang=dbo.THONGKE_T.Thang AND D.Nam=dbo.THONGKE_T.Nam
 GO
 
 --cap nhat tong gia nguyen lieu va tong doanh thu
 CREATE TRIGGER tg_TongNLDT ON dbo.HOADON
 FOR INSERT,UPDATE AS
-DECLARE @TongNL INT, @TongDT INT
-SELECT @TongNL=SUM(HD.TongGiaSP), @TongDT=SUM(HD.TongTien)
-FROM Inserted I, dbo.HOADON HD
-WHERE I.Ngay=HD.Ngay AND HD.TT_HD='True'
-GROUP BY MONTH(HD.Ngay),YEAR(HD.Ngay)
-UPDATE dbo.THONGKE_T SET TongGiaNL=@TongNL, TongDoanhThu=@TongDT
-FROM Inserted I
-WHERE dbo.THONGKE_T.Thang=MONTH(I.Ngay) AND dbo.THONGKE_T.Nam=YEAR(I.Ngay)
+	DECLARE @TongNL INT, @TongDT INT
+	SELECT @TongNL=SUM(HD.TongGiaSP), @TongDT=SUM(HD.TongTien)
+	FROM Inserted I, dbo.HOADON HD
+	WHERE I.Ngay=HD.Ngay AND HD.TT_HD='True'
+	GROUP BY MONTH(HD.Ngay),YEAR(HD.Ngay)
+	UPDATE dbo.THONGKE_T SET TongGiaNL=@TongNL, TongDoanhThu=@TongDT
+	FROM Inserted I
+	WHERE dbo.THONGKE_T.Thang=MONTH(I.Ngay) AND dbo.THONGKE_T.Nam=YEAR(I.Ngay)
 GO
 
 

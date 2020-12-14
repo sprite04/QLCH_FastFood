@@ -14,21 +14,27 @@ namespace FastFood.UIQuanLy
 {
     public partial class Bill : UserControl
     {
-        SqlConnection conn = new SqlConnection();
+
         public Bill()
         {
             InitializeComponent();
         }
-        public Bill(SqlConnection conn)
-        {
-            InitializeComponent();
-            this.conn = conn;
-        }
+        //public Bill(QLBH_FastFoodDataContext context)
+        //{
+        //    InitializeComponent();
+
+        //    BLHoaDon blHD;
+        //    List<HOADON> dsHD = new List<HOADON>();
+        //    List<v_HoaDon> dsVHD;
+
+        //    List<sp_ChiTietDGVResult> dsVCT;
+        //}
+
         BLHoaDon blHD;
         List<HOADON> dsHD = new List<HOADON>();
         List<v_HoaDon> dsVHD;
-        BLSanPham blSP = new BLSanPham();
-        BLChiTietHD blCT = new BLChiTietHD();
+        BLSanPham blSP;
+        BLChiTietHD blCT;
         List<sp_ChiTietDGVResult> dsVCT;
 
         private void LoadCT(v_HoaDon hd)

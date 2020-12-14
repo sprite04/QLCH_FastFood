@@ -14,6 +14,8 @@ namespace FastFood
 {
     public partial class Menu : UserControl
     {
+
+
         public Menu()
         {
             InitializeComponent();
@@ -41,7 +43,6 @@ namespace FastFood
             //    conn.Close();
             //conn.Open();
             pnThanhToan.Visible = false;
-
             dsVSP = blSP.dsVSanPham();
 
             for (int i = 0; i < dsVSP.Count; i++)

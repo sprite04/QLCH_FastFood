@@ -39,10 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.cbKind = new System.Windows.Forms.ComboBox();
-            this.pnPass = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txtMK = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.cbGT = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.picNV = new System.Windows.Forms.PictureBox();
@@ -63,8 +59,6 @@
             this.panel7.SuspendLayout();
             this.pnKind.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.pnPass.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picNV)).BeginInit();
             this.panel4.SuspendLayout();
             this.pnCMND.SuspendLayout();
@@ -144,7 +138,6 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.pnKind);
-            this.panel7.Controls.Add(this.pnPass);
             this.panel7.Location = new System.Drawing.Point(32, 202);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(615, 107);
@@ -155,9 +148,9 @@
             this.pnKind.Controls.Add(this.label4);
             this.pnKind.Controls.Add(this.panel6);
             this.pnKind.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnKind.Location = new System.Drawing.Point(0, 53);
+            this.pnKind.Location = new System.Drawing.Point(0, 0);
             this.pnKind.Name = "pnKind";
-            this.pnKind.Size = new System.Drawing.Size(615, 54);
+            this.pnKind.Size = new System.Drawing.Size(615, 107);
             this.pnKind.TabIndex = 20;
             // 
             // label4
@@ -195,46 +188,6 @@
             this.cbKind.Size = new System.Drawing.Size(358, 31);
             this.cbKind.TabIndex = 16;
             this.cbKind.SelectedIndexChanged += new System.EventHandler(this.cbKind_SelectedIndexChanged);
-            // 
-            // pnPass
-            // 
-            this.pnPass.Controls.Add(this.panel1);
-            this.pnPass.Controls.Add(this.label5);
-            this.pnPass.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnPass.Location = new System.Drawing.Point(0, 0);
-            this.pnPass.Name = "pnPass";
-            this.pnPass.Size = new System.Drawing.Size(615, 53);
-            this.pnPass.TabIndex = 16;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.txtMK);
-            this.panel1.Location = new System.Drawing.Point(212, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(373, 35);
-            this.panel1.TabIndex = 14;
-            // 
-            // txtMK
-            // 
-            this.txtMK.BackColor = System.Drawing.Color.White;
-            this.txtMK.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMK.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMK.Location = new System.Drawing.Point(6, 5);
-            this.txtMK.Name = "txtMK";
-            this.txtMK.Size = new System.Drawing.Size(358, 23);
-            this.txtMK.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(11, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 23);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Password";
             // 
             // cbGT
             // 
@@ -392,10 +345,6 @@
             this.pnKind.ResumeLayout(false);
             this.pnKind.PerformLayout();
             this.panel6.ResumeLayout(false);
-            this.pnPass.ResumeLayout(false);
-            this.pnPass.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picNV)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -417,10 +366,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox cbKind;
-        private System.Windows.Forms.Panel pnPass;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtMK;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox cbGT;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.PictureBox picNV;

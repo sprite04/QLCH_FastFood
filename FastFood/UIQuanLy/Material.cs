@@ -14,16 +14,12 @@ namespace FastFood.UIQuanLy
 {
     public partial class Material : UserControl
     {
-        SqlConnection conn;
+
         public Material()
         {
             InitializeComponent();
         }
-        public Material(SqlConnection conn)
-        {
-            InitializeComponent();
-            this.conn = conn;
-        }
+
 
         BLNguyenLieu blNL;
         List<v_NguyenLieu> dsNL;

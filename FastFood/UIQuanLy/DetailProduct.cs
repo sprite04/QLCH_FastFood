@@ -29,25 +29,43 @@ namespace FastFood
         BLCheBien blCB;
         List<SANPHAM> dsSP;
         List<NGUYENLIEU> dsNL;
-        
+
+
+
         public DetailProduct()
         {
             InitializeComponent();
         }
+        //public DetailProduct(QLBH_FastFoodDataContext context)
+        //{
+        //    InitializeComponent();
+        //    this.context = context;
+        //}
         public DetailProduct(bool them)
         {
             InitializeComponent();
             Them = them;
+            
         }
         public DetailProduct(int Ma)
         {
             InitializeComponent();
+            
             blSP = new BLSanPham();
             dsSP = blSP.dsSanPham();
             for (int i = 0; i < dsSP.Count; i++)
                 if (dsSP[i].MaSP == Ma)
                     sp = dsSP[i];
         }
+        //public DetailProduct(int Ma)
+        //{
+        //    InitializeComponent();
+        //    blSP = new BLSanPham(this.context);
+        //    dsSP = blSP.dsSanPham();
+        //    for (int i = 0; i < dsSP.Count; i++)
+        //        if (dsSP[i].MaSP == Ma)
+        //            sp = dsSP[i];
+        //}
 
         public Image ConvertImage(byte[] b)
         {
@@ -63,29 +81,37 @@ namespace FastFood
         }
         private void DetailProduct_Load(object sender, EventArgs e)
         {
-            blSP = new BLSanPham();
-            blNL = new BLNguyenLieu();
-            dsNL = blNL.dsNguyenLieu();
-            dsSP = blSP.dsSanPham();
-            cbNguyenLieu.BeginUpdate();
-            dsNL.ForEach(x => cbNguyenLieu.Items.Add(x.TenNL));
-            cbNguyenLieu.EndUpdate();
-            if (Them == true)
-                lblName.Text = "ADD";
-            else
+            try
             {
-                v_SanPham vsp = blSP.dsVSanPham().Find(x => x.MaSP == sp.MaSP);
-                lblName.Text = "EDIT";
-                txtTenSP.Text = sp.TenSP;
-                txtGiaBan.Text = vsp.GiaBan.ToString();
-                txtGiaGoc.Text = vsp.GiaGoc.ToString();
-                txtLoiNhuan.Text = sp.LoiNhuan.ToString();
-                txtGiamGia.Text = sp.GiamGia.ToString();
-                picSP.BackgroundImage = ConvertImage((byte[])sp.HinhSP.ToArray());
-                pnKind.Visible = false;
-                pnPhanTram.Location=new Point(pnKind.Location.X, pnKind.Location.Y + 10);
-                dsDGV= blNL.dsNguyenLieuDGV(sp);
-                LoadData();
+
+                blSP = new BLSanPham();
+                blNL = new BLNguyenLieu();
+                dsNL = blNL.dsNguyenLieu();
+                dsSP = blSP.dsSanPham();
+                cbNguyenLieu.BeginUpdate();
+                dsNL.ForEach(x => cbNguyenLieu.Items.Add(x.TenNL));
+                cbNguyenLieu.EndUpdate();
+                if (Them == true)
+                    lblName.Text = "ADD";
+                else
+                {
+                    v_SanPham vsp = blSP.dsVSanPham().Find(x => x.MaSP == sp.MaSP);
+                    lblName.Text = "EDIT";
+                    txtTenSP.Text = sp.TenSP;
+                    txtGiaBan.Text = vsp.GiaBan.ToString();
+                    txtGiaGoc.Text = vsp.GiaGoc.ToString();
+                    txtLoiNhuan.Text = sp.LoiNhuan.ToString();
+                    txtGiamGia.Text = sp.GiamGia.ToString();
+                    picSP.BackgroundImage = ConvertImage((byte[])sp.HinhSP.ToArray());
+                    pnKind.Visible = false;
+                    pnPhanTram.Location = new Point(pnKind.Location.X, pnKind.Location.Y + 10);
+                    dsDGV = blNL.dsNguyenLieuDGV(sp);
+                    LoadData();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Bạn không có quyền truy cập");
             }
         }
         private void btnClose_Click(object sender, EventArgs e)

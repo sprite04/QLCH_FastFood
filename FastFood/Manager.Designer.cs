@@ -29,24 +29,8 @@
         private void InitializeComponent()
         {
             this.pnList = new System.Windows.Forms.Panel();
-            this.btnMaterial = new System.Windows.Forms.Button();
-            this.btnItem = new System.Windows.Forms.Button();
-            this.btnBill = new System.Windows.Forms.Button();
-            this.btnDashboard = new System.Windows.Forms.Button();
-            this.btnRevene = new System.Windows.Forms.Button();
-            this.btnSalary = new System.Windows.Forms.Button();
-            this.btnEmployee = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pnTieuDe = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pnShow = new System.Windows.Forms.Panel();
-            this.btnShift = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.PictureBox();
-            this.btnMaximize = new System.Windows.Forms.PictureBox();
-            this.btnRestore = new System.Windows.Forms.PictureBox();
-            this.btnMinimize = new System.Windows.Forms.PictureBox();
-            this.btnZoom = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnShift = new System.Windows.Forms.Button();
             this.picDashboard = new System.Windows.Forms.PictureBox();
             this.picRevenue = new System.Windows.Forms.PictureBox();
             this.picSalary = new System.Windows.Forms.PictureBox();
@@ -54,15 +38,24 @@
             this.picBill = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.picItem = new System.Windows.Forms.PictureBox();
+            this.btnMaterial = new System.Windows.Forms.Button();
+            this.btnItem = new System.Windows.Forms.Button();
+            this.btnBill = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
+            this.btnRevene = new System.Windows.Forms.Button();
+            this.btnSalary = new System.Windows.Forms.Button();
+            this.btnEmployee = new System.Windows.Forms.Button();
             this.btnC = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnTieuDe = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.PictureBox();
+            this.btnMaximize = new System.Windows.Forms.PictureBox();
+            this.btnRestore = new System.Windows.Forms.PictureBox();
+            this.btnMinimize = new System.Windows.Forms.PictureBox();
+            this.btnZoom = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnShow = new System.Windows.Forms.Panel();
             this.pnList.SuspendLayout();
-            this.pnTieuDe.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestore)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnZoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDashboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRevenue)).BeginInit();
@@ -72,6 +65,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnC)).BeginInit();
+            this.pnTieuDe.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRestore)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnZoom)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnList
@@ -99,6 +99,111 @@
             this.pnList.Name = "pnList";
             this.pnList.Size = new System.Drawing.Size(387, 875);
             this.pnList.TabIndex = 0;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::FastFood.Properties.Resources.icons8_calendar_48px_1;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(39, 533);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox3.TabIndex = 12;
+            this.pictureBox3.TabStop = false;
+            // 
+            // btnShift
+            // 
+            this.btnShift.FlatAppearance.BorderSize = 0;
+            this.btnShift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShift.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShift.ForeColor = System.Drawing.Color.White;
+            this.btnShift.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnShift.Location = new System.Drawing.Point(0, 515);
+            this.btnShift.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnShift.Name = "btnShift";
+            this.btnShift.Size = new System.Drawing.Size(387, 71);
+            this.btnShift.TabIndex = 11;
+            this.btnShift.Text = "                    Shift";
+            this.btnShift.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnShift.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnShift.UseVisualStyleBackColor = true;
+            this.btnShift.Click += new System.EventHandler(this.btnShift_Click);
+            // 
+            // picDashboard
+            // 
+            this.picDashboard.BackgroundImage = global::FastFood.Properties.Resources.icons8_calendar_48px_1;
+            this.picDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picDashboard.Location = new System.Drawing.Point(39, 777);
+            this.picDashboard.Name = "picDashboard";
+            this.picDashboard.Size = new System.Drawing.Size(35, 35);
+            this.picDashboard.TabIndex = 10;
+            this.picDashboard.TabStop = false;
+            this.picDashboard.Click += new System.EventHandler(this.picDashboard_Click);
+            // 
+            // picRevenue
+            // 
+            this.picRevenue.BackgroundImage = global::FastFood.Properties.Resources.icons8_combo_chart_48px;
+            this.picRevenue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picRevenue.Location = new System.Drawing.Point(39, 692);
+            this.picRevenue.Name = "picRevenue";
+            this.picRevenue.Size = new System.Drawing.Size(35, 35);
+            this.picRevenue.TabIndex = 10;
+            this.picRevenue.TabStop = false;
+            this.picRevenue.Click += new System.EventHandler(this.picRevenue_Click);
+            // 
+            // picSalary
+            // 
+            this.picSalary.BackgroundImage = global::FastFood.Properties.Resources.icons8_stack_of_money_60px_1;
+            this.picSalary.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picSalary.Location = new System.Drawing.Point(39, 614);
+            this.picSalary.Name = "picSalary";
+            this.picSalary.Size = new System.Drawing.Size(35, 35);
+            this.picSalary.TabIndex = 10;
+            this.picSalary.TabStop = false;
+            this.picSalary.Click += new System.EventHandler(this.picSalary_Click);
+            // 
+            // picEmployee
+            // 
+            this.picEmployee.BackgroundImage = global::FastFood.Properties.Resources.icons8_people_48px_1;
+            this.picEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picEmployee.Location = new System.Drawing.Point(39, 452);
+            this.picEmployee.Name = "picEmployee";
+            this.picEmployee.Size = new System.Drawing.Size(35, 35);
+            this.picEmployee.TabIndex = 10;
+            this.picEmployee.TabStop = false;
+            this.picEmployee.Click += new System.EventHandler(this.picEmployee_Click);
+            // 
+            // picBill
+            // 
+            this.picBill.BackgroundImage = global::FastFood.Properties.Resources.icons8_receipt_48px;
+            this.picBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBill.Location = new System.Drawing.Point(39, 371);
+            this.picBill.Name = "picBill";
+            this.picBill.Size = new System.Drawing.Size(35, 35);
+            this.picBill.TabIndex = 10;
+            this.picBill.TabStop = false;
+            this.picBill.Click += new System.EventHandler(this.picBill_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::FastFood.Properties.Resources.icons8_ingredients_48px;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(39, 290);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.picItem_Click);
+            // 
+            // picItem
+            // 
+            this.picItem.BackgroundImage = global::FastFood.Properties.Resources.icons8_ingredients_48px;
+            this.picItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picItem.Location = new System.Drawing.Point(39, 209);
+            this.picItem.Name = "picItem";
+            this.picItem.Size = new System.Drawing.Size(35, 35);
+            this.picItem.TabIndex = 10;
+            this.picItem.TabStop = false;
+            this.picItem.Click += new System.EventHandler(this.picItem_Click);
             // 
             // btnMaterial
             // 
@@ -159,7 +264,7 @@
             this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDashboard.ForeColor = System.Drawing.Color.White;
             this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 773);
+            this.btnDashboard.Location = new System.Drawing.Point(0, 758);
             this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(387, 71);
@@ -177,7 +282,7 @@
             this.btnRevene.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRevene.ForeColor = System.Drawing.Color.White;
             this.btnRevene.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRevene.Location = new System.Drawing.Point(4, 692);
+            this.btnRevene.Location = new System.Drawing.Point(0, 677);
             this.btnRevene.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnRevene.Name = "btnRevene";
             this.btnRevene.Size = new System.Drawing.Size(387, 71);
@@ -224,6 +329,17 @@
             this.btnEmployee.UseVisualStyleBackColor = true;
             this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
+            // btnC
+            // 
+            this.btnC.BackColor = System.Drawing.Color.Transparent;
+            this.btnC.BackgroundImage = global::FastFood.Properties.Resources.lotteria_new;
+            this.btnC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnC.Location = new System.Drawing.Point(12, 12);
+            this.btnC.Name = "btnC";
+            this.btnC.Size = new System.Drawing.Size(320, 100);
+            this.btnC.TabIndex = 0;
+            this.btnC.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(8)))), ((int)(((byte)(55)))));
@@ -247,44 +363,6 @@
             this.pnTieuDe.Size = new System.Drawing.Size(1531, 61);
             this.pnTieuDe.TabIndex = 2;
             this.pnTieuDe.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnTieuDe_MouseDown);
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.pnShow);
-            this.panel1.Controls.Add(this.pnTieuDe);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(387, 20);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1533, 855);
-            this.panel1.TabIndex = 3;
-            // 
-            // pnShow
-            // 
-            this.pnShow.BackColor = System.Drawing.Color.White;
-            this.pnShow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnShow.Location = new System.Drawing.Point(0, 61);
-            this.pnShow.Name = "pnShow";
-            this.pnShow.Size = new System.Drawing.Size(1531, 792);
-            this.pnShow.TabIndex = 4;
-            // 
-            // btnShift
-            // 
-            this.btnShift.FlatAppearance.BorderSize = 0;
-            this.btnShift.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShift.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShift.ForeColor = System.Drawing.Color.White;
-            this.btnShift.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnShift.Location = new System.Drawing.Point(0, 515);
-            this.btnShift.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnShift.Name = "btnShift";
-            this.btnShift.Size = new System.Drawing.Size(387, 71);
-            this.btnShift.TabIndex = 11;
-            this.btnShift.Text = "                    Shift";
-            this.btnShift.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnShift.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnShift.UseVisualStyleBackColor = true;
-            this.btnShift.Click += new System.EventHandler(this.btnShift_Click);
             // 
             // btnClose
             // 
@@ -351,103 +429,25 @@
             this.btnZoom.TabStop = false;
             this.btnZoom.Click += new System.EventHandler(this.btnZoom_Click);
             // 
-            // pictureBox3
+            // panel1
             // 
-            this.pictureBox3.BackgroundImage = global::FastFood.Properties.Resources.icons8_calendar_48px_1;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(39, 533);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox3.TabIndex = 12;
-            this.pictureBox3.TabStop = false;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.pnShow);
+            this.panel1.Controls.Add(this.pnTieuDe);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(387, 20);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1533, 855);
+            this.panel1.TabIndex = 3;
             // 
-            // picDashboard
+            // pnShow
             // 
-            this.picDashboard.BackgroundImage = global::FastFood.Properties.Resources.icons8_calendar_48px_1;
-            this.picDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picDashboard.Location = new System.Drawing.Point(39, 791);
-            this.picDashboard.Name = "picDashboard";
-            this.picDashboard.Size = new System.Drawing.Size(35, 35);
-            this.picDashboard.TabIndex = 10;
-            this.picDashboard.TabStop = false;
-            this.picDashboard.Click += new System.EventHandler(this.picDashboard_Click);
-            // 
-            // picRevenue
-            // 
-            this.picRevenue.BackgroundImage = global::FastFood.Properties.Resources.icons8_combo_chart_48px;
-            this.picRevenue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picRevenue.Location = new System.Drawing.Point(39, 710);
-            this.picRevenue.Name = "picRevenue";
-            this.picRevenue.Size = new System.Drawing.Size(35, 35);
-            this.picRevenue.TabIndex = 10;
-            this.picRevenue.TabStop = false;
-            this.picRevenue.Click += new System.EventHandler(this.picRevenue_Click);
-            // 
-            // picSalary
-            // 
-            this.picSalary.BackgroundImage = global::FastFood.Properties.Resources.icons8_stack_of_money_60px_1;
-            this.picSalary.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picSalary.Location = new System.Drawing.Point(39, 614);
-            this.picSalary.Name = "picSalary";
-            this.picSalary.Size = new System.Drawing.Size(35, 35);
-            this.picSalary.TabIndex = 10;
-            this.picSalary.TabStop = false;
-            this.picSalary.Click += new System.EventHandler(this.picSalary_Click);
-            // 
-            // picEmployee
-            // 
-            this.picEmployee.BackgroundImage = global::FastFood.Properties.Resources.icons8_people_48px_1;
-            this.picEmployee.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picEmployee.Location = new System.Drawing.Point(39, 452);
-            this.picEmployee.Name = "picEmployee";
-            this.picEmployee.Size = new System.Drawing.Size(35, 35);
-            this.picEmployee.TabIndex = 10;
-            this.picEmployee.TabStop = false;
-            this.picEmployee.Click += new System.EventHandler(this.picEmployee_Click);
-            // 
-            // picBill
-            // 
-            this.picBill.BackgroundImage = global::FastFood.Properties.Resources.icons8_receipt_48px;
-            this.picBill.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBill.Location = new System.Drawing.Point(39, 371);
-            this.picBill.Name = "picBill";
-            this.picBill.Size = new System.Drawing.Size(35, 35);
-            this.picBill.TabIndex = 10;
-            this.picBill.TabStop = false;
-            this.picBill.Click += new System.EventHandler(this.picBill_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::FastFood.Properties.Resources.icons8_ingredients_48px;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(39, 290);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(35, 35);
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.picItem_Click);
-            // 
-            // picItem
-            // 
-            this.picItem.BackgroundImage = global::FastFood.Properties.Resources.icons8_ingredients_48px;
-            this.picItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picItem.Location = new System.Drawing.Point(39, 209);
-            this.picItem.Name = "picItem";
-            this.picItem.Size = new System.Drawing.Size(35, 35);
-            this.picItem.TabIndex = 10;
-            this.picItem.TabStop = false;
-            this.picItem.Click += new System.EventHandler(this.picItem_Click);
-            // 
-            // btnC
-            // 
-            this.btnC.BackColor = System.Drawing.Color.Transparent;
-            this.btnC.BackgroundImage = global::FastFood.Properties.Resources.lotteria_new;
-            this.btnC.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnC.Location = new System.Drawing.Point(12, 12);
-            this.btnC.Name = "btnC";
-            this.btnC.Size = new System.Drawing.Size(320, 100);
-            this.btnC.TabIndex = 0;
-            this.btnC.TabStop = false;
+            this.pnShow.BackColor = System.Drawing.Color.White;
+            this.pnShow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnShow.Location = new System.Drawing.Point(0, 61);
+            this.pnShow.Name = "pnShow";
+            this.pnShow.Size = new System.Drawing.Size(1531, 792);
+            this.pnShow.TabIndex = 4;
             // 
             // Manager
             // 
@@ -465,13 +465,6 @@
             this.Text = "Manager";
             this.Load += new System.EventHandler(this.Manager_Load);
             this.pnList.ResumeLayout(false);
-            this.pnTieuDe.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnRestore)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnZoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picDashboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRevenue)).EndInit();
@@ -481,6 +474,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnC)).EndInit();
+            this.pnTieuDe.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRestore)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnZoom)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -14,6 +14,7 @@ namespace FastFood
 {
     public partial class DetailEmployee : Form
     {
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -21,13 +22,15 @@ namespace FastFood
         public DetailEmployee()
         {
             InitializeComponent();
+
+            
         }
-        public DetailEmployee(bool pass,bool kind, NHANVIEN n)
+        public DetailEmployee(bool kind, NHANVIEN n)
         {
             InitializeComponent();
+
             nv = n;
             Kind = kind;
-            Pass = pass;
             blNV = new BLNhanVien();
             dsNV = blNV.dsNhanVien();
         }
@@ -71,11 +74,10 @@ namespace FastFood
             else
             {
                 lblName.Text = "EDIT";
-                pnPass.Visible = Pass;
-                pnKind.Visible = Kind;
+                //pnPass.Visible = Pass;
+                //pnKind.Visible = Kind;
                 txtHoTen.Text = nv.HoTen;
                 txtCMND.Text = nv.CMND.ToString();
-                txtMK.Text = nv.MatKhau;
                 txtSDT.Text = nv.SDT.ToString();
                 cbGT.Checked = (Boolean)nv.GT;
                 if ((Boolean)nv.GT)
@@ -119,7 +121,6 @@ namespace FastFood
                     CMND = txtCMND.Text,
                     SDT = txtSDT.Text,
                     TT_Lam = true,
-                    MatKhau = txtMK.Text,
                     MaCV = cbKind.SelectedIndex+1
                 };
 
@@ -138,7 +139,6 @@ namespace FastFood
                     CMND = txtCMND.Text,
                     SDT = txtSDT.Text,
                     TT_Lam = nv.TT_Lam,
-                    MatKhau = txtMK.Text,
                     MaCV = cbKind.SelectedIndex + 1
                 };
                 string message;
@@ -159,13 +159,12 @@ namespace FastFood
 
         private void cbKind_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(Kind==true)
-            {
-                if (cbKind.SelectedIndex == 0)
-                    pnPass.Visible = false;
-                else
-                    pnPass.Visible = true;
-            }    
+ 
+        }
+
+        private void pnPass_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
