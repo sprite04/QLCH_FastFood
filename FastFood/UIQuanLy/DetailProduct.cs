@@ -45,7 +45,9 @@ namespace FastFood
         {
             InitializeComponent();
             Them = them;
-            
+            string err;
+            BLLThongKe bLLThongKe = new BLLThongKe();
+            bLLThongKe.Insert(DateTime.Now.Year, DateTime.Now.Month, out err);
         }
         public DetailProduct(int Ma)
         {
@@ -53,6 +55,9 @@ namespace FastFood
             
             blSP = new BLSanPham();
             dsSP = blSP.dsSanPham();
+            string err;
+            BLLThongKe bLLThongKe = new BLLThongKe();
+            bLLThongKe.Insert(DateTime.Now.Year, DateTime.Now.Month, out err);
             for (int i = 0; i < dsSP.Count; i++)
                 if (dsSP[i].MaSP == Ma)
                     sp = dsSP[i];
