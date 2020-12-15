@@ -31,7 +31,6 @@
             this.pnList = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnShift = new System.Windows.Forms.Button();
-            this.picDashboard = new System.Windows.Forms.PictureBox();
             this.picRevenue = new System.Windows.Forms.PictureBox();
             this.picSalary = new System.Windows.Forms.PictureBox();
             this.picEmployee = new System.Windows.Forms.PictureBox();
@@ -41,7 +40,6 @@
             this.btnMaterial = new System.Windows.Forms.Button();
             this.btnItem = new System.Windows.Forms.Button();
             this.btnBill = new System.Windows.Forms.Button();
-            this.btnDashboard = new System.Windows.Forms.Button();
             this.btnRevene = new System.Windows.Forms.Button();
             this.btnSalary = new System.Windows.Forms.Button();
             this.btnEmployee = new System.Windows.Forms.Button();
@@ -55,9 +53,10 @@
             this.btnZoom = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnShow = new System.Windows.Forms.Panel();
+            this.picDashboard = new System.Windows.Forms.PictureBox();
+            this.btnDashboard = new System.Windows.Forms.Button();
             this.pnList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDashboard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRevenue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSalary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEmployee)).BeginInit();
@@ -72,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnZoom)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picDashboard)).BeginInit();
             this.SuspendLayout();
             // 
             // pnList
@@ -127,17 +127,6 @@
             this.btnShift.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnShift.UseVisualStyleBackColor = true;
             this.btnShift.Click += new System.EventHandler(this.btnShift_Click);
-            // 
-            // picDashboard
-            // 
-            this.picDashboard.BackgroundImage = global::FastFood.Properties.Resources.icons8_calendar_48px_1;
-            this.picDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picDashboard.Location = new System.Drawing.Point(39, 777);
-            this.picDashboard.Name = "picDashboard";
-            this.picDashboard.Size = new System.Drawing.Size(35, 35);
-            this.picDashboard.TabIndex = 10;
-            this.picDashboard.TabStop = false;
-            this.picDashboard.Click += new System.EventHandler(this.picDashboard_Click);
             // 
             // picRevenue
             // 
@@ -256,24 +245,6 @@
             this.btnBill.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBill.UseVisualStyleBackColor = true;
             this.btnBill.Click += new System.EventHandler(this.btnBill_Click);
-            // 
-            // btnDashboard
-            // 
-            this.btnDashboard.FlatAppearance.BorderSize = 0;
-            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.ForeColor = System.Drawing.Color.White;
-            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 758);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(387, 71);
-            this.btnDashboard.TabIndex = 6;
-            this.btnDashboard.Text = "                    Dashboard";
-            this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDashboard.UseVisualStyleBackColor = true;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // btnRevene
             // 
@@ -449,6 +420,35 @@
             this.pnShow.Size = new System.Drawing.Size(1531, 792);
             this.pnShow.TabIndex = 4;
             // 
+            // picDashboard
+            // 
+            this.picDashboard.BackgroundImage = global::FastFood.Properties.Resources.icons8_calendar_48px_1;
+            this.picDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picDashboard.Location = new System.Drawing.Point(39, 777);
+            this.picDashboard.Name = "picDashboard";
+            this.picDashboard.Size = new System.Drawing.Size(35, 35);
+            this.picDashboard.TabIndex = 10;
+            this.picDashboard.TabStop = false;
+            this.picDashboard.Click += new System.EventHandler(this.picDashboard_Click);
+            // 
+            // btnDashboard
+            // 
+            this.btnDashboard.FlatAppearance.BorderSize = 0;
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDashboard.ForeColor = System.Drawing.Color.White;
+            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashboard.Location = new System.Drawing.Point(0, 758);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(387, 71);
+            this.btnDashboard.TabIndex = 6;
+            this.btnDashboard.Text = "                    Dashboard";
+            this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
             // Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -466,7 +466,6 @@
             this.Load += new System.EventHandler(this.Manager_Load);
             this.pnList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picDashboard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRevenue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSalary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEmployee)).EndInit();
@@ -481,6 +480,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnZoom)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picDashboard)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -489,7 +489,6 @@
 
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox btnClose;
-        private System.Windows.Forms.PictureBox picDashboard;
         private System.Windows.Forms.PictureBox picRevenue;
         private System.Windows.Forms.PictureBox picSalary;
         private System.Windows.Forms.PictureBox picEmployee;
@@ -504,7 +503,6 @@
         private System.Windows.Forms.Button btnItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel pnShow;
-        private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnRevene;
         private System.Windows.Forms.Button btnSalary;
         private System.Windows.Forms.Button btnEmployee;
@@ -514,5 +512,7 @@
         private System.Windows.Forms.Button btnMaterial;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnShift;
+        private System.Windows.Forms.PictureBox picDashboard;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }
