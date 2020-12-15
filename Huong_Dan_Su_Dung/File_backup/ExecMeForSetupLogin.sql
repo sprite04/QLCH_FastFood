@@ -2,7 +2,7 @@
 --!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--
 --!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--
 --!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--
------ONLY execute when the database QLBH_FastFood already restored-----
+-----ONLY execute this file when the database QLBH_FastFood already restored-----
 --!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--
 --!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--
 --!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!--
@@ -14,7 +14,18 @@ USE QLBH_FastFood
 GO
 
 --LOGIN ADMIN1
-CREATE login admin1   WITH PASSWORD = '123' 
+IF NOT EXISTS 
+		(SELECT name  
+		 FROM sys.server_principals
+		 WHERE name = 'admin1')
+	BEGIN
+		CREATE login admin1   WITH PASSWORD = '123'
+	END 
+ELSE
+	BEGIN
+		DROP LOGIN admin1
+		CREATE login admin1   WITH PASSWORD = '123'
+	END
 DROP USER USadmin1
 CREATE USER USadmin1 FOR LOGIN admin1 
 Exec sp_addrolemember @rolename = 'admin', @membername = 'USadmin1'

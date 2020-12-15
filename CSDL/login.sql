@@ -46,7 +46,11 @@ Exec sp_addrolemember @rolename = 'manager', @membername = 'USmanager2'
 --permission on table
 
 --employee
+DENY SELECT, INSERT, DELETE ON dbo.CA TO employee
+DENY SELECT, INSERT, DELETE ON dbo.DIEMDANH TO employee
+DENY SELECT, INSERT, DELETE ON dbo.LUONG TO employee
 GRANT SELECT ON SANPHAM TO employee
+GRANT SELECT ON dbo.CHUCVU TO employee
 DENY INSERT, UPDATE, DELETE ON dbo.SANPHAM TO employee
 GRANT SELECT,INSERT,UPDATE,DELETE ON HOADON TO employee
 GRANT SELECT,UPDATE ON NGUYENLIEU TO employee

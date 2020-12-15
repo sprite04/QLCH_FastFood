@@ -141,12 +141,17 @@ VALUES  ( @MaNV , -- MaNV - int
         )
 GO
 --no7
+
 ALTER PROCEDURE sp_SuaNhanVien(@MaNV INT, @HoTen NVARCHAR(30),@GT BIT,
                                 @CMND VARCHAR(15), @SDT VARCHAR(12),@DiaChi NVARCHAR(50),
 								@TT_Lam BIT,@MaCV INT)
 AS
-UPDATE dbo.NHANVIEN SET HoTen=@HoTen, GT=@GT,CMND=@CMND,SDT=@SDT,DiaChi=@DiaChi,TT_Lam=@TT_Lam,MaCV=@MaCV
-WHERE MaNV=@MaNV
+IF @MaCV != 4
+BEGIN
+    UPDATE dbo.NHANVIEN SET HoTen=@HoTen, GT=@GT,CMND=@CMND,SDT=@SDT,DiaChi=@DiaChi,TT_Lam=@TT_Lam,MaCV=@MaCV
+	WHERE MaNV=@MaNV
+END
+
 GO
 
 ALTER VIEW v_HoaDon
