@@ -32,20 +32,53 @@ Exec sp_addrolemember @rolename = 'admin', @membername = 'USadmin1'
 
 
 --LOGIN EMPLOYEE1
-CREATE login employee1   WITH PASSWORD = '123'  
+IF NOT EXISTS 
+		(SELECT name  
+		 FROM sys.server_principals
+		 WHERE name = 'employee1')
+	BEGIN
+		CREATE login employee1   WITH PASSWORD = '123'
+	END 
+ELSE
+	BEGIN
+		DROP LOGIN employee1
+		CREATE login employee1   WITH PASSWORD = '123'
+	END
 DROP USER USemployee1
 CREATE USER USemployee1 FOR LOGIN employee1
 Exec sp_addrolemember @rolename = 'employee', @membername = 'USemployee1'
 
 --LOGIN STKP1
-CREATE login stkp1   WITH PASSWORD = '123'  
+IF NOT EXISTS 
+		(SELECT name  
+		 FROM sys.server_principals
+		 WHERE name = 'stkp1')
+	BEGIN
+		CREATE login stkp1   WITH PASSWORD = '123'
+	END 
+ELSE
+	BEGIN
+		DROP LOGIN stkp1
+		CREATE login stkp1   WITH PASSWORD = '123'
+	END
 DROP USER USstkp1
 CREATE USER USstkp1 FOR LOGIN stkp1
 Exec sp_addrolemember @rolename = 'storekeeper', @membername = 'USstkp1'
 
 
 --LOGIN MANAGER1
-CREATE login manager1   WITH PASSWORD = '123'  
+IF NOT EXISTS 
+		(SELECT name  
+		 FROM sys.server_principals
+		 WHERE name = 'manager1')
+	BEGIN
+		CREATE login manager1   WITH PASSWORD = '123'
+	END 
+ELSE
+	BEGIN
+		DROP LOGIN manager1
+		CREATE login manager1   WITH PASSWORD = '123'
+	END 
 DROP USER USmanager1
 CREATE USER USmanager1 FOR LOGIN manager1
 Exec sp_addrolemember @rolename = 'manager', @membername = 'USmanager1'
