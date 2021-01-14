@@ -246,9 +246,9 @@ namespace FastFood.UIQuanLy
             for (int i = 0; i < dsNVandDD.Count; i++)
             {
                 if (dsNVandDD[i].GT == true)
-                    dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nữ", dsNVandDD[i].CMND, dsNVandDD[i].SDT);
+                    dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nữ", dsNVandDD[i].CMND, dsNVandDD[i].SDT, dsNVandDD[i].MaCa.TimeOfDay);
                 else
-                    dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nam", dsNVandDD[i].CMND, dsNVandDD[i].SDT);
+                    dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nam", dsNVandDD[i].CMND, dsNVandDD[i].SDT, dsNVandDD[i].MaCa.TimeOfDay);
             }
         }
 
@@ -268,20 +268,6 @@ namespace FastFood.UIQuanLy
             }
         }
 
-        private void dtpFind_ValueChanged(object sender, EventArgs e)
-        {
-            dgvSearchDate.Rows.Clear();
-            for (int i = 0; i < dsNVandDD.Count; i++)
-            {
-                DateTime dt = DateTime.Parse(dsNVandDD[i].MaCa.ToString());
-                if (dt.Day == dtpFind.Value.Day && dt.Month == dtpFind.Value.Month && dt.Year == dtpFind.Value.Year)
-                    if (dsNVandDD[i].GT == true)
-                        dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nữ", dsNVandDD[i].CMND, dsNVandDD[i].SDT);
-                    else
-                        dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nam", dsNVandDD[i].CMND, dsNVandDD[i].SDT);
-            }
-        }
-
         private void dtpFind_ValueChanged_1(object sender, EventArgs e)
         {
             dgvSearchDate.Rows.Clear();
@@ -290,9 +276,9 @@ namespace FastFood.UIQuanLy
                 DateTime dt = DateTime.Parse(dsNVandDD[i].MaCa.ToString());
                 if (dt.Day == dtpFind.Value.Day && dt.Month == dtpFind.Value.Month && dt.Year == dtpFind.Value.Year)
                     if (dsNVandDD[i].GT == true)
-                        dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nữ", dsNVandDD[i].CMND, dsNVandDD[i].SDT);
+                        dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nữ", dsNVandDD[i].CMND, dsNVandDD[i].SDT, dsNVandDD[i].MaCa.TimeOfDay);
                     else
-                        dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nam", dsNVandDD[i].CMND, dsNVandDD[i].SDT);
+                        dgvSearchDate.Rows.Add(dsNVandDD[i].MaNV, dsNVandDD[i].HoTen, dsNVandDD[i].TenCV, "Nam", dsNVandDD[i].CMND, dsNVandDD[i].SDT, dsNVandDD[i].MaCa.TimeOfDay);
             }
         }
     }
